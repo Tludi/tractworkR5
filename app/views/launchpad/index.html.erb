@@ -8,16 +8,18 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">WEBAPPLAYERS</a>
+                <%= link_to "TractWork", root_path, class: "navbar-brand" %>
+                <!-- <a class="navbar-brand" href="#">Tract<strong>Work</strong></a> -->
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a class="page-scroll" href="#page-top">Home</a></li>
+                  <li><%= link_to :home, "#page-top", class: "page-scroll"  %></li>
                     <li><a class="page-scroll" href="#features">Features</a></li>
                     <li><a class="page-scroll" href="#team">Team</a></li>
                     <li><a class="page-scroll" href="#testimonials">Testimonials</a></li>
                     <li><a class="page-scroll" href="#pricing">Pricing</a></li>
                     <li><a class="page-scroll" href="#contact">Contact</a></li>
+                    <li><%= link_to '<i class="fa fa-sign-in"></i>Login'.html_safe, home_path %></li>
                 </ul>
             </div>
         </div>
@@ -32,14 +34,15 @@
     <div class="item active">
         <div class="container">
             <div class="carousel-caption">
-                <h1>We craft<br/>
-                    brands, web apps,<br/>
-                    and user interfaces<br/>
-                    we are IN+ studio</h1>
-                <p>Lorem Ipsum is simply dummy text of the printing.</p>
+                <h1>Project<br/>
+                    Tracking made<br/>
+                    Easier with<br/>
+                    Tract<strong>Work</strong></h1>
+                <p>Organize all your project data in one location.</p>
                 <p>
-                    <a class="btn btn-lg btn-primary" href="#" role="button">READ MORE</a>
-                    <a class="caption-link" href="#" role="button">Inspinia Theme</a>
+                  <%= link_to '<i class="fa fa-sign-in"></i> Login'.html_safe, home_path, class: "btn btn-lg btn-primary" %>
+                  
+                    <!-- <a class="btn btn-lg btn-primary" href="#" role="button">READ MORE</a> -->
                 </p>
             </div>
             <div class="carousel-image wow zoomIn">
@@ -53,8 +56,9 @@
     <div class="item">
         <div class="container">
             <div class="carousel-caption blank">
-                <h1>We create meaningful <br/> interfaces that inspire.</h1>
-                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                <h1>Access your account <br/> From anywhere.</h1>
+                <p>Let your employees sign in and record hours.</p>
+                <p>Enter Material costs and keep track of your budget.</p>
                 <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
             </div>
         </div>
@@ -76,22 +80,22 @@
 <section id="features" class="container services">
 <div class="row">
     <div class="col-sm-3">
-        <h2>Full responsive</h2>
+        <h2>Project Control</h2>
         <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
         <p><a class="navy-link" href="#" role="button">Details &raquo;</a></p>
     </div>
     <div class="col-sm-3">
-        <h2>LESS/SASS Files</h2>
+        <h2>Employee Tracking</h2>
         <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
         <p><a class="navy-link" href="#" role="button">Details &raquo;</a></p>
     </div>
     <div class="col-sm-3">
-        <h2>6 Charts Library</h2>
+        <h2>Material budgeting</h2>
         <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
         <p><a class="navy-link" href="#" role="button">Details &raquo;</a></p>
     </div>
     <div class="col-sm-3">
-        <h2>Advanced Forms</h2>
+        <h2>Team Communication</h2>
         <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
         <p><a class="navy-link" href="#" role="button">Details &raquo;</a></p>
     </div>

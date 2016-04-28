@@ -7877,3 +7877,375 @@ Started GET "/" for 127.0.0.1 at 2016-04-28 12:52:04 -0700
 Processing by LaunchpadController#index as HTML
   Rendered launchpad/index.html.erb within layouts/empty (18.2ms)
 Completed 200 OK in 213ms (Views: 211.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 12:54:40 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/empty (467.6ms)
+Completed 200 OK in 680ms (Views: 667.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 12:55:03 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/empty (7.0ms)
+Completed 200 OK in 140ms (Views: 139.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 13:00:24 -0700
+Processing by LaunchpadController#index as HTML
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 0.0ms)
+
+ActionView::MissingTemplate - Missing template layouts/empty with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :jbuilder, :coffee]}. Searched in:
+  * "/Users/manatee/lab/rails/tractwork/app/views"
+:
+  actionview (4.2.5) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.5) lib/action_view/lookup_context.rb:121:in `find'
+  actionview (4.2.5) lib/action_view/renderer/abstract_renderer.rb:18:in `find_template'
+  actionview (4.2.5) lib/action_view/renderer/template_renderer.rb:86:in `resolve_layout'
+  actionview (4.2.5) lib/action_view/renderer/template_renderer.rb:76:in `block in find_layout'
+  actionview (4.2.5) lib/action_view/lookup_context.rb:242:in `with_layout_format'
+  actionview (4.2.5) lib/action_view/renderer/abstract_renderer.rb:18:in `with_layout_format'
+  actionview (4.2.5) lib/action_view/renderer/template_renderer.rb:76:in `find_layout'
+  actionview (4.2.5) lib/action_view/renderer/template_renderer.rb:60:in `render_with_layout'
+  actionview (4.2.5) lib/action_view/renderer/template_renderer.rb:52:in `render_template'
+  actionview (4.2.5) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (4.2.5) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.5) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.5) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.5) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.5) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.5) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.5) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.5) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.5) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.5) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (4.2.5) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/manatee/.rbenv/versions/2.3.0/lib/ruby/2.3.0/benchmark.rb:308:in `realtime'
+  activesupport (4.2.5) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.5) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (4.2.5) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (4.2.5) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.5) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  app/controllers/launchpad_controller.rb:4:in `index'
+  actionpack (4.2.5) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.2.5) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.5) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.5) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.5) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.5) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.5) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.5) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.5) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.5) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.5) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.5) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.5) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.5) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.5) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.5) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.5) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.5) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.5) lib/action_dispatch/routing/route_set.rb:76:in `dispatch'
+  actionpack (4.2.5) lib/action_dispatch/routing/route_set.rb:45:in `serve'
+  actionpack (4.2.5) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.5) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.5) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.5) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.5) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.5) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5) lib/rails/application.rb:165:in `call'
+  puma (3.4.0) lib/puma/configuration.rb:224:in `call'
+  puma (3.4.0) lib/puma/server.rb:569:in `handle_request'
+  puma (3.4.0) lib/puma/server.rb:406:in `process_client'
+  puma (3.4.0) lib/puma/server.rb:271:in `block in run'
+  puma (3.4.0) lib/puma/thread_pool.rb:114:in `block in spawn_thread'
+
+
+
+Started POST "/__better_errors/b439546de831ffb1/variables" for 127.0.0.1 at 2016-04-28 13:00:25 -0700
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 13:00:33 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (11.1ms)
+Completed 200 OK in 213ms (Views: 212.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 13:00:39 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (7.5ms)
+Completed 200 OK in 134ms (Views: 133.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 13:01:24 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (10.5ms)
+Completed 200 OK in 155ms (Views: 153.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 10.238.179.90 at 2016-04-28 13:04:01 -0700
+Cannot render console from 10.238.179.90! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (6.9ms)
+Completed 200 OK in 105ms (Views: 104.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 14:00:52 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (12.7ms)
+Completed 200 OK in 583ms (Views: 582.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 14:02:43 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (23.4ms)
+Completed 200 OK in 674ms (Views: 673.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 14:03:42 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (20.0ms)
+Completed 200 OK in 393ms (Views: 392.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 14:04:08 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (18.3ms)
+Completed 200 OK in 409ms (Views: 408.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 14:08:25 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (19.0ms)
+Completed 200 OK in 533ms (Views: 531.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 14:08:44 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (19.6ms)
+Completed 200 OK in 540ms (Views: 539.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 14:15:02 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (8.4ms)
+Completed 200 OK in 131ms (Views: 131.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 14:15:57 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (26.0ms)
+Completed 200 OK in 210ms (Views: 209.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 14:17:28 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (9.8ms)
+Completed 200 OK in 129ms (Views: 127.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 14:17:43 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (13.6ms)
+Completed 200 OK in 135ms (Views: 133.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2016-04-28 14:17:49 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.8ms)
+  Rendered layouts/_topnavbar_2.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 172ms (Views: 171.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 14:20:09 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (29.7ms)
+Completed 200 OK in 251ms (Views: 250.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 14:20:30 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (15.6ms)
+Completed 200 OK in 163ms (Views: 162.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 14:20:48 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (11.3ms)
+Completed 200 OK in 129ms (Views: 128.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 14:20:58 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (14.7ms)
+Completed 200 OK in 149ms (Views: 148.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 14:21:11 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (17.4ms)
+Completed 200 OK in 162ms (Views: 161.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 14:23:57 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (13.4ms)
+Completed 200 OK in 135ms (Views: 134.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 14:24:44 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (23.0ms)
+Completed 200 OK in 185ms (Views: 184.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 14:25:23 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (10.5ms)
+Completed 200 OK in 142ms (Views: 141.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 14:26:19 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (20.2ms)
+Completed 200 OK in 229ms (Views: 228.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2016-04-28 14:26:25 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_topnavbar_2.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 128ms (Views: 127.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 14:29:57 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (15.6ms)
+Completed 200 OK in 130ms (Views: 129.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 14:30:24 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (18.4ms)
+Completed 200 OK in 143ms (Views: 141.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 14:33:48 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (13.8ms)
+Completed 200 OK in 145ms (Views: 143.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 14:34:16 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (11.4ms)
+Completed 200 OK in 139ms (Views: 137.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 14:34:29 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (11.0ms)
+Completed 200 OK in 140ms (Views: 139.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2016-04-28 14:34:34 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_topnavbar_2.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 119ms (Views: 118.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 14:36:04 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (23.3ms)
+Completed 200 OK in 217ms (Views: 216.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 14:36:14 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (18.9ms)
+Completed 200 OK in 201ms (Views: 198.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 14:36:54 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (13.6ms)
+Completed 200 OK in 173ms (Views: 172.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 14:40:39 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (13.8ms)
+Completed 200 OK in 157ms (Views: 155.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 14:41:57 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (13.1ms)
+Completed 200 OK in 123ms (Views: 122.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 14:42:52 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (11.4ms)
+Completed 200 OK in 124ms (Views: 123.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-04-28 14:43:10 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (16.0ms)
+Completed 200 OK in 164ms (Views: 162.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home" for 127.0.0.1 at 2016-04-28 14:43:34 -0700
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (0.1ms)
+  Rendered layouts/_topnavbar_2.html.erb (0.1ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 96ms (Views: 95.6ms | ActiveRecord: 0.0ms)

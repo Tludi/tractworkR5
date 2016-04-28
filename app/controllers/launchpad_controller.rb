@@ -1,8 +1,7 @@
 class LaunchpadController < ApplicationController
   def index
-    @mainTitle = "Welcome to the launchpad"
-    @mainDesc = "time to launch!"
-    render :layout => "empty"
+    #any page variable need to be set before rendering layout
+    render :layout => "launchpad"
 
   end
 end
