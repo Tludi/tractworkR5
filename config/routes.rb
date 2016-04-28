@@ -1,9 +1,7 @@
 Myapp::Application.routes.draw do
-  get 'dashboard/index'
-
   get 'launchpad/index'
 
-  get 'home' => 'home#index', :as => :home
+  get 'dashboard' => 'dashboard#index', :as => :dashboard
   # get "home/index"
   get "home/minor"
 
