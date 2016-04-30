@@ -1,33 +1,33 @@
 <p id="notice"><%= notice %></p>
 
 <div class="wrapper wrapper-content animated fadeInRight">
-<div class="row">
-    <div class="col-lg-3">
-        <div class="contact-box center-version">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="contact-box center-version">
 
-            <a href="profile.html">
-                <%= image_tag(current_user.gravatar_url, class: "img-circle") %>
+        <a href="profile.html">
+          <%= image_tag(current_user.gravatar_url, class: "img-circle") %>
 
 
-                <h3 class="m-b-xs"><strong><%= current_user.fullName %></strong></h3>
+          <h3 class="m-b-xs"><strong><%= current_user.fullName %></strong></h3>
 
-                <div class="font-bold"><%= current_user.role %></div>
-                <address class="m-t-md">
-                    <strong>Twitter, Inc.</strong><br>
-                    795 Folsom Ave, Suite 600<br>
-                    San Francisco, CA 94107<br>
-                    <abbr title="Phone">P:</abbr> (123) 456-7890
-                </address>
+          <div class="font-bold"><%= current_user.role %></div>
+          <address class="m-t-md">
+            <strong>Twitter, Inc.</strong><br>
+            795 Folsom Ave, Suite 600<br>
+            San Francisco, CA 94107<br>
+            <abbr title="Phone">P:</abbr> (123) 456-7890
+          </address>
 
-            </a>
-            <div class="contact-box-footer">
-                <div class="m-t-xs btn-group">
-                    <a class="btn btn-xs btn-white"><i class="fa fa-phone"></i> Call </a>
-                    <a class="btn btn-xs btn-white"><i class="fa fa-envelope"></i> Email</a>
-                </div>
-            </div>
-
+        </a>
+        <div class="contact-box-footer">
+          <div class="m-t-xs btn-group">
+            <a class="btn btn-xs btn-white"><i class="fa fa-phone"></i> Call </a>
+            <a class="btn btn-xs btn-white"><i class="fa fa-envelope"></i> Email</a>
+          </div>
         </div>
+
+      </div>
     </div>
-    </div>
-    </div>
+  </div>
+</div>
