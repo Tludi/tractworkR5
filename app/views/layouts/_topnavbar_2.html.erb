@@ -9,31 +9,18 @@
     </div>
     <div class="navbar-collapse collapse" id="navbar">
       <ul class="nav navbar-nav">
-<!--             <li class="active">
-                <a aria-expanded="false" role="button" href="#"> Back to main Layout page</a>
-        </li> -->
-        <li class="dropdown active">
-            <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> Dashboard <span class="caret"></span></a>
-            <ul role="menu" class="dropdown-menu">
-                <li><a href="">Menu item</a></li>
-                <li><a href="">Menu item</a></li>
-                <li><a href="">Menu item</a></li>
-                <li><a href="">Menu item</a></li>
-            </ul>
+        <li class="active">
+          <%= link_to 'Dashboard', :dashboard  %>
+
         </li>
-        <li class="dropdown">
-            <a aria-expanded="false" role="button" href="#" class="dropdown-toggle" data-toggle="dropdown"> Workdays <span class="caret"></span></a>
-            <ul role="menu" class="dropdown-menu">
-                <li><a href="">Menu item</a></li>
-                <li><a href="">Menu item</a></li>
-                <li><a href="">Menu item</a></li>
-                <li><a href="">Menu item</a></li>
-            </ul>
+        <li>
+          <%= link_to 'Workdays', '#'  %>
         </li>
 
       </ul>
       <ul class="nav navbar-top-links navbar-right">
         <% if current_user %>
+        <li><%= link_to "Guten Tag #{current_user.firstName.capitalize}", user_path(current_user) %></li>
         <li><%= link_to '<i class="fa fa-sign-in"></i>Logout'.html_safe, :logout %></li>
         <% else %>
         <li><%= link_to '<i class="fa fa-sign-in"></i>Login'.html_safe, :login %></li>
