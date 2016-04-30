@@ -2,9 +2,9 @@ Myapp::Application.routes.draw do
 
   get 'launchpad' => 'launchpad#index', as: 'launchpad'
   get 'dashboard' => 'dashboard#index', :as => :dashboard
-  # remove user routes when just using dashboard and admin
+
   resources :users, only: [:show]
-  
+     
   # get 'user_sessions/new'
   # get 'user_sessions/create'
   # get 'user_sessions/destroy'
@@ -19,7 +19,7 @@ Myapp::Application.routes.draw do
   get 'logout' => 'user_sessions#destroy', as: :logout
 
   # get "home/index"
-  get "home/minor"
+  # get "home/minor"
 
   root to: 'launchpad#index'
 
