@@ -6,7 +6,15 @@ class UserSessionsController < ApplicationController
 
   def create
     if @user = login(params[:email], params[:password])
-      redirect_back_or_to(:dashboard, notice: "Login Successful")
+      case @user.role
+      when "Admin", "SuperUser"
+        redirect_to(admin_root_path)
+      when "Crew", "Supervisor"
+        redirect_to(dashboard_path, notice: "welcome")
+      else 
+        redirect_to(dashboard_path, notice: "welcome")
+      end
+      # redirect_back_or_to(:dashboard, notice: "Login Successful")
     else
       flash.now[:alert] = 'Login Failed'
       render action: 'new'

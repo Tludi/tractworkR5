@@ -1,5 +1,9 @@
 Myapp::Application.routes.draw do
 
+  namespace :admin do
+    root 'dashboard#index'
+  end
+
   get 'launchpad' => 'launchpad#index', as: 'launchpad'
   get 'dashboard' => 'dashboard#index', :as => :dashboard
 
