@@ -1,0 +1,48 @@
+<%= form_for @account, class: "m-t" do |a| %>
+  <% if @account.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@account.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @account.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= a.text_field :name, class: "form-control", placeholder: "Account Name*" %>
+  </div>
+  <div class="form-group">
+    <span>Time Zone:* <%= a.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones %></span>
+  </div>
+  <hr>
+  <h4>Account Admin</h4>
+      <%= a.fields_for :users do |f| %>
+        <div class="form-group">
+          <%= f.text_field :firstName, class: "form-control", placeholder: "Admin First Name*" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :lastName, class: "form-control", placeholder: "Admin Last Name*" %>
+        </div>
+          <div class="form-group">
+          <%= f.text_field :email, class: "form-control", placeholder: "Admin Email**" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :password, class: "form-control", placeholder: "Password*" %>
+          <p class="small">Must be at least 6 characters</p>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :password_confirmation, class: "form-control", placeholder: "Password Confirmation*" %>
+        </div>
+      <% end %>
+      <p class="small">*Required  **Required and unique</p>
+      <hr>
+  <div class="actions">
+    <%= a.submit 'Register', class: "btn btn-primary block full-width m-b" %>
+  </div>
+<% end %>
+<br>
+<p class="text-muted text-center"><small>Already have an account?</small></p>
+<%= link_to :login, login_path, class: "btn btn-sm btn-white btn-block" %>
+<br>

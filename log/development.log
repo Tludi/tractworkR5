@@ -20124,3 +20124,466 @@ Processing by Admin::DashboardController#index as HTML
   Rendered layouts/_topnavbar.html.erb (0.5ms)
   Rendered layouts/_footer.html.erb (0.1ms)
 Completed 200 OK in 109ms (Views: 107.1ms | ActiveRecord: 0.6ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateAccounts (20160502200924)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (17.7ms)[0m  [1mCREATE TABLE "accounts" ("id" serial primary key, "name" character varying, "time_zone" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (8.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20160502200924"]]
+  [1m[36m (9.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.9ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'accounts'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.8ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (122.0ms)[0m  [1mDROP DATABASE IF EXISTS "tractwork_development"[0m
+  [1m[35m (248.3ms)[0m  CREATE DATABASE "tractwork_development" ENCODING = 'unicode'
+  [1m[36mSQL (0.4ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (7.5ms)[0m  CREATE TABLE "accounts" ("id" serial primary key, "name" character varying, "time_zone" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) 
+  [1m[36m (5.5ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "firstName" character varying, "lastName" character varying, "role" character varying, "email" character varying NOT NULL, "crypted_password" character varying, "salt" character varying, "pin" integer, "account_id" integer, "created_at" timestamp, "updated_at" timestamp, "remember_me_token" character varying, "remember_me_token_expires_at" timestamp, "reset_password_token" character varying, "reset_password_token_expires_at" timestamp, "reset_password_email_sent_at" timestamp) [0m
+  [1m[35m (1.7ms)[0m  CREATE UNIQUE INDEX  "index_users_on_email" ON "users" USING btree ("email")
+  [1m[36m (1.2ms)[0m  [1mCREATE  INDEX  "index_users_on_remember_me_token" ON "users" USING btree ("remember_me_token")[0m
+  [1m[35m (1.3ms)[0m  CREATE  INDEX  "index_users_on_reset_password_token" ON "users" USING btree ("reset_password_token")
+  [1m[36m (2.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.2ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36m (0.5ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160502200924')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160428224923')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160428224924')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160428224925')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.5ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "accounts" ("name", "time_zone", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"  [["name", "Test Account"], ["time_zone", "Pacific Time (US & Canada)"], ["created_at", "2016-05-02 20:15:44.347447"], ["updated_at", "2016-05-02 20:15:44.347447"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.9ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'milo' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "users" ("firstName", "lastName", "email", "role", "pin", "account_id", "salt", "crypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["firstName", "milo"], ["lastName", "bloom"], ["email", "milo"], ["role", "Crew"], ["pin", 1234], ["account_id", 1], ["salt", "Ztx2NYfSTMwzwZoTEPt7"], ["crypted_password", "$2a$10$KTPH6tfCU996BJQuPT9Zf.t8/57TyfVJVvB0qOzxRBSpOt/QSGMcm"], ["created_at", "2016-05-02 20:15:44.550221"], ["updated_at", "2016-05-02 20:15:44.550221"]]
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'admin' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("firstName", "lastName", "email", "role", "pin", "account_id", "salt", "crypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"  [["firstName", "admin"], ["lastName", "admin"], ["email", "admin"], ["role", "Admin"], ["pin", 1234], ["account_id", 1], ["salt", "trLnbpzZTUGsXKXoq4id"], ["crypted_password", "$2a$10$WaJIyEyFnrmQepzlSFQKkuR2h35usYnyIYIMnPpfqiD.ygr9tGk16"], ["created_at", "2016-05-02 20:15:44.712272"], ["updated_at", "2016-05-02 20:15:44.712272"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "users"
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "accounts"[0m
+  [1m[35mAccount Load (0.5ms)[0m  SELECT  "accounts".* FROM "accounts"  ORDER BY "accounts"."id" ASC LIMIT 1
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-02 13:23:33 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (1231.6ms)
+Completed 200 OK in 1667ms (Views: 1655.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2016-05-02 13:23:37 -0700
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (1.9ms)
+  Rendered user_sessions/new.html.erb within layouts/application (9.1ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  Rendered layouts/_topnavbar_2.html.erb (24.1ms)
+  Rendered layouts/_footer.html.erb (0.9ms)
+Completed 200 OK in 224ms (Views: 171.5ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2016-05-02 13:23:39 -0700
+Processing by UserSessionsController#destroy as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mSQL (6.2ms)[0m  UPDATE "users" SET "remember_me_token" = NULL, "remember_me_token_expires_at" = NULL WHERE "users"."id" = $1  [["id", 2]]
+Redirected to http://localhost:9292/
+Completed 302 Found in 10ms (ActiveRecord: 6.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-02 13:23:39 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (19.6ms)
+Completed 200 OK in 142ms (Views: 140.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2016-05-02 13:23:41 -0700
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (0.5ms)
+  Rendered user_sessions/new.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_topnavbar_2.html.erb (6.9ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 112ms (Views: 111.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2016-05-02 13:23:45 -0700
+Processing by LaunchpadController#index as HTML
+  Rendered launchpad/index.html.erb within layouts/launchpad (11.7ms)
+Completed 200 OK in 115ms (Views: 113.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2016-05-02 13:23:48 -0700
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (0.6ms)
+  Rendered user_sessions/new.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_topnavbar_2.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 80ms (Views: 79.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/accounts/new" for 127.0.0.1 at 2016-05-02 13:24:41 -0700
+Processing by AccountsController#new as HTML
+  Rendered accounts/_form.html.erb (212.3ms)
+  Rendered accounts/new.html.erb within layouts/application (214.2ms)
+  Rendered layouts/_topnavbar_2.html.erb (1.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 339ms (Views: 311.2ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/accounts" for 127.0.0.1 at 2016-05-02 13:25:15 -0700
+Processing by AccountsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6y0Ip+XXSyh9ClceML8wsdJBEp2zojcotlSMlgRxlqcF86Scc1teUyfvGpwPWWspUqeHy4wTklWadI/h3tBprg==", "account"=>{"name"=>"test2", "time_zone"=>"Hawaii", "users_attributes"=>{"0"=>{"firstName"=>"test", "lastName"=>"test", "email"=>"test", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}, "commit"=>"Register"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.8ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'test' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  Rendered accounts/_form.html.erb (7.2ms)
+  Rendered accounts/new.html.erb within layouts/application (8.4ms)
+  Rendered layouts/_topnavbar_2.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 727ms (Views: 86.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2016-05-02 13:25:50 -0700
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (1.1ms)
+  Rendered user_sessions/new.html.erb within layouts/application (5.0ms)
+  Rendered layouts/_topnavbar_2.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 201ms (Views: 162.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/accounts/new" for 127.0.0.1 at 2016-05-02 13:26:07 -0700
+Processing by AccountsController#new as HTML
+  Rendered accounts/_form.html.erb (5.9ms)
+  Rendered accounts/new.html.erb within layouts/application (7.2ms)
+  Rendered layouts/_topnavbar_2.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 119ms (Views: 107.6ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/accounts" for 127.0.0.1 at 2016-05-02 13:26:33 -0700
+Processing by AccountsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aBPBSQMB0CbmOW9xN+W/40VHDnb65XRPChV0rApLM92GzW1ylY3FXbzcIvMIA+R7xaGbIMVU0TImNXfb0OrM1A==", "account"=>{"name"=>"test", "time_zone"=>"Hawaii", "users_attributes"=>{"0"=>{"firstName"=>"test", "lastName"=>"test", "email"=>"test", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}, "commit"=>"Register"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'test' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  Rendered accounts/_form.html.erb (8.0ms)
+  Rendered accounts/new.html.erb within layouts/application (9.8ms)
+  Rendered layouts/_topnavbar_2.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 271ms (Views: 108.7ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/accounts" for 127.0.0.1 at 2016-05-02 13:26:43 -0700
+Processing by AccountsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aBPBSQMB0CbmOW9xN+W/40VHDnb65XRPChV0rApLM92GzW1ylY3FXbzcIvMIA+R7xaGbIMVU0TImNXfb0OrM1A==", "account"=>{"name"=>"test", "time_zone"=>"Hawaii", "users_attributes"=>{"0"=>{"firstName"=>"test", "lastName"=>"test", "email"=>"test", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}, "commit"=>"Register"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'test' LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "accounts" ("name", "time_zone", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "test"], ["time_zone", "Hawaii"], ["created_at", "2016-05-02 20:26:44.236851"], ["updated_at", "2016-05-02 20:26:44.236851"]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("firstName", "lastName", "email", "salt", "crypted_password", "account_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["firstName", "test"], ["lastName", "test"], ["email", "test"], ["salt", "qCCzyZQFzFXss8eqevnw"], ["crypted_password", "$2a$10$UGgTpCmtyWD9w3MvYunMg.OHQbVkYkPv07lOf82ugUTEQn/qb7EwK"], ["account_id", 2], ["created_at", "2016-05-02 20:26:44.239587"], ["updated_at", "2016-05-02 20:26:44.239587"]]
+  [1m[36m (4.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."account_id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["account_id", 2]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "role" = $1, "updated_at" = $2 WHERE "users"."id" = $3  [["role", "Admin"], ["updated_at", "2016-05-02 20:26:44.250535"], ["id", 3]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Completed 500 Internal Server Error in 273ms (ActiveRecord: 11.1ms)
+
+NoMethodError - undefined method `projects' for #<Account:0x007f83e613ca88>:
+  activemodel (4.2.5) lib/active_model/attribute_methods.rb:433:in `method_missing'
+  app/controllers/accounts_controller.rb:16:in `block in create'
+  actionpack (4.2.5) lib/action_controller/metal/mime_responds.rb:212:in `respond_to'
+  app/controllers/accounts_controller.rb:13:in `create'
+  actionpack (4.2.5) lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+  actionpack (4.2.5) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.5) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.5) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:555:in `block (2 levels) in compile'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:505:in `call'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:92:in `__run_callbacks__'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:778:in `_run_process_action_callbacks'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.5) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.5) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.5) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (4.2.5) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.5) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.5) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.5) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.5) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.5) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.5) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.5) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.5) lib/action_controller/metal.rb:196:in `dispatch'
+  actionpack (4.2.5) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.5) lib/action_controller/metal.rb:237:in `block in action'
+  actionpack (4.2.5) lib/action_dispatch/routing/route_set.rb:76:in `dispatch'
+  actionpack (4.2.5) lib/action_dispatch/routing/route_set.rb:45:in `serve'
+  actionpack (4.2.5) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.5) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.5) lib/action_dispatch/routing/route_set.rb:817:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:38:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.5) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.5) lib/active_record/connection_adapters/abstract/connection_pool.rb:653:in `call'
+  activerecord (4.2.5) lib/active_record/migration.rb:377:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:88:in `__run_callbacks__'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:778:in `_run_call_callbacks'
+  activesupport (4.2.5) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.5) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.5) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.5) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.5) lib/rails/rack/logger.rb:20:in `call'
+  quiet_assets (1.1.0) lib/quiet_assets.rb:27:in `call_with_quiet_assets'
+  actionpack (4.2.5) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.5) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.5) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.5) lib/rails/engine.rb:518:in `call'
+  railties (4.2.5) lib/rails/application.rb:165:in `call'
+  puma (3.4.0) lib/puma/configuration.rb:224:in `call'
+  puma (3.4.0) lib/puma/server.rb:569:in `handle_request'
+  puma (3.4.0) lib/puma/server.rb:406:in `process_client'
+  puma (3.4.0) lib/puma/server.rb:271:in `block in run'
+  puma (3.4.0) lib/puma/thread_pool.rb:114:in `block in spawn_thread'
+
+
+
+Started POST "/__better_errors/7c30b7d62caa77d7/variables" for 127.0.0.1 at 2016-05-02 13:26:44 -0700
+
+
+Started POST "/accounts" for 127.0.0.1 at 2016-05-02 13:27:02 -0700
+Processing by AccountsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aBPBSQMB0CbmOW9xN+W/40VHDnb65XRPChV0rApLM92GzW1ylY3FXbzcIvMIA+R7xaGbIMVU0TImNXfb0OrM1A==", "account"=>{"name"=>"test", "time_zone"=>"Hawaii", "users_attributes"=>{"0"=>{"firstName"=>"test", "lastName"=>"test", "email"=>"test", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}, "commit"=>"Register"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'test' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  Rendered accounts/_form.html.erb (31.5ms)
+  Rendered accounts/new.html.erb within layouts/application (35.2ms)
+  Rendered layouts/_topnavbar_2.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 408ms (Views: 183.7ms | ActiveRecord: 5.9ms)
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35mSQL (3.2ms)[0m  DELETE FROM "users" WHERE "users"."id" = $1  [["id", 3]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "users"
+
+
+Started POST "/accounts" for 127.0.0.1 at 2016-05-02 13:28:05 -0700
+Processing by AccountsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aBPBSQMB0CbmOW9xN+W/40VHDnb65XRPChV0rApLM92GzW1ylY3FXbzcIvMIA+R7xaGbIMVU0TImNXfb0OrM1A==", "account"=>{"name"=>"test", "time_zone"=>"Hawaii", "users_attributes"=>{"0"=>{"firstName"=>"test", "lastName"=>"test", "email"=>"test", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}, "commit"=>"Register"}
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'test' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "accounts" ("name", "time_zone", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "test"], ["time_zone", "Hawaii"], ["created_at", "2016-05-02 20:28:05.699443"], ["updated_at", "2016-05-02 20:28:05.699443"]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("firstName", "lastName", "email", "salt", "crypted_password", "account_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["firstName", "test"], ["lastName", "test"], ["email", "test"], ["salt", "6zaZ7eYQ4A2PBhiDAZvy"], ["crypted_password", "$2a$10$3pOniidQlXa.BVrC.Nw0HuKu/9XAXG.UTQuqrfkCk8kzBKctWPPVu"], ["account_id", 3], ["created_at", "2016-05-02 20:28:05.700977"], ["updated_at", "2016-05-02 20:28:05.700977"]]
+  [1m[36m (2.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."account_id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["account_id", 3]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "role" = $1, "updated_at" = $2 WHERE "users"."id" = $3  [["role", "Admin"], ["updated_at", "2016-05-02 20:28:05.708008"], ["id", 4]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."account_id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["account_id", 3]]
+Redirected to http://localhost:9292/login
+Completed 302 Found in 166ms (ActiveRecord: 5.3ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2016-05-02 13:28:05 -0700
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (0.5ms)
+  Rendered user_sessions/new.html.erb within layouts/application (1.9ms)
+  Rendered layouts/_topnavbar_2.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 105ms (Views: 103.3ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+
+
+Started GET "/login" for 127.0.0.1 at 2016-05-02 13:30:22 -0700
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (1.3ms)
+  Rendered user_sessions/new.html.erb within layouts/application (2.7ms)
+  Rendered layouts/_topnavbar_2.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 107ms (Views: 104.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2016-05-02 13:31:01 -0700
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (0.9ms)
+  Rendered user_sessions/new.html.erb within layouts/application (2.8ms)
+  Rendered layouts/_topnavbar_2.html.erb (2.0ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 203ms (Views: 153.8ms | ActiveRecord: 3.1ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1
+  [1m[36mSQL (3.0ms)[0m  [1mDELETE FROM "users" WHERE "users"."id" = $1[0m  [["id", 4]]
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM "users"
+
+
+Started GET "/login" for 127.0.0.1 at 2016-05-02 13:32:00 -0700
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (2.4ms)
+  Rendered user_sessions/new.html.erb within layouts/application (4.2ms)
+  Rendered layouts/_topnavbar_2.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 116ms (Views: 115.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2016-05-02 13:32:15 -0700
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (2.3ms)
+  Rendered user_sessions/new.html.erb within layouts/application (4.4ms)
+  Rendered layouts/_topnavbar_2.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 129ms (Views: 128.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/accounts/new" for 127.0.0.1 at 2016-05-02 13:32:26 -0700
+Processing by AccountsController#new as HTML
+  Rendered accounts/_form.html.erb (15.6ms)
+  Rendered accounts/new.html.erb within layouts/application (17.7ms)
+  Rendered layouts/_topnavbar_2.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 125ms (Views: 115.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/accounts/new" for 127.0.0.1 at 2016-05-02 13:33:03 -0700
+Processing by AccountsController#new as HTML
+  Rendered accounts/_form.html.erb (8.4ms)
+  Rendered accounts/new.html.erb within layouts/application (10.9ms)
+  Rendered layouts/_topnavbar_2.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 118ms (Views: 116.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/accounts" for 127.0.0.1 at 2016-05-02 13:33:22 -0700
+Processing by AccountsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"q1ALK8VbNgR+Zx9u0k/f14PL7NfoTRcjAXMTmHTy/BxFjqcQU9cjfySCUuztqYRPAy15gdf8sl4tUxDvrlMDFQ==", "account"=>{"name"=>"test", "time_zone"=>"Hawaii", "users_attributes"=>{"0"=>{"firstName"=>"test", "lastName"=>"test", "email"=>"testtest", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}, "commit"=>"Register"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'testtest' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "accounts" ("name", "time_zone", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "test"], ["time_zone", "Hawaii"], ["created_at", "2016-05-02 20:33:23.015126"], ["updated_at", "2016-05-02 20:33:23.015126"]]
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("firstName", "lastName", "email", "salt", "crypted_password", "account_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["firstName", "test"], ["lastName", "test"], ["email", "testtest"], ["salt", "62CK2khWBFyvsWr2zTyB"], ["crypted_password", "$2a$10$xvZ8I7qQhYtLj6ZeBG/Q3.d./9Iit.FFE/hOLNBzZvU/TBHItTJFu"], ["account_id", 4], ["created_at", "2016-05-02 20:33:23.016893"], ["updated_at", "2016-05-02 20:33:23.016893"]]
+  [1m[36m (2.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."account_id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["account_id", 4]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "role" = $1, "updated_at" = $2 WHERE "users"."id" = $3  [["role", "Admin"], ["updated_at", "2016-05-02 20:33:23.024155"], ["id", 5]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."account_id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["account_id", 4]]
+Redirected to http://localhost:9292/login
+Completed 302 Found in 166ms (ActiveRecord: 5.1ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2016-05-02 13:33:23 -0700
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (0.8ms)
+  Rendered user_sessions/new.html.erb within layouts/application (2.1ms)
+  Rendered layouts/_topnavbar_2.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 99ms (Views: 98.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2016-05-02 13:33:51 -0700
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (1.1ms)
+  Rendered user_sessions/new.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_topnavbar_2.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 187ms (Views: 139.2ms | ActiveRecord: 2.9ms)
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" DESC LIMIT 1[0m
+  [1m[35mSQL (1.3ms)[0m  DELETE FROM "users" WHERE "users"."id" = $1  [["id", 5]]
+
+
+Started GET "/accounts/new" for 127.0.0.1 at 2016-05-02 13:34:01 -0700
+Processing by AccountsController#new as HTML
+  Rendered accounts/_form.html.erb (5.7ms)
+  Rendered accounts/new.html.erb within layouts/application (7.9ms)
+  Rendered layouts/_topnavbar_2.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 123ms (Views: 112.2ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/accounts" for 127.0.0.1 at 2016-05-02 13:34:12 -0700
+Processing by AccountsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7aMG0KZzNtMo8cdAVG5iQ+KPdhgNbk11mt299aiukX8DfarrMP8jqHIUisJriDnbYmnjTjLf6Ai2/b6Ccg9udg==", "account"=>{"name"=>"test", "time_zone"=>"Hawaii", "users_attributes"=>{"0"=>{"firstName"=>"test", "lastName"=>"test", "email"=>"test", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}}, "commit"=>"Register"}
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'test' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "accounts" ("name", "time_zone", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "test"], ["time_zone", "Hawaii"], ["created_at", "2016-05-02 20:34:13.027993"], ["updated_at", "2016-05-02 20:34:13.027993"]]
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("firstName", "lastName", "email", "salt", "crypted_password", "account_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"  [["firstName", "test"], ["lastName", "test"], ["email", "test"], ["salt", "yT2fMhLo4ssuLtz4jNrQ"], ["crypted_password", "$2a$10$OWS4kNNrMjQhxtK1KvmCXuZObJcbOKpswg7RXMKwMCtRErzAtViTi"], ["account_id", 5], ["created_at", "2016-05-02 20:34:13.030062"], ["updated_at", "2016-05-02 20:34:13.030062"]]
+  [1m[36m (2.9ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."account_id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["account_id", 5]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "role" = $1, "updated_at" = $2 WHERE "users"."id" = $3  [["role", "Admin"], ["updated_at", "2016-05-02 20:34:13.037206"], ["id", 6]]
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."account_id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["account_id", 5]]
+Redirected to http://localhost:9292/login
+Completed 302 Found in 171ms (ActiveRecord: 5.1ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2016-05-02 13:34:13 -0700
+Processing by UserSessionsController#new as HTML
+  Rendered user_sessions/_form.html.erb (0.8ms)
+  Rendered user_sessions/new.html.erb within layouts/application (2.2ms)
+  Rendered layouts/_topnavbar_2.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 103ms (Views: 102.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at 2016-05-02 13:34:31 -0700
+Processing by UserSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IUCa+GgsecOZvWo+zPfraCbsp3bYCZ6sMXztRgK1V0fPnjbD/qBsuMNYJ7zzEbDwpgoyIOe4O9EdXO4x2BSoTg==", "email"=>"test", "password"=>"[FILTERED]", "commit"=>"Login to your account"}
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = 'test'  ORDER BY "users"."id" ASC LIMIT 1[0m
+Redirected to http://localhost:9292/admin
+Completed 302 Found in 155ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2016-05-02 13:34:31 -0700
+Processing by Admin::DashboardController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  Rendered admin/dashboard/index.html.erb within layouts/admin (2.2ms)
+  Rendered layouts/_navigation.html.erb (3.5ms)
+  Rendered layouts/_topnavbar.html.erb (1.5ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 124ms (Views: 121.0ms | ActiveRecord: 0.7ms)

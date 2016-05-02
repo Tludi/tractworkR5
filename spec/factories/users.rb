@@ -7,8 +7,8 @@ FactoryGirl.define do
     role "Crew"
     password "password"
     password_confirmation "password"
-    account_id 1
-    # account
+    # account_id 1
+    account
     # project
 
     factory :admin do

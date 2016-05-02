@@ -1,5 +1,6 @@
 Myapp::Application.routes.draw do
 
+  resources :accounts, only: [:new, :create]
   namespace :admin do
     root 'dashboard#index'
   end
