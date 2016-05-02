@@ -21159,3 +21159,27 @@ Processing by Admin::DashboardController#index as HTML
   Rendered layouts/_topnavbar.html.erb (0.4ms)
   Rendered layouts/_footer.html.erb (0.1ms)
 Completed 200 OK in 137ms (Views: 131.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2016-05-02 16:06:54 -0700
+Processing by Admin::DashboardController#index as HTML
+  [1m[35mUser Load (2.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36mAccount Load (0.4ms)[0m  [1mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."account_id" = $1  [["account_id", 1]]
+  Rendered admin/dashboard/index.html.erb within layouts/admin (3.0ms)
+  Rendered layouts/_navigation.html.erb (1.1ms)
+  Rendered layouts/_topnavbar.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 226ms (Views: 147.9ms | ActiveRecord: 7.8ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2016-05-02 16:07:58 -0700
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 2]]
+  [1m[35mAccount Load (0.3ms)[0m  SELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."account_id" = $1[0m  [["account_id", 1]]
+  Rendered admin/dashboard/index.html.erb within layouts/admin (2.1ms)
+  Rendered layouts/_navigation.html.erb (1.2ms)
+  Rendered layouts/_topnavbar.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 110ms (Views: 105.9ms | ActiveRecord: 1.0ms)
