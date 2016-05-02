@@ -13,7 +13,12 @@
 //= require pace/pace.min.js
 //= require peity/jquery.peity.min.js
 //= require slimscroll/jquery.slimscroll.min.js
-//= require_tree .
+//= require dataTables/datatables.min.js
+//= require iCheck/icheck.min.js
+//= require jeditable/jquery.jeditable.js
+//= require jqGrid/i18n/grid.locale-el.js
+//= require jqGrid/jquery.jqGrid.min.js
+//= require footable/footable.all.min.js
 
 $(document).ready(function() {
     $('.projects').DataTable( {
