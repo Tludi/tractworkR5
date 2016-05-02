@@ -19,6 +19,7 @@ gem 'local_time'
 gem 'time_difference'
 # added to format json for API
 gem 'active_model_serializers'
+# gem 'jquery-datatables-rails', '~> 3.3.0'
 # gem 'pundit'
 # gem 'simple_form'
 
