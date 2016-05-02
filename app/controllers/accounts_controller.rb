@@ -12,7 +12,8 @@ class AccountsController < ApplicationController
     # @account.users.first.role = "Admin"
     respond_to do |format|
       if @account.save
-        @account.users.first.update_attribute(:role, "Admin")
+        firstUser = @account.users.first
+        firstUser.update_attributes role: "Admin"
         # @account.projects.create(name: "General Work")
         # @user = @account.users.create(account_params[:user])
         format.html { redirect_to login_path, notice: "Hi #{@account.users.first.firstName}! Your account was created. Now..." }

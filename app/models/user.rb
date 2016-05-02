@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   authenticates_with_sorcery!
   belongs_to :account
 
-  validates_presence_of :firstName, :lastName, :email #, :role, :pin
+  validates_presence_of :firstName, :lastName, :email
   validates :email, uniqueness: true
   # validates :pin, length: {is: 4}
   validates :password, length: { minimum: 5 }, if: -> { new_record? || changes[:crypted_password] }
