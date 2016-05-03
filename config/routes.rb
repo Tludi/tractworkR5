@@ -1,8 +1,17 @@
 Myapp::Application.routes.draw do
 
+  # namespace :admin do
+  # get 'users/index'
+  # end
+
   resources :accounts, only: [:new, :create]
+  
   namespace :admin do
     root 'dashboard#index'
+    resources :accounts do
+      resources :users
+    end
+    resources :users
   end
 
   get 'launchpad' => 'launchpad#index', as: 'launchpad'
