@@ -8,26 +8,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require local_time
-//= require metisMenu/jquery.metisMenu.js
+//= require bootstrap-sprockets
+//= require bootstrap
+//= require inspinia
 //= require pace/pace.min.js
 //= require peity/jquery.peity.min.js
 //= require slimscroll/jquery.slimscroll.min.js
-//= require dataTables/datatables.min.js
-//= require iCheck/icheck.min.js
-//= require jeditable/jquery.jeditable.js
-//= require jqGrid/i18n/grid.locale-el.js
-//= require jqGrid/jquery.jqGrid.min.js
-//= require footable/footable.all.min.js
-
-$(document).ready(function() {
-    $('.projects').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            'copyHtml5',
-            'excelHtml5',
-            'csvHtml5',
-            'pdfHtml5'
-        ]
-    } );
-} );
+//= require admin/admin
+//= require_tree .
