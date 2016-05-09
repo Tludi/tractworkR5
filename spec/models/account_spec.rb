@@ -22,4 +22,10 @@ RSpec.describe Account, type: :model do
   end
 
   it 'is invalid without an Admin user'
+
+  it 'can have many projects' do
+    account = build(:account)
+    expect(account).to respond_to(:projects)
+  end
+
 end

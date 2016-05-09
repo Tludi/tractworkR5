@@ -74,8 +74,8 @@ describe User do
     expect(user.fullName).to eq 'Milo Bloom'
   end
 
-  it 'belongs to an account' #do
-  #   user = build(:user)
-  #   expect(user.account).to_not eq nil
-  # end
+  it 'belongs to an account' do
+    user = build(:user)
+    expect(user.account).to_not eq nil
+  end
 end

@@ -1,5 +1,6 @@
 Myapp::Application.routes.draw do
 
+  # resources :projects
   # namespace :admin do
   # get 'users/index'
   # end
@@ -12,6 +13,13 @@ Myapp::Application.routes.draw do
       resources :users
     end
     resources :users
+    
+    resources :projects #do
+    #   member do
+    #     patch :addUser
+    #   end
+    #   resources :users
+    # end
   end
 
   get 'launchpad' => 'launchpad#index', as: 'launchpad'
