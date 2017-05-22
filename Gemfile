@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 ruby '2.4.1'
-gem 'rails'
+gem 'rails', '~> 5.1.1'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-rails'
-gem 'sass-rails', '~> 5.0.4'
+gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'turbolinks'
@@ -33,7 +33,7 @@ group :development do
   gem 'guard-bundler'
   gem 'guard-rails'
   gem 'guard-rspec'
-  gem 'quiet_assets'
+  # gem 'quiet_assets'
   gem 'rb-fchange', :require=>false
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
@@ -45,7 +45,7 @@ group :development, :test do
   gem 'byebug'
   gem 'factory_girl_rails'
   gem 'faker'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.6'
 end
 
 group :test do
