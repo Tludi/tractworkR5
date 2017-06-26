@@ -1,4 +1,43 @@
 <div class="wrapper wrapper-content">
+<div class="row">
+    <div class="col-md-12 center">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <span class="label label-success pull-right"><%= @workday.dayDate.strftime('%B %e, %Y') %></span>
+                <span><strong><%= @workday.dayDate.strftime('%A')  %></strong></span>
+                <h5><span><%= current_user.fullName %></span></h5>
+            </div>
+            <div class="ibox-content">
+              <p>
+                <strong>Hours Worked Today:</strong>
+                <%= @hours_worked %>
+              </p>
+
+
+<!--               <p>
+                <strong>Notes:</strong>
+                <%= @workday.notes %>
+              </p>
+
+
+              <p>
+                <strong>dayDate:</strong>
+                  <%= @workday.dayDate.strftime('%B %e, %Y') %>
+                <strong>DateTime.now.to_date:</strong>
+                  <%= DateTime.now.to_date.strftime('%B %e,%Y') %>
+              </p>
+
+                <% if @workday.dayDate == DateTime.now.to_date %>
+                  <p>dates match</p>
+                <% else %>
+                  <p>dates are screwed</p>
+                <% end %> -->
+
+            </div>
+        </div>
+    </div>
+</div>
+
   <div class="row">
     <div class="col-lg-3">
       <div class="ibox float-e-margins">
@@ -412,6 +451,7 @@
 
   </div>
 </div>
+
 
 <% content_for :javascript do %>
 

@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
   belongs_to :account
+  has_many :workdays
 
   validates_presence_of :firstName, :lastName, :email
   validates :email, uniqueness: true
