@@ -32346,3 +32346,27 @@ puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
 puma (3.8.2) lib/puma/server.rb:435:in `process_client'
 puma (3.8.2) lib/puma/server.rb:299:in `block in run'
 puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/dashboard" for 127.0.0.1 at 2017-06-26 15:16:44 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (3.3ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 2]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/index.html.erb within layouts/application (1.5ms)
+  Rendered layouts/_topnavbar_2.html.erb (5.8ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.8ms) [cache miss]
+Completed 200 OK in 219ms (Views: 205.8ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-06-26 15:39:04 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (5.9ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (3.8ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 2]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/index.html.erb within layouts/application (2.3ms)
+  Rendered layouts/_topnavbar_2.html.erb (1.7ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.7ms) [cache miss]
+Completed 200 OK in 896ms (Views: 863.3ms | ActiveRecord: 10.1ms)
+
+
