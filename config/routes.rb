@@ -1,6 +1,6 @@
-Myapp::Application.routes.draw do
-
-  # resources :projects
+Rails.application.routes.draw do
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+    # resources :projects
   # namespace :admin do
   # get 'users/index'
   # end
@@ -44,5 +44,4 @@ Myapp::Application.routes.draw do
   # get "home/minor"
 
   root to: 'launchpad#index'
-
 end

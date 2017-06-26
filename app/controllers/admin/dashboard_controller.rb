@@ -1,5 +1,5 @@
 class Admin::DashboardController < Admin::AdminController
-  before_filter :set_account
+  before_action :set_account
 
   def index
     @users = @account.users

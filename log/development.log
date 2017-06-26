@@ -29736,3 +29736,323 @@ Processing by Admin::DashboardController#index as HTML
   Rendered layouts/_topnavbar.html.erb (0.4ms)
   Rendered layouts/_footer.html.erb (0.1ms)
 Completed 200 OK in 122ms (Views: 118.4ms | ActiveRecord: 0.9ms)
+Started GET "/" for ::1 at 2017-05-22 14:52:54 -0700
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LaunchpadController#index as HTML
+  Rendering launchpad/index.html.erb within layouts/launchpad
+  Rendered launchpad/index.html.erb within layouts/launchpad (14240.1ms)
+Completed 200 OK in 14917ms (Views: 14902.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/font-awesome.self-2a86d2017f4b74f22943750b3b50b9cb753581bab96cbdaaf2df53f4c04c995b.css?body=1" for ::1 at 2017-05-22 14:53:09 -0700
+Started GET "/assets/turbolinks.self-1d1fddf91adc38ac2045c51f0a3e05ca97d07d24d15a4dcbf705009106489e69.js?body=1" for ::1 at 2017-05-22 14:53:09 -0700
+Started GET "/assets/bootstrap/button.self-126ac9bf0e7f2d8568f8da3a00fd5f0fac6eae0946331003370161fbf8d7975e.js?body=1" for ::1 at 2017-05-22 14:53:09 -0700
+Started GET "/assets/bootstrap/alert.self-742145c5bb847aafdadc6e339be795628f8bc25f177e851f03a8c42278eb0312.js?body=1" for ::1 at 2017-05-22 14:53:09 -0700
+Started GET "/assets/bootstrap/transition.self-6ad2488465135ab731a045a8ebbe3ea2fc501aed286042496eda1664fdd07ba9.js?body=1" for ::1 at 2017-05-22 14:53:09 -0700
+Started GET "/assets/bootstrap/carousel.self-e47323f363ceb3dc0bdbce05e36e709ed428e339833a41140a85cb0af24b8127.js?body=1" for ::1 at 2017-05-22 14:53:09 -0700
+Started GET "/assets/bootstrap/collapse.self-2eb697f62b587bb786ff940d82dd4be88cdeeaf13ca128e3da3850c5fcaec301.js?body=1" for ::1 at 2017-05-22 14:53:09 -0700
+Started GET "/assets/bootstrap/dropdown.self-561cca1cbaf67474e01e9536f106bad541594860a6df997004591c1c1957a147.js?body=1" for ::1 at 2017-05-22 14:53:09 -0700
+Started GET "/assets/bootstrap/tab.self-5bf7078b682f8b131332eefa46b45fa5eff2eca745fc0d03e2991450888f7c28.js?body=1" for ::1 at 2017-05-22 14:53:09 -0700
+Started GET "/assets/bootstrap/modal.self-3e78617ade5663314b7ee0ea10375a5b34d59ffbade44939e3f2a4e4ef2019b3.js?body=1" for ::1 at 2017-05-22 14:53:09 -0700
+Started GET "/assets/bootstrap/affix.self-6d6f1a7fc5c8aabf3547fa1b794fab6268f54bc55ad815e55873c71f52513517.js?body=1" for ::1 at 2017-05-22 14:53:09 -0700
+Started GET "/assets/bootstrap/scrollspy.self-969f3c5f48cdf1e439c7fa1154c13b948715f5c689f87837c0b64521d3b46ef6.js?body=1" for ::1 at 2017-05-22 14:53:09 -0700
+Started GET "/assets/bootstrap.self-b38817c3e3a3049abb1fc08dd6ae448b23330f8453226efdb074710209474f75.js?body=1" for ::1 at 2017-05-22 14:53:09 -0700
+Started GET "/assets/bootstrap/popover.self-0aa93860b59fe7393f1dd490f54b3cb994f9d6155adffce034d4e14ae361b041.js?body=1" for ::1 at 2017-05-22 14:53:09 -0700
+Started GET "/assets/bootstrap/tooltip.self-05afb177e08f98997ccfc84fa08a215e4b27d48d5fe4d049080675e9dffd8199.js?body=1" for ::1 at 2017-05-22 14:53:09 -0700
+Started GET "/assets/style.self-07f4a12be33614144a4d6c6f0c8f19e6671e65108d54a526d122bbe0f59bf193.css?body=1" for ::1 at 2017-05-22 14:53:09 -0700
+Started GET "/assets/launchpad/laptop-693a6e4a608b001a1250a089b7f5d0b748585ff4974a168c14c17d4568b149e3.png" for ::1 at 2017-05-22 14:53:09 -0700
+Started GET "/assets/launchpad/perspective-922ef880053df80311dcda1df45fc263640a89cdced348817d7f118d23c6b6f5.png" for ::1 at 2017-05-22 14:53:09 -0700
+Started GET "/assets/launchpad/dashboard-6eab9fec0b4e3b3877c75d1347177345390632dcdfbcd488593a78200dab9049.png" for ::1 at 2017-05-22 14:53:09 -0700
+Started GET "/assets/launchpad/avatar3-b8731e0e8c3fd577047e903b797db2a74b0958514028e0373cf9ecba4d2b8ade.jpg" for ::1 at 2017-05-22 14:53:09 -0700
+Started GET "/assets/launchpad/avatar1-2a329f39a2d45589ce8b58c29befaff1d967743736a9ec540a8e0f69dd996ec2.jpg" for ::1 at 2017-05-22 14:53:09 -0700
+Started GET "/assets/launchpad/avatar2-05d39e962c8d2f77283141b88d03328786542fb84a23b3b45b39986715388428.jpg" for ::1 at 2017-05-22 14:53:09 -0700
+Started GET "/assets/launchpad/iphone-b4d7df0d01aa03f8798b9680d39d6383a9383e57d176fc9ee7a7e9581713f672.jpg" for ::1 at 2017-05-22 14:53:09 -0700
+Started GET "/assets/launchpad/word_map.png" for ::1 at 2017-05-22 14:53:10 -0700
+Started GET "/assets/launchpad/avatar_all.png" for ::1 at 2017-05-22 14:53:10 -0700
+Started GET "/assets/launchpad/header_one.jpg" for ::1 at 2017-05-22 14:53:10 -0700
+Started GET "/assets/launchpad/header_two.jpg" for ::1 at 2017-05-22 14:53:15 -0700
+Started GET "/" for 127.0.0.1 at 2017-05-22 15:33:34 -0700
+  [1m[35m (5.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LaunchpadController#index as HTML
+  Rendering launchpad/index.html.erb within layouts/launchpad
+  Rendered launchpad/index.html.erb within layouts/launchpad (8205.2ms)
+Completed 200 OK in 8776ms (Views: 8758.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-05-22 15:34:14 -0700
+Processing by UserSessionsController#new as HTML
+  Rendering user_sessions/new.html.erb within layouts/application
+  Rendered user_sessions/_form.html.erb (2.6ms) [cache miss]
+  Rendered user_sessions/new.html.erb within layouts/application (5.6ms)
+  Rendered layouts/_topnavbar_2.html.erb (8.1ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.5ms) [cache miss]
+Completed 200 OK in 797ms (Views: 227.0ms | ActiveRecord: 16.8ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at 2017-05-22 15:34:21 -0700
+Processing by UserSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ViVBsAoZyDOR88AaVqZg62GGFcyl9UOIqcqcu1Bu9jUhKuUZjpM+fZSMwXSMtlPezGJUvizNuN9R4qLEba0Byw==", "email"=>"admin", "password"=>"[FILTERED]", "commit"=>"Login to your account"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = 'admin' ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 167ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-05-22 15:34:21 -0700
+
+ActionController::RoutingError - undefined method `before_filter' for Admin::AdminController:Class
+Did you mean?  before_action:
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:45:in `rescue in controller'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:43:in `controller'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:29:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+  rack (2.0.3) lib/rack/etag.rb:25:in `call'
+  rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.3) lib/rack/head.rb:12:in `call'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+  rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+  rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+  railties (5.1.1) lib/rails/engine.rb:522:in `call'
+  puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+  puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+  puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+  puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+  puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/__better_errors/4b06f2904987e0cf/variables" for 127.0.0.1 at 2017-05-22 15:34:22 -0700
+Started GET "/admin" for 127.0.0.1 at 2017-05-22 15:35:10 -0700
+
+ActionController::RoutingError - undefined method `before_filter' for Admin::DashboardController:Class
+Did you mean?  before_action:
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:45:in `rescue in controller'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:43:in `controller'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:29:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+  rack (2.0.3) lib/rack/etag.rb:25:in `call'
+  rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.3) lib/rack/head.rb:12:in `call'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+  rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+  rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+  railties (5.1.1) lib/rails/engine.rb:522:in `call'
+  puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+  puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+  puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+  puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+  puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/__better_errors/af8744dde1207b5c/variables" for 127.0.0.1 at 2017-05-22 15:35:10 -0700
+Started GET "/admin" for 127.0.0.1 at 2017-05-22 15:35:29 -0700
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.6ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering admin/dashboard/index.html.erb within layouts/admin
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."account_id" = $1[0m  [["account_id", 1]]
+  Rendered admin/dashboard/index.html.erb within layouts/admin (4.2ms)
+  Rendered layouts/_navigation.html.erb (3.9ms) [cache miss]
+  Rendered layouts/_topnavbar.html.erb (1.8ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 263ms (Views: 161.1ms | ActiveRecord: 13.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-05-22 15:35:43 -0700
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering admin/dashboard/index.html.erb within layouts/admin
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."account_id" = $1[0m  [["account_id", 1]]
+  Rendered admin/dashboard/index.html.erb within layouts/admin (3.5ms)
+  Rendered layouts/_navigation.html.erb (1.2ms) [cache miss]
+  Rendered layouts/_topnavbar.html.erb (0.8ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.3ms) [cache miss]
+Completed 200 OK in 180ms (Views: 172.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-26 08:58:06 -0700
+  [1m[35m (2.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LaunchpadController#index as HTML
+  Rendering launchpad/index.html.erb within layouts/launchpad
+  Rendered launchpad/index.html.erb within layouts/launchpad (636.5ms)
+Completed 200 OK in 905ms (Views: 894.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-06-26 08:59:49 -0700
+Processing by UserSessionsController#new as HTML
+  Rendering user_sessions/new.html.erb within layouts/application
+  Rendered user_sessions/_form.html.erb (3.3ms) [cache miss]
+  Rendered user_sessions/new.html.erb within layouts/application (6.3ms)
+  [1m[36mUser Load (26.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_topnavbar_2.html.erb (39.6ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.4ms) [cache miss]
+Completed 200 OK in 712ms (Views: 208.0ms | ActiveRecord: 58.4ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at 2017-06-26 09:00:06 -0700
+Processing by UserSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KL1fliYUkpkR3QOzqfYedV6kMNHF3cjT/9bcLmaiJXNfsvs/op5k1xSiAt1z5i1A80Bxo0zlM4QH/uJRW2HSjQ==", "email"=>"milo", "password"=>"[FILTERED]", "commit"=>"Login to your account"}
+  [1m[36mUser Load (7.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = 'milo' ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering user_sessions/new.html.erb within layouts/application
+  Rendered user_sessions/_form.html.erb (1.7ms) [cache miss]
+  Rendered user_sessions/new.html.erb within layouts/application (4.0ms)
+  Rendered layouts/_topnavbar_2.html.erb (1.8ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.5ms) [cache miss]
+Completed 200 OK in 144ms (Views: 133.7ms | ActiveRecord: 7.4ms)
+
+
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started POST "/user_sessions" for 127.0.0.1 at 2017-06-26 09:01:04 -0700
+Processing by UserSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GxYM7Eftkzk77Vlv4GMAikjhHNSfh3p9VJ+/WgdukSk58qaegCRh4H4egS28F0Eq/MGtDFzElA+ZhzbL1UkRPw==", "email"=>"admin", "password"=>"[FILTERED]", "commit"=>"Login to your account"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = 'admin' ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 155ms (ActiveRecord: 1.1ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-06-26 09:01:04 -0700
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (12.7ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering admin/dashboard/index.html.erb within layouts/admin
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."account_id" = $1[0m  [["account_id", 1]]
+  Rendered admin/dashboard/index.html.erb within layouts/admin (4.8ms)
+  Rendered layouts/_navigation.html.erb (2.6ms) [cache miss]
+  Rendered layouts/_topnavbar.html.erb (1.2ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.4ms) [cache miss]
+Completed 200 OK in 205ms (Views: 138.3ms | ActiveRecord: 20.8ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-06-26 09:01:17 -0700
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering admin/dashboard/index.html.erb within layouts/admin
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."account_id" = $1[0m  [["account_id", 1]]
+  Rendered admin/dashboard/index.html.erb within layouts/admin (4.0ms)
+  Rendered layouts/_navigation.html.erb (2.0ms) [cache miss]
+  Rendered layouts/_topnavbar.html.erb (0.7ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.2ms) [cache miss]
+Completed 200 OK in 159ms (Views: 151.6ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-06-26 09:01:19 -0700
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.6ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering admin/dashboard/index.html.erb within layouts/admin
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."account_id" = $1[0m  [["account_id", 1]]
+  Rendered admin/dashboard/index.html.erb within layouts/admin (5.1ms)
+  Rendered layouts/_navigation.html.erb (2.2ms) [cache miss]
+  Rendered layouts/_topnavbar.html.erb (1.2ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.4ms) [cache miss]
+Completed 200 OK in 206ms (Views: 195.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/admin/projects" for 127.0.0.1 at 2017-06-26 09:04:04 -0700
+Processing by Admin::ProjectsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.5ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering admin/projects/index.html.erb within layouts/admin
+  [1m[36mProject Load (2.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."account_id" = $1[0m  [["account_id", 1]]
+  Rendered admin/projects/index.html.erb within layouts/admin (12.0ms)
+  Rendered layouts/_navigation.html.erb (2.6ms) [cache miss]
+  Rendered layouts/_topnavbar.html.erb (1.2ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 154ms (Views: 135.1ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-06-26 09:04:06 -0700
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.5ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering admin/dashboard/index.html.erb within layouts/admin
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."account_id" = $1[0m  [["account_id", 1]]
+  Rendered admin/dashboard/index.html.erb within layouts/admin (5.0ms)
+  Rendered layouts/_navigation.html.erb (2.5ms) [cache miss]
+  Rendered layouts/_topnavbar.html.erb (1.2ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.5ms) [cache miss]
+Completed 200 OK in 226ms (Views: 217.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-06-26 09:21:09 -0700
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LaunchpadController#index as HTML
+  Rendering launchpad/index.html.erb within layouts/launchpad
+  Rendered launchpad/index.html.erb within layouts/launchpad (859.6ms)
+Completed 200 OK in 1357ms (Views: 1333.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-06-26 09:21:21 -0700
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.7ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering admin/dashboard/index.html.erb within layouts/admin
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."account_id" = $1[0m  [["account_id", 1]]
+  Rendered admin/dashboard/index.html.erb within layouts/admin (12.2ms)
+  Rendered layouts/_navigation.html.erb (2.2ms) [cache miss]
+  Rendered layouts/_topnavbar.html.erb (1.3ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 1039ms (Views: 250.4ms | ActiveRecord: 25.8ms)
+
+
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mAccount Load (0.7ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" ORDER BY "accounts"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."account_id" = $1[0m  [["account_id", 1]]
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "projects" WHERE "projects"."account_id" = $1[0m  [["account_id", 1]]
