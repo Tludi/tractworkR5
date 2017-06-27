@@ -1,0 +1,42 @@
+<%= form_with(model: work_segment, local: true) do |form| %>
+  <% if work_segment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(work_segment.errors.count, "error") %> prohibited this work_segment from being saved:</h2>
+
+      <ul>
+      <% work_segment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :totalTime %>
+    <%= form.text_field :totalTime, id: :work_segment_totalTime %>
+  </div>
+
+  <div class="field">
+    <%= form.label :estimatedTime %>
+    <%= form.text_field :estimatedTime, id: :work_segment_estimatedTime %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.check_box :status, id: :work_segment_status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :workday_id %>
+    <%= form.number_field :workday_id, id: :work_segment_workday_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :task %>
+    <%= form.text_field :task, id: :work_segment_task %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Time Punches</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Punch</th>
+      <th>Worksegment</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @time_punches.each do |time_punch| %>
+      <tr>
+        <td><%= time_punch.punch %></td>
+        <td><%= time_punch.workSegment_id %></td>
+        <td><%= time_punch.status %></td>
+        <td><%= link_to 'Show', time_punch %></td>
+        <td><%= link_to 'Edit', edit_time_punch_path(time_punch) %></td>
+        <td><%= link_to 'Destroy', time_punch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Time Punch', new_time_punch_path %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Punch:</strong>
+  <%= @time_punch.punch %>
+</p>
+
+<p>
+  <strong>Worksegment:</strong>
+  <%= @time_punch.workSegment_id %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @time_punch.status %>
+</p>
+
+<%= link_to 'Edit', edit_time_punch_path(@time_punch) %> |
+<%= link_to 'Back', time_punches_path %>

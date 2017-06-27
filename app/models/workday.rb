@@ -1,7 +1,8 @@
 class Workday < ApplicationRecord
 
   belongs_to :user
-
+  has_many :workSegments
+  
   validates_presence_of :dayDate, :hoursWorked
 
   
@@ -65,8 +66,7 @@ class Workday < ApplicationRecord
     if @current_workday
       @current_workday
     else
-      current_project = user.account.projects.first
-      Workday.create(user_id: user.id, project_id: current_project.id, dayDate: Date.current, hoursWorked: 0)
+      Workday.create(user_id: user.id, dayDate: Date.current, hoursWorked: 0)
     end
   end
 end

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Totaltime:</strong>
+  <%= @work_segment.totalTime %>
+</p>
+
+<p>
+  <strong>Estimatedtime:</strong>
+  <%= @work_segment.estimatedTime %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @work_segment.status %>
+</p>
+
+<p>
+  <strong>Workday:</strong>
+  <%= @work_segment.workday_id %>
+</p>
+
+<p>
+  <strong>Task:</strong>
+  <%= @work_segment.task %>
+</p>
+
+<%= link_to 'Edit', edit_work_segment_path(@work_segment) %> |
+<%= link_to 'Back', work_segments_path %>

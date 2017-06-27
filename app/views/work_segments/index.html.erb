@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Work Segments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Totaltime</th>
+      <th>Estimatedtime</th>
+      <th>Status</th>
+      <th>Workday</th>
+      <th>Task</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @work_segments.each do |work_segment| %>
+      <tr>
+        <td><%= work_segment.totalTime %></td>
+        <td><%= work_segment.estimatedTime %></td>
+        <td><%= work_segment.status %></td>
+        <td><%= work_segment.workday_id %></td>
+        <td><%= work_segment.task %></td>
+        <td><%= link_to 'Show', work_segment %></td>
+        <td><%= link_to 'Edit', edit_work_segment_path(work_segment) %></td>
+        <td><%= link_to 'Destroy', work_segment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Work Segment', new_work_segment_path %>
