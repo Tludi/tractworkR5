@@ -7,7 +7,7 @@ class DashboardController < ApplicationController
     @workday = Workday.retrieve_current_workday(current_user)
 
     # TODO Need to check for current segment before creating a new one
-    @work_segment = WorkSegment.create(workday_id: @workday.id)
+    @work_segment = WorkSegment.retrieve_current_segment(@workday)
 
     @current_time = get_current_time
 
