@@ -6,9 +6,12 @@ class DashboardController < ApplicationController
     # @workday = @user.workdays.first 
     @workday = Workday.retrieve_current_workday(current_user)
 
+    # TODO Need to check for current segment before creating a new one
+    @work_segment = WorkSegment.create(workday_id: @workday.id)
+
     @current_time = get_current_time
 
-    # @time_punch = TimePunch.new
+    @time_punch = TimePunch.new
     # @latest_time_punch = @workday.timePunches.last
     # @time_punch_status = @latest_time_punch.clockedInStatus if @latest_time_punch
     # @current_workday_time_punches = @workday.timePunches.order(created_at: :desc)

@@ -7,18 +7,19 @@
           <span><strong><%= @workday.dayDate.strftime('%A')  %></strong></span>
           <h5><span><%= current_user.fullName %></span></h5>
         </div>
+                    <div class="ibox-content">
+              <%= render 'timePunchForm' %>
+            </div>
         <div class="ibox-content">
           <p>
             <strong>Hours Worked Today:</strong>
             <%= @hours_worked %>
           </p>
 
-
           <p>
             <strong>Notes:</strong>
             <%= @workday.notes %>
           </p>
-
 
         </div>
       </div>

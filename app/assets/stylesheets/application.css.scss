@@ -38,9 +38,14 @@ input.width250 {
 }
 
 input.clockButton {
-  width:150px;
-  height:150px;
+  width:180px;
+  height:180px;
   border: 10px solid #555;
-    border: 10px solid #82B871;
-  border-radius: 75px;
+  border: 9px solid #82b871;
+  border-radius: 90px;
+  background: #fff;
+  color: #82b871;
+  font-size: 36px;
+  font-weight: 500;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
 }
