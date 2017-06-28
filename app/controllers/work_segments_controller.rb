@@ -69,6 +69,6 @@ class WorkSegmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def work_segment_params
-      params.require(:work_segment).permit(:totalTime, :estimatedTime, :status, :workday_id, :task)
+      params.require(:work_segment).permit(:totalTime, :estimatedTime, :status, :workday_id, :task, :timePunches => [:punch, :workSegment_id, :status])
     end
 end
