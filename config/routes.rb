@@ -5,6 +5,10 @@ Rails.application.routes.draw do
       resources :time_punches
     end
   end
+
+  # resources :work_segments do
+  #   resources :time_punches    
+  #  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
     # resources :projects
   # namespace :admin do

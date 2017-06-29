@@ -37,7 +37,7 @@ class TimePunchesController < ApplicationController
     # end
     puts("oatmeal bowl!!!")
 
-    @time_punch = @workSegment.timePunches.create(punch: Time.current, status: true)
+    @time_punch = @workSegment.timePunches.new(punch: Time.current, status: true)
     puts(@time_punch.punch)
 
     respond_to do |format|
@@ -87,6 +87,6 @@ class TimePunchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def time_punch_params
-      params.require(:time_punch).permit(:punch, :workSegment_id, :status)
+      params.require(:time_punch).permit(:punch, :work_segment_id, :status)
     end
 end

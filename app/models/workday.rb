@@ -3,7 +3,7 @@ class Workday < ApplicationRecord
   belongs_to :user
   has_many :workSegments
   
-  validates_presence_of :dayDate, :hoursWorked
+  # validates_presence_of :dayDate, :hoursWorked
 
   
   def retrieve_last_time_punch

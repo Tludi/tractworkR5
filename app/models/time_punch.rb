@@ -1,3 +1,3 @@
 class TimePunch < ApplicationRecord
-  belongs_to :workSegment
+  belongs_to :work_segment
 end

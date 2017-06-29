@@ -11,7 +11,7 @@ class DashboardController < ApplicationController
 
     @current_time = get_current_time
 
-    @time_punch = TimePunch.new
+    @time_punch = @work_segment.timePunches.new
     # @latest_time_punch = @workday.timePunches.last
     # @time_punch_status = @latest_time_punch.clockedInStatus if @latest_time_punch
     # @current_workday_time_punches = @workday.timePunches.order(created_at: :desc)
