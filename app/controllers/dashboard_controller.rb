@@ -15,8 +15,10 @@ class DashboardController < ApplicationController
     # @latest_time_punch = @workday.timePunches.last
     # @time_punch_status = @latest_time_punch.clockedInStatus if @latest_time_punch
     @time_punches = TimePunch.all
-    @current_workday_time_punches = @work_segment.timePunches.order(created_at: :desc)
 
+    # work Segment can only have 2 punches. This pulls the last work_segment
+    @current_workday_time_punches = @work_segment.timePunches.order(created_at: :desc)
+    @current_worksegment_time_punches = @work_segment.timePunches.order(created_at: :desc)
     # @current_project = Project.find(@workday.project.id)
     # @hours_worked = Workday.calculate_workhours(@workday)
     @hours_worked = 6.5

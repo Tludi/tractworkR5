@@ -39459,3 +39459,1393 @@ Processing by DashboardController#index as HTML
 Completed 200 OK in 404ms (Views: 222.5ms | ActiveRecord: 57.0ms)
 
 
+Started GET "/dashboard" for 127.0.0.1 at 2017-06-29 15:12:01 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.7ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mWorkSegment Exists (2.4ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (1.1ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1[0m  [["work_segment_id", 12]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_timePunchForm.html.erb (1.8ms) [cache miss]
+  [1m[36mTimePunch Load (0.4ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[36mTimePunch Load (0.5ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC[0m  [["work_segment_id", 12]]
+  Rendered dashboard/index.html.erb within layouts/application (12.5ms)
+  Rendered layouts/_topnavbar_2.html.erb (1.9ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 208ms (Views: 185.6ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-06-29 15:13:04 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.8ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mWorkSegment Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (1.4ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1[0m  [["work_segment_id", 12]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_timePunchForm.html.erb (1.6ms) [cache miss]
+  [1m[36mTimePunch Load (0.4ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[36mTimePunch Load (0.4ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC[0m  [["work_segment_id", 12]]
+  Rendered dashboard/index.html.erb within layouts/application (11.6ms)
+  Rendered layouts/_topnavbar_2.html.erb (3.4ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 222ms (Views: 202.9ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-06-29 15:13:24 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.6ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mWorkSegment Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.9ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1[0m  [["work_segment_id", 12]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_timePunchForm.html.erb (1.2ms) [cache miss]
+  [1m[36mTimePunch Load (0.6ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches"[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[36mTimePunch Load (0.5ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC[0m  [["work_segment_id", 12]]
+  Rendered dashboard/index.html.erb within layouts/application (10.7ms)
+  Rendered layouts/_topnavbar_2.html.erb (2.3ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 216ms (Views: 194.0ms | ActiveRecord: 5.6ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-06-29 15:14:40 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (2.0ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mWorkSegment Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.6ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1[0m  [["work_segment_id", 12]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_timePunchForm.html.erb (1.5ms) [cache miss]
+  [1m[36mTimePunch Load (0.5ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[36mTimePunch Load (0.4ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC[0m  [["work_segment_id", 12]]
+  Rendered dashboard/index.html.erb within layouts/application (18.8ms)
+  Rendered layouts/_topnavbar_2.html.erb (3.2ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.7ms) [cache miss]
+Completed 200 OK in 223ms (Views: 196.5ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-06-29 15:15:23 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.6ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mWorkSegment Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (1.0ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1[0m  [["work_segment_id", 12]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_timePunchForm.html.erb (1.3ms) [cache miss]
+  [1m[36mTimePunch Load (0.4ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[36mTimePunch Load (0.4ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC[0m  [["work_segment_id", 12]]
+  Rendered dashboard/index.html.erb within layouts/application (9.4ms)
+  Rendered layouts/_topnavbar_2.html.erb (3.8ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 208ms (Views: 187.8ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-06-29 15:15:59 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.7ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.7ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mWorkSegment Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.7ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1[0m  [["work_segment_id", 12]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_timePunchForm.html.erb (1.9ms) [cache miss]
+  [1m[36mTimePunch Load (0.7ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches"[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[36mTimePunch Load (0.4ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC[0m  [["work_segment_id", 12]]
+  Rendered dashboard/index.html.erb within layouts/application (10.7ms)
+  Rendered layouts/_topnavbar_2.html.erb (3.1ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.7ms) [cache miss]
+Completed 200 OK in 205ms (Views: 182.7ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-06-29 15:17:17 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.7ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mWorkSegment Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (1.0ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1[0m  [["work_segment_id", 12]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_timePunchForm.html.erb (7.5ms) [cache miss]
+  [1m[36mTimePunch Load (1.1ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches"[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[36mTimePunch Load (0.6ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC[0m  [["work_segment_id", 12]]
+  Rendered dashboard/index.html.erb within layouts/application (22.3ms)
+  Rendered layouts/_topnavbar_2.html.erb (2.0ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 562ms (Views: 272.2ms | ActiveRecord: 58.9ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-06-29 15:17:27 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.5ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.7ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mWorkSegment Exists (4.6ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.8ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1[0m  [["work_segment_id", 12]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_timePunchForm.html.erb (2.7ms) [cache miss]
+  [1m[36mTimePunch Load (0.5ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[36mTimePunch Load (0.6ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC[0m  [["work_segment_id", 12]]
+  Rendered dashboard/index.html.erb within layouts/application (18.0ms)
+  Rendered layouts/_topnavbar_2.html.erb (3.9ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.9ms) [cache miss]
+Completed 200 OK in 341ms (Views: 311.8ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-06-29 15:19:27 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.5ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mWorkSegment Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.7ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1[0m  [["work_segment_id", 12]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_timePunchForm.html.erb (4.9ms) [cache miss]
+  [1m[36mTimePunch Load (0.5ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[36mTimePunch Load (0.4ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC[0m  [["work_segment_id", 12]]
+  Rendered dashboard/index.html.erb within layouts/application (14.3ms)
+  Rendered layouts/_topnavbar_2.html.erb (3.6ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.9ms) [cache miss]
+Completed 200 OK in 430ms (Views: 226.0ms | ActiveRecord: 40.0ms)
+
+
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "work_segments"[0m
+  [1m[36mWorkSegment Load (0.6ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" ORDER BY "work_segments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTimePunch Load (0.4ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1[0m  [["work_segment_id", 12]]
+  [1m[36mTimePunch Load (0.5ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches"[0m
+  [1m[35mSQL (4.0ms)[0m  [1m[31mDELETE FROM "time_punches" WHERE "time_punches"."id" = $1[0m  [["id", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "time_punches" WHERE "time_punches"."id" = $1[0m  [["id", 2]]
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "time_punches" WHERE "time_punches"."id" = $1[0m  [["id", 3]]
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "time_punches" WHERE "time_punches"."id" = $1[0m  [["id", 4]]
+  [1m[35mSQL (0.7ms)[0m  [1m[31mDELETE FROM "time_punches" WHERE "time_punches"."id" = $1[0m  [["id", 5]]
+  [1m[36mTimePunch Load (0.5ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches"[0m
+  [1m[36mWorkSegment Load (0.7ms)[0m  [1m[34mSELECT "work_segments".* FROM "work_segments"[0m
+  [1m[35mSQL (3.6ms)[0m  [1m[31mDELETE FROM "work_segments" WHERE "work_segments"."id" = $1[0m  [["id", 8]]
+  [1m[35mSQL (0.7ms)[0m  [1m[31mDELETE FROM "work_segments" WHERE "work_segments"."id" = $1[0m  [["id", 9]]
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "work_segments" WHERE "work_segments"."id" = $1[0m  [["id", 10]]
+  [1m[35mSQL (1.7ms)[0m  [1m[31mDELETE FROM "work_segments" WHERE "work_segments"."id" = $1[0m  [["id", 11]]
+  [1m[35mSQL (1.1ms)[0m  [1m[31mDELETE FROM "work_segments" WHERE "work_segments"."id" = $1[0m  [["id", 12]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "work_segments"[0m
+Started GET "/dashboard" for 127.0.0.1 at 2017-06-29 15:26:14 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.5ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mWorkSegment Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWorkday Load (0.3ms)[0m  [1m[34mSELECT  "workdays".* FROM "workdays" WHERE "workdays"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "work_segments" ("workday_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["workday_id", 4], ["created_at", "2017-06-29 22:26:14.908457"], ["updated_at", "2017-06-29 22:26:14.908457"]]
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_timePunchForm.html.erb (1.7ms) [cache miss]
+  [1m[36mTimePunch Load (0.5ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[36mTimePunch Load (0.4ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC[0m  [["work_segment_id", 13]]
+  Rendered dashboard/index.html.erb within layouts/application (9.8ms)
+  Rendered layouts/_topnavbar_2.html.erb (2.0ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 193ms (Views: 166.4ms | ActiveRecord: 7.6ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "work_segments"[0m
+  [1m[36mWorkSegment Load (0.4ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" ORDER BY "work_segments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mTimePunch Load (0.4ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1[0m  [["work_segment_id", 13]]
+Started POST "/workdays/4/work_segments/13/time_punches" for 127.0.0.1 at 2017-06-29 15:27:20 -0700
+Processing by TimePunchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"u9eUC+E3p6HZWHEWDK36RO3tqUTbCbNszSGdOg7oDImi+tn27AgufsXcjMQDnpmHA7LhyaJkOFItvdpduSVehg==", "commit"=>"Start", "workday_id"=>"4", "work_segment_id"=>"13"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.4ms)[0m  [1m[34mSELECT  "workdays".* FROM "workdays" WHERE "workdays"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (3.4ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "time_punches" ("punch", "work_segment_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["punch", "2017-06-29 22:27:20.042031"], ["work_segment_id", 13], ["status", "t"], ["created_at", "2017-06-29 22:27:20.046164"], ["updated_at", "2017-06-29 22:27:20.046164"]]
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 38ms (ActiveRecord: 10.4ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-06-29 15:27:20 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.4ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mWorkSegment Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.9ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1[0m  [["work_segment_id", 13]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_timePunchForm.html.erb (1.4ms) [cache miss]
+  [1m[36mTimePunch Load (0.5ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[36mTimePunch Load (0.5ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC[0m  [["work_segment_id", 13]]
+  Rendered dashboard/index.html.erb within layouts/application (9.3ms)
+  Rendered layouts/_topnavbar_2.html.erb (3.8ms) [cache miss]
+  Rendered layouts/_footer.html.erb (1.4ms) [cache miss]
+Completed 200 OK in 190ms (Views: 172.2ms | ActiveRecord: 4.7ms)
+
+
+Started POST "/workdays/4/work_segments/13/time_punches" for 127.0.0.1 at 2017-06-29 15:27:43 -0700
+Processing by TimePunchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xGvfYf3u230q6REFMMMGN4tKrD+wYPscieZU4stN7V7dRpKc8NFSojZt7Nc/8GX0ZRXksskNcCJpehOFfIC/UQ==", "commit"=>"Start", "workday_id"=>"4", "work_segment_id"=>"13"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (2.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.6ms)[0m  [1m[34mSELECT  "workdays".* FROM "workdays" WHERE "workdays"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.9ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "time_punches" ("punch", "work_segment_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["punch", "2017-06-29 22:27:43.663080"], ["work_segment_id", 13], ["status", "t"], ["created_at", "2017-06-29 22:27:43.666069"], ["updated_at", "2017-06-29 22:27:43.666069"]]
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 27ms (ActiveRecord: 10.3ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-06-29 15:27:43 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.6ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mWorkSegment Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.7ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1[0m  [["work_segment_id", 13]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_timePunchForm.html.erb (1.3ms) [cache miss]
+  [1m[36mTimePunch Load (0.4ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[36mTimePunch Load (0.5ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC[0m  [["work_segment_id", 13]]
+  Rendered dashboard/index.html.erb within layouts/application (10.8ms)
+  Rendered layouts/_topnavbar_2.html.erb (2.2ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.7ms) [cache miss]
+Completed 200 OK in 243ms (Views: 222.5ms | ActiveRecord: 4.6ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "work_segments"[0m
+  [1m[36mWorkSegment Load (0.5ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" ORDER BY "work_segments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1[0m  [["work_segment_id", 13]]
+Started POST "/workdays/4/work_segments/13/time_punches" for 127.0.0.1 at 2017-06-29 15:29:00 -0700
+Processing by TimePunchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ZHjYQbUlA0IlaEltBms5IUzGgL924Qn87N/AJV6xPXp9VZW8uBqKnTnstL8JWFriopnIMg+MgsIMQ4dC6XxvdQ==", "commit"=>"Start", "workday_id"=>"4", "work_segment_id"=>"13"}
+  [1m[36mUser Load (6.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (2.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.3ms)[0m  [1m[34mSELECT  "workdays".* FROM "workdays" WHERE "workdays"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.6ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[35m (1.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "time_punches" ("punch", "work_segment_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["punch", "2017-06-29 22:29:00.848317"], ["work_segment_id", 13], ["status", "t"], ["created_at", "2017-06-29 22:29:00.852305"], ["updated_at", "2017-06-29 22:29:00.852305"]]
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 34ms (ActiveRecord: 16.6ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-06-29 15:29:00 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.6ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mWorkSegment Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.7ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1[0m  [["work_segment_id", 13]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWorkday Load (0.7ms)[0m  [1m[34mSELECT  "workdays".* FROM "workdays" WHERE "workdays"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "work_segments" ("workday_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["workday_id", 4], ["created_at", "2017-06-29 22:29:00.884888"], ["updated_at", "2017-06-29 22:29:00.884888"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_timePunchForm.html.erb (1.6ms) [cache miss]
+  [1m[36mTimePunch Load (0.6ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches"[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[36mTimePunch Load (0.5ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC[0m  [["work_segment_id", 14]]
+  Rendered dashboard/index.html.erb within layouts/application (10.9ms)
+  Rendered layouts/_topnavbar_2.html.erb (1.9ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 194ms (Views: 169.0ms | ActiveRecord: 6.8ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "work_segments"[0m
+  [1m[36mWorkSegment Load (0.5ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" ORDER BY "work_segments"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1[0m  [["work_segment_id", 14]]
+Started GET "/dashboard" for 127.0.0.1 at 2017-06-29 15:36:11 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.6ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 2]]
+Completed 500 Internal Server Error in 154ms (ActiveRecord: 28.8ms)
+
+
+
+ArgumentError - Unknown key: :limit. Valid keys are: :class_name, :anonymous_class, :foreign_key, :validate, :autosave, :table_name, :before_add, :after_add, :before_remove, :after_remove, :extend, :primary_key, :dependent, :as, :through, :source, :source_type, :inverse_of, :counter_cache, :join_table, :foreign_type, :index_errors:
+  activesupport (5.1.1) lib/active_support/core_ext/hash/keys.rb:79:in `block in assert_valid_keys'
+  activesupport (5.1.1) lib/active_support/core_ext/hash/keys.rb:77:in `assert_valid_keys'
+  activerecord (5.1.1) lib/active_record/associations/builder/association.rb:78:in `validate_options'
+  activerecord (5.1.1) lib/active_record/associations/builder/association.rb:44:in `create_reflection'
+  activerecord (5.1.1) lib/active_record/associations/builder/association.rb:29:in `build'
+  activerecord (5.1.1) lib/active_record/associations.rb:1396:in `has_many'
+  app/models/work_segment.rb:3:in `<class:WorkSegment>'
+  app/models/work_segment.rb:1:in `<top (required)>'
+  activesupport (5.1.1) lib/active_support/dependencies.rb:476:in `block in load_file'
+  activesupport (5.1.1) lib/active_support/dependencies.rb:661:in `new_constants_in'
+  activesupport (5.1.1) lib/active_support/dependencies.rb:475:in `load_file'
+  activesupport (5.1.1) lib/active_support/dependencies.rb:374:in `block in require_or_load'
+  activesupport (5.1.1) lib/active_support/dependencies.rb:36:in `block in load_interlock'
+  activesupport (5.1.1) lib/active_support/dependencies/interlock.rb:12:in `block in loading'
+  activesupport (5.1.1) lib/active_support/concurrency/share_lock.rb:149:in `exclusive'
+  activesupport (5.1.1) lib/active_support/dependencies/interlock.rb:11:in `loading'
+  activesupport (5.1.1) lib/active_support/dependencies.rb:36:in `load_interlock'
+  activesupport (5.1.1) lib/active_support/dependencies.rb:357:in `require_or_load'
+  activesupport (5.1.1) lib/active_support/dependencies.rb:510:in `load_missing_constant'
+  activesupport (5.1.1) lib/active_support/dependencies.rb:202:in `const_missing'
+  activesupport (5.1.1) lib/active_support/dependencies.rb:542:in `load_missing_constant'
+  activesupport (5.1.1) lib/active_support/dependencies.rb:202:in `const_missing'
+  app/controllers/dashboard_controller.rb:10:in `index'
+  actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:186:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:108:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/core_ext/time/zones.rb:64:in `use_zone'
+  app/controllers/application_controller.rb:23:in `user_time_zone'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:135:in `run_callbacks'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+  activerecord (5.1.1) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:124:in `process'
+  actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+  actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+  rack (2.0.3) lib/rack/etag.rb:25:in `call'
+  rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.3) lib/rack/head.rb:12:in `call'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+  rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+  rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+  railties (5.1.1) lib/rails/engine.rb:522:in `call'
+  puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+  puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+  puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+  puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+  puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/__better_errors/809fb08392c18792/variables" for 127.0.0.1 at 2017-06-29 15:36:12 -0700
+Started GET "/dashboard" for 127.0.0.1 at 2017-06-29 15:38:41 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.5ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 2]]
+Completed 500 Internal Server Error in 87ms (ActiveRecord: 20.2ms)
+
+
+
+SyntaxError - syntax error, unexpected ':', expecting '}'
+_many :timePunches, -> {limit: 2}
+                              ^:
+  app/models/work_segment.rb:3:in `'
+  activesupport (5.1.1) lib/active_support/dependencies.rb:476:in `block in load_file'
+  activesupport (5.1.1) lib/active_support/dependencies.rb:661:in `new_constants_in'
+  activesupport (5.1.1) lib/active_support/dependencies.rb:475:in `load_file'
+  activesupport (5.1.1) lib/active_support/dependencies.rb:374:in `block in require_or_load'
+  activesupport (5.1.1) lib/active_support/dependencies.rb:36:in `block in load_interlock'
+  activesupport (5.1.1) lib/active_support/dependencies/interlock.rb:12:in `block in loading'
+  activesupport (5.1.1) lib/active_support/concurrency/share_lock.rb:149:in `exclusive'
+  activesupport (5.1.1) lib/active_support/dependencies/interlock.rb:11:in `loading'
+  activesupport (5.1.1) lib/active_support/dependencies.rb:36:in `load_interlock'
+  activesupport (5.1.1) lib/active_support/dependencies.rb:357:in `require_or_load'
+  activesupport (5.1.1) lib/active_support/dependencies.rb:510:in `load_missing_constant'
+  activesupport (5.1.1) lib/active_support/dependencies.rb:202:in `const_missing'
+  activesupport (5.1.1) lib/active_support/dependencies.rb:542:in `load_missing_constant'
+  activesupport (5.1.1) lib/active_support/dependencies.rb:202:in `const_missing'
+  app/controllers/dashboard_controller.rb:10:in `index'
+  actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:186:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:108:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/core_ext/time/zones.rb:64:in `use_zone'
+  app/controllers/application_controller.rb:23:in `user_time_zone'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:135:in `run_callbacks'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+  activerecord (5.1.1) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:124:in `process'
+  actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+  actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+  rack (2.0.3) lib/rack/etag.rb:25:in `call'
+  rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.3) lib/rack/head.rb:12:in `call'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+  rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+  rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+  railties (5.1.1) lib/rails/engine.rb:522:in `call'
+  puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+  puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+  puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+  puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+  puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/__better_errors/64fc98439b497e65/variables" for 127.0.0.1 at 2017-06-29 15:38:42 -0700
+Started GET "/dashboard" for 127.0.0.1 at 2017-06-29 15:39:14 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.8ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mWorkSegment Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.7ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 AND "time_punches"."limit" = $2[0m  [["work_segment_id", 14], ["limit", 2]]
+Completed 500 Internal Server Error in 233ms (ActiveRecord: 46.9ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedColumn: ERROR:  column time_punches.limit does not exist
+LINE 1: ..." WHERE "time_punches"."work_segment_id" = $1 AND "time_punc...
+                                                             ^
+: SELECT COUNT(*) FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 AND "time_punches"."limit" = $2:
+  activerecord (5.1.1) lib/active_record/connection_adapters/abstract_adapter.rb:598:in `translate_exception_class'
+  activerecord (5.1.1) lib/active_record/connection_adapters/abstract_adapter.rb:616:in `rescue in log'
+  activerecord (5.1.1) lib/active_record/connection_adapters/abstract_adapter.rb:610:in `log'
+  activerecord (5.1.1) lib/active_record/connection_adapters/postgresql_adapter.rb:618:in `exec_no_cache'
+  activerecord (5.1.1) lib/active_record/connection_adapters/postgresql_adapter.rb:607:in `execute_and_clear'
+  activerecord (5.1.1) lib/active_record/connection_adapters/postgresql/database_statements.rb:103:in `exec_query'
+  activerecord (5.1.1) lib/active_record/connection_adapters/abstract/database_statements.rb:361:in `select'
+  activerecord (5.1.1) lib/active_record/connection_adapters/abstract/database_statements.rb:42:in `select_all'
+  activerecord (5.1.1) lib/active_record/connection_adapters/abstract/query_cache.rb:95:in `block in select_all'
+  activerecord (5.1.1) lib/active_record/connection_adapters/abstract/query_cache.rb:117:in `block in cache_sql'
+  /Users/manatee/.rbenv/versions/2.4.1/lib/ruby/2.4.0/monitor.rb:214:in `mon_synchronize'
+  activerecord (5.1.1) lib/active_record/connection_adapters/abstract/query_cache.rb:104:in `cache_sql'
+  activerecord (5.1.1) lib/active_record/connection_adapters/abstract/query_cache.rb:95:in `select_all'
+  activerecord (5.1.1) lib/active_record/relation/calculations.rb:245:in `execute_simple_calculation'
+  activerecord (5.1.1) lib/active_record/relation/calculations.rb:204:in `perform_calculation'
+  activerecord (5.1.1) lib/active_record/relation/calculations.rb:118:in `calculate'
+  activerecord (5.1.1) lib/active_record/associations/collection_proxy.rb:751:in `calculate'
+  activerecord (5.1.1) lib/active_record/relation/calculations.rb:41:in `count'
+  app/models/work_segment.rb:13:in `retrieve_current_segment'
+  app/controllers/dashboard_controller.rb:10:in `index'
+  actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:186:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:108:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/core_ext/time/zones.rb:64:in `use_zone'
+  app/controllers/application_controller.rb:23:in `user_time_zone'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:135:in `run_callbacks'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+  activerecord (5.1.1) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:124:in `process'
+  actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+  actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+  rack (2.0.3) lib/rack/etag.rb:25:in `call'
+  rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.3) lib/rack/head.rb:12:in `call'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+  rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+  rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+  railties (5.1.1) lib/rails/engine.rb:522:in `call'
+  puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+  puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+  puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+  puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+  puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/__better_errors/a5109f374ea9d17d/variables" for 127.0.0.1 at 2017-06-29 15:39:14 -0700
+  [1m[36mWorkSegment Load (22.3ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 11]]
+Started GET "/dashboard" for 127.0.0.1 at 2017-06-29 15:40:33 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (1.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.6ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mWorkSegment Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.9ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 4], ["LIMIT", 1]]
+  [1m[35m (4.6ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 LIMIT $2) subquery_for_count[0m  [["work_segment_id", 14], ["LIMIT", 2]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_timePunchForm.html.erb (2.6ms) [cache miss]
+  [1m[36mTimePunch Load (0.5ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[36mTimePunch Load (0.5ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 14], ["LIMIT", 2]]
+  Rendered dashboard/index.html.erb within layouts/application (11.1ms)
+  Rendered layouts/_topnavbar_2.html.erb (1.9ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.5ms) [cache miss]
+Completed 200 OK in 331ms (Views: 178.2ms | ActiveRecord: 45.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-07-03 10:41:25 -0700
+  [1m[35m (12.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LaunchpadController#index as HTML
+  [1m[36mUser Load (20.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (2.6ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering launchpad/index.html.erb within layouts/launchpad
+  Rendered launchpad/index.html.erb within layouts/launchpad (1821.2ms)
+Completed 200 OK in 4287ms (Views: 2556.5ms | ActiveRecord: 103.4ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-07-03 10:41:39 -0700
+Processing by UserSessionsController#new as HTML
+  [1m[36mUser Load (5.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (28.6ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user_sessions/new.html.erb within layouts/application
+  Rendered user_sessions/_form.html.erb (3.1ms) [cache miss]
+  Rendered user_sessions/new.html.erb within layouts/application (8.7ms)
+  Rendered layouts/_topnavbar_2.html.erb (2.2ms) [cache miss]
+  Rendered layouts/_footer.html.erb (1.5ms) [cache miss]
+Completed 200 OK in 717ms (Views: 654.9ms | ActiveRecord: 34.3ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at 2017-07-03 10:41:49 -0700
+Processing by UserSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zAp/5H92fYX8u5hv2DAGwnOh/CS7EyLlv0mmbYJZTLio+8bJ7RJM2i5Cn5qtujWwOkvkxGSI1BekUDQ3S3A7Vw==", "email"=>"milo", "password"=>"[FILTERED]", "commit"=>"Login to your account"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (6.7ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = 'milo' ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 326ms (ActiveRecord: 11.8ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-07-03 10:41:49 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (5.5ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (17.6ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (26.3ms)[0m  [1m[32mINSERT INTO "workdays" ("hoursWorked", "dayDate", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["hoursWorked", "0.0"], ["dayDate", "2017-07-03"], ["user_id", 2], ["created_at", "2017-07-03 17:41:49.941449"], ["updated_at", "2017-07-03 17:41:49.941449"]]
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mWorkSegment Exists (14.2ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 5], ["LIMIT", 1]]
+  [1m[35m (34.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWorkday Load (0.6ms)[0m  [1m[34mSELECT  "workdays".* FROM "workdays" WHERE "workdays"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "work_segments" ("workday_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["workday_id", 5], ["created_at", "2017-07-03 17:41:50.188758"], ["updated_at", "2017-07-03 17:41:50.188758"]]
+  [1m[35m (1.1ms)[0m  [1m[35mCOMMIT[0m
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_timePunchForm.html.erb (24.2ms) [cache miss]
+  [1m[36mTimePunch Load (9.2ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches"[0m
+  [1m[35m (13.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[36mTimePunch Load (5.9ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 15], ["LIMIT", 2]]
+  Rendered dashboard/index.html.erb within layouts/application (106.1ms)
+  Rendered layouts/_topnavbar_2.html.erb (3.4ms) [cache miss]
+  Rendered layouts/_footer.html.erb (1.5ms) [cache miss]
+Completed 200 OK in 1377ms (Views: 733.3ms | ActiveRecord: 303.1ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-07-03 10:47:58 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (3.6ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.6ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mWorkSegment Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 5], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (2.0ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 5], ["LIMIT", 1]]
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT COUNT(count_column) FROM (SELECT  1 AS count_column FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 LIMIT $2) subquery_for_count[0m  [["work_segment_id", 15], ["LIMIT", 2]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_timePunchForm.html.erb (5.2ms) [cache miss]
+  [1m[36mTimePunch Load (3.2ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches"[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[36mTimePunch Load (0.7ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 15], ["LIMIT", 2]]
+  Rendered dashboard/index.html.erb within layouts/application (19.9ms)
+  Rendered layouts/_topnavbar_2.html.erb (2.4ms) [cache miss]
+  Rendered layouts/_footer.html.erb (1.5ms) [cache miss]
+Completed 200 OK in 370ms (Views: 328.5ms | ActiveRecord: 13.5ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-07-03 11:52:09 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.6ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (2.5ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mWorkSegment Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 5], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.9ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 5], ["LIMIT", 1]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_timePunchForm.html.erb (7.0ms) [cache miss]
+  [1m[36mTimePunch Load (1.4ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches"[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[36mTimePunch Load (0.8ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 15], ["LIMIT", 2]]
+  Rendered dashboard/index.html.erb within layouts/application (47.7ms)
+  Rendered layouts/_topnavbar_2.html.erb (8.2ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 1382ms (Views: 531.6ms | ActiveRecord: 126.8ms)
+
+
+Started POST "/workdays/5/work_segments/15/time_punches" for 127.0.0.1 at 2017-07-03 11:52:45 -0700
+Processing by TimePunchesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"zlTrF3IzKPo47/mkPZUuQ8sHV8c3pnU0BIYPIRdVGsPXeabqfwyhJSRrBHYypk2AJVgfSk7L/grkGkhGoJhIzA==", "commit"=>"Start", "workday_id"=>"5", "work_segment_id"=>"15"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (3.7ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.6ms)[0m  [1m[34mSELECT  "workdays".* FROM "workdays" WHERE "workdays"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.8ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 5], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWorkSegment Load (0.7ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  [1m[35mSQL (11.4ms)[0m  [1m[32mINSERT INTO "time_punches" ("punch", "work_segment_id", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["punch", "2017-07-03 18:52:45.663697"], ["work_segment_id", 15], ["status", "t"], ["created_at", "2017-07-03 18:52:45.675488"], ["updated_at", "2017-07-03 18:52:45.675488"]]
+  [1m[35m (5.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 63ms (ActiveRecord: 25.1ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-07-03 11:52:45 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (1.6ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (12.6ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[36mWorkSegment Exists (54.6ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 5], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (2.9ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 5], ["LIMIT", 1]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_timePunchForm.html.erb (6.9ms) [cache miss]
+  [1m[36mTimePunch Load (69.9ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches"[0m
+  [1m[35m (26.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[36mTimePunch Load (0.7ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 15], ["LIMIT", 2]]
+  Rendered dashboard/index.html.erb within layouts/application (117.3ms)
+  Rendered layouts/_topnavbar_2.html.erb (4.8ms) [cache miss]
+  Rendered layouts/_footer.html.erb (16.8ms) [cache miss]
+Completed 200 OK in 1140ms (Views: 771.7ms | ActiveRecord: 169.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-07 09:10:37 -0700
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LaunchpadController#index as HTML
+  Rendering launchpad/index.html.erb within layouts/launchpad
+  Rendered launchpad/index.html.erb within layouts/launchpad (637.3ms)
+Completed 200 OK in 958ms (Views: 944.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-08-07 09:10:44 -0700
+Processing by UserSessionsController#new as HTML
+  Rendering user_sessions/new.html.erb within layouts/application
+  Rendered user_sessions/_form.html.erb (3.8ms) [cache miss]
+  Rendered user_sessions/new.html.erb within layouts/application (15.5ms)
+  Rendered layouts/_topnavbar_2.html.erb (2.7ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.4ms) [cache miss]
+Completed 200 OK in 916ms (Views: 244.2ms | ActiveRecord: 42.4ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at 2017-08-07 09:10:56 -0700
+Processing by UserSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ucgYhxV7sWeq92l59YI2iotSs67JdQ8bXHyF3mqIpOczT4Sy7osoKvZg0Vnf2hYKUGHWawBzsZLQWZhYvWgABg==", "email"=>"milo@email.com", "password"=>"[FILTERED]", "commit"=>"Login to your account"}
+  [1m[36mUser Load (19.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = 'milo@email.com' ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering user_sessions/new.html.erb within layouts/application
+  Rendered user_sessions/_form.html.erb (1.2ms) [cache miss]
+  Rendered user_sessions/new.html.erb within layouts/application (3.4ms)
+  Rendered layouts/_topnavbar_2.html.erb (1.6ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 160ms (Views: 136.5ms | ActiveRecord: 19.6ms)
+
+
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started POST "/user_sessions" for 127.0.0.1 at 2017-08-07 09:11:29 -0700
+Processing by UserSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7AkAflGcWak+xsn9OSdvylXx5vK3r8FqmHz7URNWZ2ygvMShdTvRwaq0/Iw2yZ970rj5RDfBhGYeXGNFW3zNIw==", "email"=>"milo", "password"=>"[FILTERED]", "commit"=>"Login to your account"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = 'milo' ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering user_sessions/new.html.erb within layouts/application
+  Rendered user_sessions/_form.html.erb (1.3ms) [cache miss]
+  Rendered user_sessions/new.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_topnavbar_2.html.erb (2.0ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.8ms) [cache miss]
+Completed 200 OK in 292ms (Views: 134.5ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at 2017-08-07 09:11:43 -0700
+Processing by UserSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vZwibjpJHB2T9pyvDWddgUrRX1q8Q0UOn59OLvXmk/bxKeaxHu6UdQeEqd4Cia0wzZhA7DwtAAIZv9Y6vcw5uQ==", "email"=>"milo", "password"=>"[FILTERED]", "commit"=>"Login to your account"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = 'milo' ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 152ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-08-07 09:11:43 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (13.6ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (14.3ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (19.9ms)[0m  [1m[32mINSERT INTO "workdays" ("hoursWorked", "dayDate", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["hoursWorked", "0.0"], ["dayDate", "2017-08-07"], ["user_id", 2], ["created_at", "2017-08-07 16:11:44.072226"], ["updated_at", "2017-08-07 16:11:44.072226"]]
+  [1m[35m (4.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mWorkSegment Exists (14.2ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 6], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWorkday Load (0.4ms)[0m  [1m[34mSELECT  "workdays".* FROM "workdays" WHERE "workdays"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "work_segments" ("workday_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["workday_id", 6], ["created_at", "2017-08-07 16:11:44.147823"], ["updated_at", "2017-08-07 16:11:44.147823"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_timePunchForm.html.erb (5.1ms) [cache miss]
+  [1m[36mTimePunch Load (7.9ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches"[0m
+  [1m[35m (16.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[36mTimePunch Load (2.1ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 16], ["LIMIT", 2]]
+  Rendered dashboard/index.html.erb within layouts/application (38.7ms)
+  Rendered layouts/_topnavbar_2.html.erb (2.0ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 380ms (Views: 141.8ms | ActiveRecord: 124.1ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2017-08-07 09:12:41 -0700
+Processing by UserSessionsController#destroy as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (5.3ms)[0m  [1m[33mUPDATE "users" SET "remember_me_token" = NULL, "remember_me_token_expires_at" = NULL WHERE "users"."id" = $1[0m  [["id", 2]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 12ms (ActiveRecord: 6.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-07 09:12:41 -0700
+Processing by LaunchpadController#index as HTML
+  Rendering launchpad/index.html.erb within layouts/launchpad
+  Rendered launchpad/index.html.erb within layouts/launchpad (12.4ms)
+Completed 200 OK in 170ms (Views: 169.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-08-07 09:12:43 -0700
+Processing by UserSessionsController#new as HTML
+  Rendering user_sessions/new.html.erb within layouts/application
+  Rendered user_sessions/_form.html.erb (1.4ms) [cache miss]
+  Rendered user_sessions/new.html.erb within layouts/application (3.7ms)
+  Rendered layouts/_topnavbar_2.html.erb (1.8ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 158ms (Views: 154.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at 2017-08-07 09:12:54 -0700
+Processing by UserSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"2K4yoMEkpOj6zOVyrremqwbOHsnZOHcm9vRE4jghM4IlGQuLPIUrI7z3n89GLNpj034y2ZWWBHphKwWgeMLMvA==", "email"=>"admin", "password"=>"[FILTERED]", "commit"=>"Login to your account"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = 'admin' ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering user_sessions/new.html.erb within layouts/application
+  Rendered user_sessions/_form.html.erb (7.9ms) [cache miss]
+  Rendered user_sessions/new.html.erb within layouts/application (9.9ms)
+  Rendered layouts/_topnavbar_2.html.erb (1.6ms) [cache miss]
+  Rendered layouts/_footer.html.erb (1.0ms) [cache miss]
+Completed 200 OK in 294ms (Views: 139.7ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at 2017-08-07 09:13:00 -0700
+Processing by UserSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yZKJdCVZSzNXgFvKkkxMwxOExUOgGmy+2E4aMlIQdKdWlkIOQr2cAg0pM4QaCKGYhgs6k5Qp39XgMFn58NVtVA==", "email"=>"admin", "password"=>"[FILTERED]", "commit"=>"Login to your account"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = 'admin' ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 151ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-08-07 09:13:01 -0700
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering admin/dashboard/index.html.erb within layouts/admin
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."account_id" = $1[0m  [["account_id", 1]]
+  Rendered admin/dashboard/index.html.erb within layouts/admin (4.7ms)
+  Rendered layouts/_navigation.html.erb (1.6ms) [cache miss]
+  Rendered layouts/_topnavbar.html.erb (0.6ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.4ms) [cache miss]
+Completed 200 OK in 156ms (Views: 147.1ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/admin/projects" for 127.0.0.1 at 2017-08-07 09:13:54 -0700
+Processing by Admin::ProjectsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (1.8ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering admin/projects/index.html.erb within layouts/admin
+  [1m[36mProject Load (7.0ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."account_id" = $1[0m  [["account_id", 1]]
+  Rendered admin/projects/index.html.erb within layouts/admin (51.9ms)
+  Rendered layouts/_navigation.html.erb (2.4ms) [cache miss]
+  Rendered layouts/_topnavbar.html.erb (1.7ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 221ms (Views: 183.1ms | ActiveRecord: 20.3ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-08-07 09:13:56 -0700
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.6ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering admin/dashboard/index.html.erb within layouts/admin
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."account_id" = $1[0m  [["account_id", 1]]
+  Rendered admin/dashboard/index.html.erb within layouts/admin (5.1ms)
+  Rendered layouts/_navigation.html.erb (2.7ms) [cache miss]
+  Rendered layouts/_topnavbar.html.erb (2.0ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.8ms) [cache miss]
+Completed 200 OK in 236ms (Views: 225.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-08-07 09:14:42 -0700
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.7ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering admin/dashboard/index.html.erb within layouts/admin
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."account_id" = $1[0m  [["account_id", 1]]
+  Rendered admin/dashboard/index.html.erb within layouts/admin (5.4ms)
+  Rendered layouts/_navigation.html.erb (2.5ms) [cache miss]
+  Rendered layouts/_topnavbar.html.erb (1.3ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.9ms) [cache miss]
+Completed 200 OK in 201ms (Views: 190.3ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-08-07 09:14:43 -0700
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.8ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering admin/dashboard/index.html.erb within layouts/admin
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."account_id" = $1[0m  [["account_id", 1]]
+  Rendered admin/dashboard/index.html.erb within layouts/admin (7.7ms)
+  Rendered layouts/_navigation.html.erb (3.3ms) [cache miss]
+  Rendered layouts/_topnavbar.html.erb (1.3ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.8ms) [cache miss]
+Completed 200 OK in 267ms (Views: 251.9ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-08-07 09:14:53 -0700
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering admin/dashboard/index.html.erb within layouts/admin
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."account_id" = $1[0m  [["account_id", 1]]
+  Rendered admin/dashboard/index.html.erb within layouts/admin (6.5ms)
+  Rendered layouts/_navigation.html.erb (2.4ms) [cache miss]
+  Rendered layouts/_topnavbar.html.erb (1.7ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.7ms) [cache miss]
+Completed 200 OK in 217ms (Views: 208.2ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-08-07 09:15:03 -0700
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering admin/dashboard/index.html.erb within layouts/admin
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."account_id" = $1[0m  [["account_id", 1]]
+  Rendered admin/dashboard/index.html.erb within layouts/admin (5.6ms)
+  Rendered layouts/_navigation.html.erb (2.6ms) [cache miss]
+  Rendered layouts/_topnavbar.html.erb (2.0ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.7ms) [cache miss]
+Completed 200 OK in 220ms (Views: 210.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/admin/projects" for 127.0.0.1 at 2017-08-07 09:15:05 -0700
+Processing by Admin::ProjectsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering admin/projects/index.html.erb within layouts/admin
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."account_id" = $1[0m  [["account_id", 1]]
+  Rendered admin/projects/index.html.erb within layouts/admin (5.5ms)
+  Rendered layouts/_navigation.html.erb (2.5ms) [cache miss]
+  Rendered layouts/_topnavbar.html.erb (1.2ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.7ms) [cache miss]
+Completed 200 OK in 185ms (Views: 176.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/admin/projects/1" for 127.0.0.1 at 2017-08-07 09:15:10 -0700
+Processing by Admin::ProjectsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mProject Load (14.3ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" WHERE "projects"."account_id" = $1 AND "projects"."id" = $2 LIMIT $3[0m  [["account_id", 1], ["id", 1], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 17.2ms)
+
+
+
+NoMethodError - undefined method `users' for #<Project:0x007fdcffa233f0>:
+  activemodel (5.1.1) lib/active_model/attribute_methods.rb:432:in `method_missing'
+  app/controllers/admin/projects_controller.rb:16:in `show'
+  actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:186:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:108:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/core_ext/time/zones.rb:64:in `use_zone'
+  app/controllers/application_controller.rb:23:in `user_time_zone'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:135:in `run_callbacks'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+  activerecord (5.1.1) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:124:in `process'
+  actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+  actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+  rack (2.0.3) lib/rack/etag.rb:25:in `call'
+  rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.3) lib/rack/head.rb:12:in `call'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+  rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+  rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+  railties (5.1.1) lib/rails/engine.rb:522:in `call'
+  puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+  puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+  puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+  puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+  puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/__better_errors/61297c0b4b6d0930/variables" for 127.0.0.1 at 2017-08-07 09:15:10 -0700
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/admin" for 127.0.0.1 at 2017-08-07 09:15:49 -0700
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (4.9ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering admin/dashboard/index.html.erb within layouts/admin
+  [1m[36mUser Load (7.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."account_id" = $1[0m  [["account_id", 1]]
+  Rendered admin/dashboard/index.html.erb within layouts/admin (16.1ms)
+  Rendered layouts/_navigation.html.erb (4.4ms) [cache miss]
+  Rendered layouts/_topnavbar.html.erb (1.0ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 343ms (Views: 315.2ms | ActiveRecord: 13.1ms)
+
+
+Started GET "/admin/projects" for 127.0.0.1 at 2017-08-07 09:15:51 -0700
+Processing by Admin::ProjectsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering admin/projects/index.html.erb within layouts/admin
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."account_id" = $1[0m  [["account_id", 1]]
+  Rendered admin/projects/index.html.erb within layouts/admin (6.1ms)
+  Rendered layouts/_navigation.html.erb (3.6ms) [cache miss]
+  Rendered layouts/_topnavbar.html.erb (1.7ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.8ms) [cache miss]
+Completed 200 OK in 221ms (Views: 211.1ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-08-07 09:15:54 -0700
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.5ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering admin/dashboard/index.html.erb within layouts/admin
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."account_id" = $1[0m  [["account_id", 1]]
+  Rendered admin/dashboard/index.html.erb within layouts/admin (6.6ms)
+  Rendered layouts/_navigation.html.erb (5.4ms) [cache miss]
+  Rendered layouts/_topnavbar.html.erb (1.1ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.7ms) [cache miss]
+Completed 200 OK in 275ms (Views: 264.7ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-08-07 09:16:09 -0700
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering admin/dashboard/index.html.erb within layouts/admin
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."account_id" = $1[0m  [["account_id", 1]]
+  Rendered admin/dashboard/index.html.erb within layouts/admin (7.7ms)
+  Rendered layouts/_navigation.html.erb (2.3ms) [cache miss]
+  Rendered layouts/_topnavbar.html.erb (1.7ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.7ms) [cache miss]
+Completed 200 OK in 240ms (Views: 230.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-25 11:58:19 -0700
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LaunchpadController#index as HTML
+  [1m[36mUser Load (24.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (18.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering launchpad/index.html.erb within layouts/launchpad
+  Rendered launchpad/index.html.erb within layouts/launchpad (616.1ms)
+Completed 200 OK in 1493ms (Views: 912.2ms | ActiveRecord: 85.5ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-08-25 11:58:28 -0700
+Processing by UserSessionsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.5ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user_sessions/new.html.erb within layouts/application
+  Rendered user_sessions/_form.html.erb (5.1ms) [cache miss]
+  Rendered user_sessions/new.html.erb within layouts/application (9.1ms)
+  Rendered layouts/_topnavbar_2.html.erb (1.6ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.5ms) [cache miss]
+Completed 200 OK in 244ms (Views: 229.6ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at 2017-08-25 11:58:36 -0700
+Processing by UserSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"IU+iBRywk1ME8HicfjLJ1tJUvSYpekxQwbJeOkstoOzc+Jsu4REcmELLAiGWqbUeB+SRNmXUPwxWbR94C85f0g==", "email"=>"milo", "password"=>"[FILTERED]", "commit"=>"Login to your account"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (14.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = 'milo' ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering user_sessions/new.html.erb within layouts/application
+  Rendered user_sessions/_form.html.erb (1.2ms) [cache miss]
+  Rendered user_sessions/new.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_topnavbar_2.html.erb (1.5ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 300ms (Views: 127.7ms | ActiveRecord: 15.1ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at 2017-08-25 11:58:47 -0700
+Processing by UserSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"B0Z3wPHewkpyIljtjcWAaXWWk/X5B4zEP6Jdg0KPQmGYQry6ljoVeyiLMKMFgW0y4BlsJc00P68H3B5I4Epbkg==", "email"=>"milo", "password"=>"[FILTERED]", "commit"=>"Login to your account"}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = 'milo' ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering user_sessions/new.html.erb within layouts/application
+  Rendered user_sessions/_form.html.erb (1.2ms) [cache miss]
+  Rendered user_sessions/new.html.erb within layouts/application (3.1ms)
+  Rendered layouts/_topnavbar_2.html.erb (1.4ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 298ms (Views: 139.2ms | ActiveRecord: 3.5ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at 2017-08-25 11:59:28 -0700
+Processing by UserSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"c2ajY4ZhscDvX5MbA9fP++Cczmh3EEBR81nPrWAgpsHsYmgZ4YVm8bX2+1WLkyKgdRMxuEMj8zrLJ4xmwuW/Mg==", "email"=>"milo", "password"=>"[FILTERED]", "commit"=>"Login to your account"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.5ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = 'milo' ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering user_sessions/new.html.erb within layouts/application
+  Rendered user_sessions/_form.html.erb (1.2ms) [cache miss]
+  Rendered user_sessions/new.html.erb within layouts/application (3.2ms)
+  Rendered layouts/_topnavbar_2.html.erb (1.4ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.5ms) [cache miss]
+Completed 200 OK in 299ms (Views: 140.4ms | ActiveRecord: 2.6ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at 2017-08-25 11:59:39 -0700
+Processing by UserSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UCD7mdC5H3Iumb/k4F46X6DvC/Xcc5lOJ7rPB+ewvxbPJDDjt13IQ3Qw16poGtcENWD0JehAKiUfxIzMRXWm5Q==", "email"=>"admin", "password"=>"[FILTERED]", "commit"=>"Login to your account"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = 'admin' ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering user_sessions/new.html.erb within layouts/application
+  Rendered user_sessions/_form.html.erb (1.3ms) [cache miss]
+  Rendered user_sessions/new.html.erb within layouts/application (3.3ms)
+  Rendered layouts/_topnavbar_2.html.erb (2.0ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.5ms) [cache miss]
+Completed 200 OK in 286ms (Views: 129.5ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at 2017-08-25 11:59:50 -0700
+Processing by UserSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SRbgPN0pnSmeDdb65M+CexqysvDEwq/6J6Wo66K82DTWEitGus1KGMSkvrRsi28gjz1NIPDxHJEf2+sgAHnBxw==", "email"=>"admin", "password"=>"[FILTERED]", "commit"=>"Login to your account"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = 'admin' ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 157ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/admin" for 127.0.0.1 at 2017-08-25 11:59:51 -0700
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering admin/dashboard/index.html.erb within layouts/admin
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."account_id" = $1[0m  [["account_id", 1]]
+  Rendered admin/dashboard/index.html.erb within layouts/admin (4.7ms)
+  Rendered layouts/_navigation.html.erb (11.8ms) [cache miss]
+  Rendered layouts/_topnavbar.html.erb (1.0ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.5ms) [cache miss]
+Completed 200 OK in 157ms (Views: 140.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin/projects" for 127.0.0.1 at 2017-08-25 12:00:37 -0700
+Processing by Admin::ProjectsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering admin/projects/index.html.erb within layouts/admin
+  [1m[36mProject Load (3.9ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."account_id" = $1[0m  [["account_id", 1]]
+  Rendered admin/projects/index.html.erb within layouts/admin (37.1ms)
+  Rendered layouts/_navigation.html.erb (2.1ms) [cache miss]
+  Rendered layouts/_topnavbar.html.erb (1.1ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 186ms (Views: 163.2ms | ActiveRecord: 12.5ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2017-08-25 12:00:41 -0700
+Processing by UserSessionsController#destroy as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (5.5ms)[0m  [1m[33mUPDATE "users" SET "remember_me_token" = NULL, "remember_me_token_expires_at" = NULL WHERE "users"."id" = $1[0m  [["id", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 13ms (ActiveRecord: 6.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-25 12:00:41 -0700
+Processing by LaunchpadController#index as HTML
+  Rendering launchpad/index.html.erb within layouts/launchpad
+  Rendered launchpad/index.html.erb within layouts/launchpad (10.1ms)
+Completed 200 OK in 165ms (Views: 157.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-08-25 12:00:47 -0700
+Processing by UserSessionsController#new as HTML
+  Rendering user_sessions/new.html.erb within layouts/application
+  Rendered user_sessions/_form.html.erb (1.3ms) [cache miss]
+  Rendered user_sessions/new.html.erb within layouts/application (3.5ms)
+  Rendered layouts/_topnavbar_2.html.erb (1.5ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 146ms (Views: 142.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at 2017-08-25 12:00:54 -0700
+Processing by UserSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XMbW4VCzKxEte/cj68kSooixsGKHWQ9SbDhz09wHN7P/Si64xbmezAujB6TzLCBMeHVNeHVTYMByDTmXI7KF4g==", "email"=>"milo", "password"=>"[FILTERED]", "commit"=>"Login to your account"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = 'milo' ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering user_sessions/new.html.erb within layouts/application
+  Rendered user_sessions/_form.html.erb (1.4ms) [cache miss]
+  Rendered user_sessions/new.html.erb within layouts/application (3.7ms)
+  Rendered layouts/_topnavbar_2.html.erb (1.6ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 274ms (Views: 123.0ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at 2017-08-25 12:01:02 -0700
+Processing by UserSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WzxhNy068TdClcyfF13BWSghPDb5LAHqAuFSO7vbfTePyb4JydRPH7HesRJWZsUciD+Lhk5/gQw4V5uqLvCj5g==", "email"=>"milo", "password"=>"[FILTERED]", "commit"=>"Login to your account"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = 'milo' ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  Rendering user_sessions/new.html.erb within layouts/application
+  Rendered user_sessions/_form.html.erb (1.5ms) [cache miss]
+  Rendered user_sessions/new.html.erb within layouts/application (4.7ms)
+  Rendered layouts/_topnavbar_2.html.erb (1.6ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.7ms) [cache miss]
+Completed 200 OK in 288ms (Views: 130.1ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at 2017-08-25 12:01:11 -0700
+Processing by UserSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NmtEPztUGWXB/93KUPgKHfSNyG08ZYyzVucHtaluSrHinpsB37qnTTK0oEcRww5YVJN/3Ys2DFVsUc4kPEWUYA==", "email"=>"milo", "password"=>"[FILTERED]", "commit"=>"Login to your account"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = 'milo' ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 155ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-08-25 12:01:12 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (2.5ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (24.9ms)[0m  [1m[32mINSERT INTO "workdays" ("hoursWorked", "dayDate", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["hoursWorked", "0.0"], ["dayDate", "2017-08-25"], ["user_id", 2], ["created_at", "2017-08-25 19:01:12.121037"], ["updated_at", "2017-08-25 19:01:12.121037"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mWorkSegment Exists (14.3ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 7], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWorkday Load (0.4ms)[0m  [1m[34mSELECT  "workdays".* FROM "workdays" WHERE "workdays"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "work_segments" ("workday_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["workday_id", 7], ["created_at", "2017-08-25 19:01:12.196359"], ["updated_at", "2017-08-25 19:01:12.196359"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_timePunchForm.html.erb (4.4ms) [cache miss]
+  [1m[36mTimePunch Load (7.9ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches"[0m
+  [1m[35m (16.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[36mTimePunch Load (1.6ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 17], ["LIMIT", 2]]
+  Rendered dashboard/index.html.erb within layouts/application (37.2ms)
+  Rendered layouts/_topnavbar_2.html.erb (1.9ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 305ms (Views: 145.2ms | ActiveRecord: 91.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-27 11:26:03 -0700
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LaunchpadController#index as HTML
+  [1m[36mUser Load (27.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (17.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering launchpad/index.html.erb within layouts/launchpad
+  Rendered launchpad/index.html.erb within layouts/launchpad (689.0ms)
+Completed 200 OK in 1865ms (Views: 1106.3ms | ActiveRecord: 92.6ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-08-27 11:27:02 -0700
+Processing by UserSessionsController#new as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.5ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user_sessions/new.html.erb within layouts/application
+  Rendered user_sessions/_form.html.erb (10.4ms) [cache miss]
+  Rendered user_sessions/new.html.erb within layouts/application (15.3ms)
+  Rendered layouts/_topnavbar_2.html.erb (2.1ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.5ms) [cache miss]
+Completed 200 OK in 337ms (Views: 323.5ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at 2017-08-27 11:27:11 -0700
+Processing by UserSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"3GZuePyFd+2zk2tpfw/poDnn9nmZWdRapluxd4Gk5jV/6pYhaY/CMJVLm+5n6ttOySMLY2tTu8i4bvszfhFUZA==", "email"=>"milo", "password"=>"[FILTERED]", "commit"=>"Login to your account"}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (11.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = 'milo' ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 207ms (ActiveRecord: 12.8ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-08-27 11:27:12 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.6ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (13.2ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (20.6ms)[0m  [1m[32mINSERT INTO "workdays" ("hoursWorked", "dayDate", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["hoursWorked", "0.0"], ["dayDate", "2017-08-27"], ["user_id", 2], ["created_at", "2017-08-27 18:27:12.142161"], ["updated_at", "2017-08-27 18:27:12.142161"]]
+  [1m[35m (5.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mWorkSegment Exists (15.3ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 8], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWorkday Load (0.4ms)[0m  [1m[34mSELECT  "workdays".* FROM "workdays" WHERE "workdays"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "work_segments" ("workday_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["workday_id", 8], ["created_at", "2017-08-27 18:27:12.269648"], ["updated_at", "2017-08-27 18:27:12.269648"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_timePunchForm.html.erb (9.0ms) [cache miss]
+  [1m[36mTimePunch Load (9.7ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches"[0m
+  [1m[35m (13.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[36mTimePunch Load (2.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 18], ["LIMIT", 2]]
+  Rendered dashboard/index.html.erb within layouts/application (47.2ms)
+  Rendered layouts/_topnavbar_2.html.erb (2.3ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 577ms (Views: 287.8ms | ActiveRecord: 133.7ms)
+
+

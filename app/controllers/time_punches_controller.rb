@@ -35,10 +35,8 @@ class TimePunchesController < ApplicationController
     #   @lastTimePunch = @workSegment.timePunches.last
     #   @currentStatus = @lastTimePunch.status
     # end
-    puts("oatmeal bowl!!!")
 
     @time_punch = @workSegment.timePunches.new(punch: Time.current, status: true)
-    puts(@time_punch.punch)
 
     respond_to do |format|
       if @time_punch.save
