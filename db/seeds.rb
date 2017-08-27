@@ -7,8 +7,8 @@ User.create(firstName: "milo",
             lastName: "bloom",
             email: "milo",
             role: "Crew",
-            password: "password",
-            password_confirmation: "password",
+            password: "soccer55",
+            password_confirmation: "soccer55",
             pin: 1234,
             account_id: 1 )
 
@@ -16,8 +16,8 @@ User.create(firstName: "admin",
             lastName: "admin",
             email: "admin",
             role: "Admin",
-            password: "password",
-            password_confirmation: "password",
+            password: "soccer55",
+            password_confirmation: "soccer55",
             pin: 1234,
             account_id: 1 )
 

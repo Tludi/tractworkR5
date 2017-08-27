@@ -257,6 +257,9 @@ GEM
       rubyzip (~> 1.0)
       websocket (~> 1.0)
     shellany (0.0.1)
+    simple_form (3.5.0)
+      actionpack (> 4, < 5.2)
+      activemodel (> 4, < 5.2)
     slop (3.6.0)
     sorcery (0.11.0)
       bcrypt (~> 3.1)
@@ -334,6 +337,7 @@ DEPENDENCIES
   sass-rails
   sdoc
   selenium-webdriver
+  simple_form
   sorcery
   spring
   spring-commands-rspec
@@ -347,4 +351,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.15.0
+   1.15.1

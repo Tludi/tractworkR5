@@ -22,7 +22,7 @@ gem 'time_difference'
 gem 'active_model_serializers'
 # gem 'jquery-datatables-rails', '~> 3.3.0'
 # gem 'pundit'
-# gem 'simple_form'
+gem 'simple_form'
 
 group :development do
   gem 'web-console', '~> 2.0'

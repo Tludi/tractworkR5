@@ -22,7 +22,7 @@ class DashboardController < ApplicationController
     # @current_project = Project.find(@workday.project.id)
     # @hours_worked = Workday.calculate_workhours(@workday)
     @hours_worked = 6.5
-    @hours_saved = @workday.hoursWorked
+    @hours_saved = @workday.totalHoursWorked
   end
 
 

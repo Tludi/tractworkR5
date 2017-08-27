@@ -40849,3 +40849,1097 @@ Processing by DashboardController#index as HTML
 Completed 200 OK in 577ms (Views: 287.8ms | ActiveRecord: 133.7ms)
 
 
+  [1m[35m (7.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (20.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (8247.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "tractwork_development"[0m
+  [1m[35m (7.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (229.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "tractwork_development"[0m
+  [1m[35m (211.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "tractwork_test"[0m
+  [1m[35m (651.3ms)[0m  [1m[35mCREATE DATABASE "tractwork_development" ENCODING = 'unicode'[0m
+  [1m[35m (387.2ms)[0m  [1m[35mCREATE DATABASE "tractwork_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (2.1ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (1.7ms)[0m  [1m[35mDROP TABLE IF EXISTS "accounts" CASCADE[0m
+  [1m[35m (16.9ms)[0m  [1m[35mCREATE TABLE "accounts" ("id" serial NOT NULL PRIMARY KEY, "name" character varying, "time_zone" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "projects" CASCADE[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "projects" ("id" serial NOT NULL PRIMARY KEY, "name" character varying, "code" character varying, "address1" character varying, "address2" character varying, "city" character varying, "state" character varying, "zip_code" character varying, "contact_id" integer, "account_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "time_punches" CASCADE[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "time_punches" ("id" bigserial primary key, "punch" timestamp, "work_segment_id" integer, "status" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (8.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial NOT NULL PRIMARY KEY, "firstName" character varying, "lastName" character varying, "role" character varying, "email" character varying NOT NULL, "crypted_password" character varying, "salt" character varying, "pin" integer, "account_id" integer, "created_at" timestamp, "updated_at" timestamp, "remember_me_token" character varying, "remember_me_token_expires_at" timestamp, "reset_password_token" character varying, "reset_password_token_expires_at" timestamp, "reset_password_email_sent_at" timestamp)[0m
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_remember_me_token" ON "users"  ("remember_me_token")[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "work_segments" CASCADE[0m
+  [1m[35m (5.6ms)[0m  [1m[35mCREATE TABLE "work_segments" ("id" bigserial primary key, "totalTime" decimal, "estimatedTime" decimal, "status" boolean, "workday_id" integer, "task" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "workdays" CASCADE[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE TABLE "workdays" ("id" bigserial primary key, "hoursWorked" decimal, "dayDate" date, "user_id" integer, "notes" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (4.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170627192027)[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20160428224923),
+(20160428224924),
+(20160428224925),
+(20160502200924),
+(20160509202552),
+(20170626192859),
+(20170627191712);
+
+[0m
+  [1m[35m (3.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-08-27 19:59:31.150323"], ["updated_at", "2017-08-27 19:59:31.150323"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "accounts" CASCADE[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "accounts" ("id" serial NOT NULL PRIMARY KEY, "name" character varying, "time_zone" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE IF EXISTS "projects" CASCADE[0m
+  [1m[35m (7.8ms)[0m  [1m[35mCREATE TABLE "projects" ("id" serial NOT NULL PRIMARY KEY, "name" character varying, "code" character varying, "address1" character varying, "address2" character varying, "city" character varying, "state" character varying, "zip_code" character varying, "contact_id" integer, "account_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mDROP TABLE IF EXISTS "time_punches" CASCADE[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "time_punches" ("id" bigserial primary key, "punch" timestamp, "work_segment_id" integer, "status" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial NOT NULL PRIMARY KEY, "firstName" character varying, "lastName" character varying, "role" character varying, "email" character varying NOT NULL, "crypted_password" character varying, "salt" character varying, "pin" integer, "account_id" integer, "created_at" timestamp, "updated_at" timestamp, "remember_me_token" character varying, "remember_me_token_expires_at" timestamp, "reset_password_token" character varying, "reset_password_token_expires_at" timestamp, "reset_password_email_sent_at" timestamp)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (4.2ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_remember_me_token" ON "users"  ("remember_me_token")[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "work_segments" CASCADE[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "work_segments" ("id" bigserial primary key, "totalTime" decimal, "estimatedTime" decimal, "status" boolean, "workday_id" integer, "task" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "workdays" CASCADE[0m
+  [1m[35m (5.7ms)[0m  [1m[35mCREATE TABLE "workdays" ("id" bigserial primary key, "hoursWorked" decimal, "dayDate" date, "user_id" integer, "notes" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (14.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (12.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170627192027)[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20160428224923),
+(20160428224924),
+(20160428224925),
+(20160502200924),
+(20160509202552),
+(20170626192859),
+(20170627191712);
+
+[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-08-27 19:59:31.309070"], ["updated_at", "2017-08-27 19:59:31.309070"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "accounts" ("name", "time_zone", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test Account"], ["time_zone", "Pacific Time (US & Canada)"], ["created_at", "2017-08-27 19:59:31.828039"], ["updated_at", "2017-08-27 19:59:31.828039"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "milo"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("firstName", "lastName", "role", "email", "crypted_password", "salt", "pin", "account_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["firstName", "milo"], ["lastName", "bloom"], ["role", "Crew"], ["email", "milo"], ["crypted_password", "$2a$10$d3A71JDxYIgT.UMN6tXTbexSUc1FFyyWAi0NmerHvM.qwsohiffGy"], ["salt", "HpDTMkXrFqRSentJuavV"], ["pin", 1234], ["account_id", 1], ["created_at", "2017-08-27 19:59:31.990332"], ["updated_at", "2017-08-27 19:59:31.990332"]]
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("firstName", "lastName", "role", "email", "crypted_password", "salt", "pin", "account_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["firstName", "admin"], ["lastName", "admin"], ["role", "Admin"], ["email", "admin"], ["crypted_password", "$2a$10$gqXLLi29qGsTOqMJsu5NWeUUrOLaNPMdLpF406mgcBDGRSyfukVvG"], ["salt", "nuoxMLRTcSvs1XUKxHyu"], ["pin", 1234], ["account_id", 1], ["created_at", "2017-08-27 19:59:32.086348"], ["updated_at", "2017-08-27 19:59:32.086348"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started GET "/dashboard" for 127.0.0.1 at 2017-08-27 13:09:01 -0700
+  [1m[35m (11.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.5ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (10.1ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (12.4ms)[0m  [1m[32mINSERT INTO "workdays" ("hoursWorked", "dayDate", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["hoursWorked", "0.0"], ["dayDate", "2017-08-27"], ["user_id", 1], ["created_at", "2017-08-27 20:09:02.787079"], ["updated_at", "2017-08-27 20:09:02.787079"]]
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mWorkSegment Exists (7.2ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWorkday Load (0.3ms)[0m  [1m[34mSELECT  "workdays".* FROM "workdays" WHERE "workdays"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "work_segments" ("workday_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["workday_id", 1], ["created_at", "2017-08-27 20:09:02.849800"], ["updated_at", "2017-08-27 20:09:02.849800"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_singleTimeForm.html.erb (670.6ms)
+  Rendered dashboard/index.html.erb within layouts/application (675.9ms)
+Completed 500 Internal Server Error in 1420ms (ActiveRecord: 61.4ms)
+
+
+
+ActionView::Template::Error - undefined method `timeEntry' for #<WorkSegment:0x007ff5d49f0098>:
+  actionview (5.1.1) lib/action_view/template/error.rb:67:in `initialize'
+  actionview (5.1.1) lib/action_view/template.rb:321:in `handle_render_error'
+  actionview (5.1.1) lib/action_view/template.rb:160:in `rescue in render'
+  actionview (5.1.1) lib/action_view/template.rb:155:in `render'
+  actionview (5.1.1) lib/action_view/renderer/partial_renderer.rb:342:in `block in render_partial'
+  actionview (5.1.1) lib/action_view/renderer/abstract_renderer.rb:42:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (5.1.1) lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'
+  actionview (5.1.1) lib/action_view/renderer/partial_renderer.rb:331:in `render_partial'
+  actionview (5.1.1) lib/action_view/renderer/partial_renderer.rb:310:in `render'
+  actionview (5.1.1) lib/action_view/renderer/renderer.rb:47:in `render_partial'
+  actionview (5.1.1) lib/action_view/helpers/rendering_helper.rb:35:in `render'
+  app/views/dashboard/index.html.erb:11:in `_app_views_dashboard_index_html_erb___1058136392594480397_70346925995120'
+  actionview (5.1.1) lib/action_view/template.rb:157:in `block in render'
+  activesupport (5.1.1) lib/active_support/notifications.rb:168:in `instrument'
+  actionview (5.1.1) lib/action_view/template.rb:352:in `instrument_render_template'
+  actionview (5.1.1) lib/action_view/template.rb:155:in `render'
+  actionview (5.1.1) lib/action_view/renderer/template_renderer.rb:52:in `block (2 levels) in render_template'
+  actionview (5.1.1) lib/action_view/renderer/abstract_renderer.rb:42:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (5.1.1) lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'
+  actionview (5.1.1) lib/action_view/renderer/template_renderer.rb:51:in `block in render_template'
+  actionview (5.1.1) lib/action_view/renderer/template_renderer.rb:59:in `render_with_layout'
+  actionview (5.1.1) lib/action_view/renderer/template_renderer.rb:50:in `render_template'
+  actionview (5.1.1) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (5.1.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (5.1.1) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (5.1.1) lib/action_view/rendering.rb:103:in `_render_template'
+  actionpack (5.1.1) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (5.1.1) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (5.1.1) lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+  actionpack (5.1.1) lib/action_controller/metal/renderers.rb:141:in `render_to_body'
+  actionpack (5.1.1) lib/abstract_controller/rendering.rb:24:in `render'
+  actionpack (5.1.1) lib/action_controller/metal/rendering.rb:36:in `render'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (5.1.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/tortuga_air/.rbenv/versions/2.4.1/lib/ruby/2.4.0/benchmark.rb:308:in `realtime'
+  activesupport (5.1.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (5.1.1) lib/active_record/railties/controller_runtime.rb:29:in `cleanup_view_runtime'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (5.1.1) lib/action_controller/metal/implicit_render.rb:33:in `default_render'
+  actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+  actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:186:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:108:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/core_ext/time/zones.rb:64:in `use_zone'
+  app/controllers/application_controller.rb:23:in `user_time_zone'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:135:in `run_callbacks'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+  activerecord (5.1.1) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:124:in `process'
+  actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+  actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+  rack (2.0.3) lib/rack/etag.rb:25:in `call'
+  rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.3) lib/rack/head.rb:12:in `call'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+  rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+  rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+  railties (5.1.1) lib/rails/engine.rb:522:in `call'
+  puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+  puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+  puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+  puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+  puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/__better_errors/1f6bfb4f005a3eb8/variables" for 127.0.0.1 at 2017-08-27 13:09:03 -0700
+  [1m[36mTimePunch Load (7.3ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mTimePunch Load (5.1ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+Started GET "/dashboard" for 127.0.0.1 at 2017-08-27 13:11:28 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.6ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.5ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mWorkSegment Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 1], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.9ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 1], ["LIMIT", 1]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_singleTimeForm.html.erb (18.0ms)
+  Rendered dashboard/index.html.erb within layouts/application (22.8ms)
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 3.8ms)
+
+
+
+ActionView::Template::Error - undefined method `timeEntry' for #<WorkSegment:0x007ff5d8242608>:
+  actionview (5.1.1) lib/action_view/template/error.rb:67:in `initialize'
+  actionview (5.1.1) lib/action_view/template.rb:321:in `handle_render_error'
+  actionview (5.1.1) lib/action_view/template.rb:160:in `rescue in render'
+  actionview (5.1.1) lib/action_view/template.rb:155:in `render'
+  actionview (5.1.1) lib/action_view/renderer/partial_renderer.rb:342:in `block in render_partial'
+  actionview (5.1.1) lib/action_view/renderer/abstract_renderer.rb:42:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (5.1.1) lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'
+  actionview (5.1.1) lib/action_view/renderer/partial_renderer.rb:331:in `render_partial'
+  actionview (5.1.1) lib/action_view/renderer/partial_renderer.rb:310:in `render'
+  actionview (5.1.1) lib/action_view/renderer/renderer.rb:47:in `render_partial'
+  actionview (5.1.1) lib/action_view/helpers/rendering_helper.rb:35:in `render'
+  app/views/dashboard/index.html.erb:11:in `_app_views_dashboard_index_html_erb___1058136392594480397_70346926249300'
+  actionview (5.1.1) lib/action_view/template.rb:157:in `block in render'
+  activesupport (5.1.1) lib/active_support/notifications.rb:168:in `instrument'
+  actionview (5.1.1) lib/action_view/template.rb:352:in `instrument_render_template'
+  actionview (5.1.1) lib/action_view/template.rb:155:in `render'
+  actionview (5.1.1) lib/action_view/renderer/template_renderer.rb:52:in `block (2 levels) in render_template'
+  actionview (5.1.1) lib/action_view/renderer/abstract_renderer.rb:42:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (5.1.1) lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'
+  actionview (5.1.1) lib/action_view/renderer/template_renderer.rb:51:in `block in render_template'
+  actionview (5.1.1) lib/action_view/renderer/template_renderer.rb:59:in `render_with_layout'
+  actionview (5.1.1) lib/action_view/renderer/template_renderer.rb:50:in `render_template'
+  actionview (5.1.1) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (5.1.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (5.1.1) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (5.1.1) lib/action_view/rendering.rb:103:in `_render_template'
+  actionpack (5.1.1) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (5.1.1) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (5.1.1) lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+  actionpack (5.1.1) lib/action_controller/metal/renderers.rb:141:in `render_to_body'
+  actionpack (5.1.1) lib/abstract_controller/rendering.rb:24:in `render'
+  actionpack (5.1.1) lib/action_controller/metal/rendering.rb:36:in `render'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (5.1.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/tortuga_air/.rbenv/versions/2.4.1/lib/ruby/2.4.0/benchmark.rb:308:in `realtime'
+  activesupport (5.1.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (5.1.1) lib/active_record/railties/controller_runtime.rb:29:in `cleanup_view_runtime'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (5.1.1) lib/action_controller/metal/implicit_render.rb:33:in `default_render'
+  actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+  actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:186:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:108:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/core_ext/time/zones.rb:64:in `use_zone'
+  app/controllers/application_controller.rb:23:in `user_time_zone'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:135:in `run_callbacks'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+  activerecord (5.1.1) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:124:in `process'
+  actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+  actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+  rack (2.0.3) lib/rack/etag.rb:25:in `call'
+  rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.3) lib/rack/head.rb:12:in `call'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+  rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+  rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+  railties (5.1.1) lib/rails/engine.rb:522:in `call'
+  puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+  puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+  puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+  puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+  puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/__better_errors/1289f7523d90106e/variables" for 127.0.0.1 at 2017-08-27 13:11:28 -0700
+  [1m[36mTimePunch Load (3.4ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mTimePunch Load (0.6ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+Started GET "/dashboard" for 127.0.0.1 at 2017-08-27 13:11:48 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.4ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mWorkSegment Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 1], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.6ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 1], ["LIMIT", 1]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_singleTimeForm.html.erb (3.0ms) [cache miss]
+  [1m[36mTimePunch Load (0.4ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches"[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[36mTimePunch Load (0.3ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  Rendered dashboard/index.html.erb within layouts/application (12.3ms)
+Started GET "/dashboard" for 127.0.0.1 at 2017-08-27 13:11:48 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.8ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.9ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mWorkSegment Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 1], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (1.1ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 1], ["LIMIT", 1]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_singleTimeForm.html.erb (1.4ms) [cache miss]
+  [1m[36mTimePunch Load (1.0ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches"[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[36mTimePunch Load (1.1ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  Rendered dashboard/index.html.erb within layouts/application (10.5ms)
+  Rendered layouts/_topnavbar_2.html.erb (3.0ms) [cache miss]
+  Rendered layouts/_topnavbar_2.html.erb (0.9ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.3ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.3ms) [cache miss]
+Completed 200 OK in 1170ms (Views: 1150.0ms | ActiveRecord: 3.8ms)
+
+
+Completed 200 OK in 854ms (Views: 617.2ms | ActiveRecord: 39.9ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2017-08-27 13:11:55 -0700
+Processing by UserSessionsController#destroy as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (1.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (16.9ms)[0m  [1m[33mUPDATE "users" SET "remember_me_token" = NULL, "remember_me_token_expires_at" = NULL WHERE "users"."id" = $1[0m  [["id", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 28ms (ActiveRecord: 18.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-27 13:11:55 -0700
+Processing by LaunchpadController#index as HTML
+  Rendering launchpad/index.html.erb within layouts/launchpad
+  Rendered launchpad/index.html.erb within layouts/launchpad (12.4ms)
+Completed 200 OK in 139ms (Views: 134.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-08-27 13:11:58 -0700
+Processing by UserSessionsController#new as HTML
+  Rendering user_sessions/new.html.erb within layouts/application
+  Rendered user_sessions/_form.html.erb (6.8ms) [cache miss]
+  Rendered user_sessions/new.html.erb within layouts/application (17.9ms)
+  Rendered layouts/_topnavbar_2.html.erb (1.8ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.8ms) [cache miss]
+Completed 200 OK in 223ms (Views: 201.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at 2017-08-27 13:12:05 -0700
+Processing by UserSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uKtPMREwiggJCP8VKKstYYheXmbC8HHed0Y/UpFRSiQJqIyb0Y2GD6I6wlF2e3KKqzcQmV4pcdc8grWhKJEhrA==", "email"=>"milo", "password"=>"[FILTERED]", "commit"=>"Login to your account"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = 'milo' ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 190ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-08-27 13:12:05 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.4ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mWorkSegment Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 1], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.4ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 1], ["LIMIT", 1]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_singleTimeForm.html.erb (1.5ms) [cache miss]
+  [1m[36mTimePunch Load (0.3ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[36mTimePunch Load (0.3ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  Rendered dashboard/index.html.erb within layouts/application (8.1ms)
+  Rendered layouts/_topnavbar_2.html.erb (2.0ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.8ms) [cache miss]
+Completed 200 OK in 180ms (Views: 164.3ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/logout" for 127.0.0.1 at 2017-08-27 13:12:10 -0700
+Processing by UserSessionsController#destroy as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (7.0ms)[0m  [1m[33mUPDATE "users" SET "remember_me_token" = NULL, "remember_me_token_expires_at" = NULL WHERE "users"."id" = $1[0m  [["id", 1]]
+Redirected to http://localhost:3000/
+Completed 302 Found in 16ms (ActiveRecord: 8.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-08-27 13:12:10 -0700
+Processing by LaunchpadController#index as HTML
+  Rendering launchpad/index.html.erb within layouts/launchpad
+  Rendered launchpad/index.html.erb within layouts/launchpad (8.3ms)
+Completed 200 OK in 156ms (Views: 155.5ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (7.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (5821.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "tractwork_development"[0m
+  [1m[35m (221.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "tractwork_test"[0m
+  [1m[35m (222.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "tractwork_development"[0m
+  [1m[35m (212.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "tractwork_test"[0m
+  [1m[35m (724.7ms)[0m  [1m[35mCREATE DATABASE "tractwork_development" ENCODING = 'unicode'[0m
+  [1m[35m (488.8ms)[0m  [1m[35mCREATE DATABASE "tractwork_test" ENCODING = 'unicode'[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (21.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (12.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8098226684123661435);[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to SorceryCore (20160428224923)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8098226684123661435)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8098226684123661435);[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to SorceryCore (20160428224923)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(8098226684123661435)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (206.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "tractwork_development"[0m
+  [1m[35m (183.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "tractwork_test"[0m
+  [1m[35m (25.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (20.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (9.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8098226684123661435);[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to SorceryCore (20160428224923)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(8098226684123661435)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8098226684123661435);[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to SorceryCore (20160428224923)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (29.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "firstName" character varying, "lastName" character varying, "role" character varying, "email" character varying NOT NULL, "crypted_password" character varying, "salt" character varying, "pin" integer, "account_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160428224923"]]
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to SorceryRememberMe (20160428224924)
+  [1m[35m (6.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (18.5ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_me_token" character varying DEFAULT NULL[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "remember_me_token_expires_at" timestamp DEFAULT NULL[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_remember_me_token" ON "users"  ("remember_me_token")[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160428224924"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to SorceryResetPassword (20160428224925)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token" character varying DEFAULT NULL[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_token_expires_at" timestamp DEFAULT NULL[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "reset_password_email_sent_at" timestamp DEFAULT NULL[0m
+  [1m[35m (7.1ms)[0m  [1m[35mCREATE  INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160428224925"]]
+  [1m[35m (6.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateAccounts (20160502200924)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (23.1ms)[0m  [1m[35mCREATE TABLE "accounts" ("id" bigserial primary key, "name" character varying, "time_zone" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160502200924"]]
+  [1m[35m (0.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateProjects (20160509202552)
+  [1m[35m (6.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (15.7ms)[0m  [1m[35mCREATE TABLE "projects" ("id" bigserial primary key, "name" character varying, "code" character varying, "address1" character varying, "address2" character varying, "city" character varying, "state" character varying, "zip_code" character varying, "contact_id" integer, "account_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160509202552"]]
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateWorkdays (20170626192859)
+  [1m[35m (5.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (20.4ms)[0m  [1m[35mCREATE TABLE "workdays" ("id" bigserial primary key, "totalHoursWorked" decimal, "dayDate" date, "user_id" integer, "workDayNotes" text, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170626192859"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateWorkSegments (20170627191712)
+  [1m[35m (6.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (19.4ms)[0m  [1m[35mCREATE TABLE "work_segments" ("id" bigserial primary key, "status" boolean, "workday_id" integer, "task" character varying, "project_id" integer, "timeEntry" integer, "segmentNotes" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170627191712"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateTimePunches (20170627192027)
+  [1m[35m (6.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (14.7ms)[0m  [1m[35mCREATE TABLE "time_punches" ("id" bigserial primary key, "punch" timestamp, "work_segment_id" integer, "status" boolean, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170627192027"]]
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-08-27 20:19:02.541604"], ["updated_at", "2017-08-27 20:19:02.541604"]]
+  [1m[35m (6.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(8098226684123661435)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (6.2ms)[0m  [1m[32mINSERT INTO "accounts" ("name", "time_zone", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["name", "Test Account"], ["time_zone", "Pacific Time (US & Canada)"], ["created_at", "2017-08-27 20:19:22.151618"], ["updated_at", "2017-08-27 20:19:22.151618"]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAccount Load (0.5ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists (18.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "milo"], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "users" ("firstName", "lastName", "role", "email", "crypted_password", "salt", "pin", "account_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["firstName", "milo"], ["lastName", "bloom"], ["role", "Crew"], ["email", "milo"], ["crypted_password", "$2a$10$7rl/OpB0csSZnJ1CHgrXKesr43kHmab6tlfYCRk7WCvSWIbRBVRji"], ["salt", "toJvxy-fafTS4ny1wj98"], ["pin", 1234], ["account_id", 1], ["created_at", "2017-08-27 20:19:22.370292"], ["updated_at", "2017-08-27 20:19:22.370292"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "admin"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("firstName", "lastName", "role", "email", "crypted_password", "salt", "pin", "account_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["firstName", "admin"], ["lastName", "admin"], ["role", "Admin"], ["email", "admin"], ["crypted_password", "$2a$10$4.HthqKsTY7McmuDE5Oi5.Eydv0Q6/92h7mRhCscEQiqXfA5aUcK."], ["salt", "cS8EsK9MPG9TYFs7xDHa"], ["pin", 1234], ["account_id", 1], ["created_at", "2017-08-27 20:19:22.503539"], ["updated_at", "2017-08-27 20:19:22.503539"]]
+  [1m[35m (8.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started GET "/" for 127.0.0.1 at 2017-08-27 13:21:04 -0700
+  [1m[35m (6.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LaunchpadController#index as HTML
+  Rendering launchpad/index.html.erb within layouts/launchpad
+  Rendered launchpad/index.html.erb within layouts/launchpad (783.3ms)
+Completed 200 OK in 1137ms (Views: 1119.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-08-27 13:21:09 -0700
+Processing by UserSessionsController#new as HTML
+  Rendering user_sessions/new.html.erb within layouts/application
+  Rendered user_sessions/_form.html.erb (3.4ms) [cache miss]
+  Rendered user_sessions/new.html.erb within layouts/application (8.2ms)
+  Rendered layouts/_topnavbar_2.html.erb (1.3ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.4ms) [cache miss]
+Completed 200 OK in 804ms (Views: 171.9ms | ActiveRecord: 8.2ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at 2017-08-27 13:21:16 -0700
+Processing by UserSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"OkbH6A64Gqn3ffyTgJCM+0wvGxkkZkCax/2aW5Z2kjUr+JokCD1TJXKpr1mJD8zZYn4YdT8zpHcIIl8om0Xkkw==", "email"=>"milo", "password"=>"[FILTERED]", "commit"=>"Login to your account"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = 'milo' ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 202ms (ActiveRecord: 1.7ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-08-27 13:21:17 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (2.2ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 1]]
+Completed 500 Internal Server Error in 106ms (ActiveRecord: 14.0ms)
+
+
+
+ActiveModel::UnknownAttributeError - unknown attribute 'hoursWorked' for Workday.:
+  activemodel (5.1.1) lib/active_model/attribute_assignment.rb:48:in `_assign_attribute'
+  activemodel (5.1.1) lib/active_model/attribute_assignment.rb:40:in `block in _assign_attributes'
+  activemodel (5.1.1) lib/active_model/attribute_assignment.rb:39:in `_assign_attributes'
+  activerecord (5.1.1) lib/active_record/attribute_assignment.rb:26:in `_assign_attributes'
+  activemodel (5.1.1) lib/active_model/attribute_assignment.rb:33:in `assign_attributes'
+  activerecord (5.1.1) lib/active_record/core.rb:337:in `initialize'
+  activerecord (5.1.1) lib/active_record/inheritance.rb:66:in `new'
+  activerecord (5.1.1) lib/active_record/persistence.rb:33:in `create'
+  app/models/workday.rb:69:in `retrieve_current_workday'
+  app/controllers/dashboard_controller.rb:7:in `index'
+  actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:186:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:108:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/core_ext/time/zones.rb:64:in `use_zone'
+  app/controllers/application_controller.rb:23:in `user_time_zone'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:135:in `run_callbacks'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+  activerecord (5.1.1) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:124:in `process'
+  actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+  actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+  rack (2.0.3) lib/rack/etag.rb:25:in `call'
+  rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.3) lib/rack/head.rb:12:in `call'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+  rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+  rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+  railties (5.1.1) lib/rails/engine.rb:522:in `call'
+  puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+  puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+  puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+  puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+  puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/__better_errors/3d66505c247ffdcb/variables" for 127.0.0.1 at 2017-08-27 13:21:17 -0700
+Started GET "/dashboard" for 127.0.0.1 at 2017-08-27 13:22:31 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.4ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 1]]
+Completed 500 Internal Server Error in 172ms (ActiveRecord: 27.4ms)
+
+
+
+ActiveModel::UnknownAttributeError - unknown attribute 'hoursWorked' for Workday.:
+  activemodel (5.1.1) lib/active_model/attribute_assignment.rb:48:in `_assign_attribute'
+  activemodel (5.1.1) lib/active_model/attribute_assignment.rb:40:in `block in _assign_attributes'
+  activemodel (5.1.1) lib/active_model/attribute_assignment.rb:39:in `_assign_attributes'
+  activerecord (5.1.1) lib/active_record/attribute_assignment.rb:26:in `_assign_attributes'
+  activemodel (5.1.1) lib/active_model/attribute_assignment.rb:33:in `assign_attributes'
+  activerecord (5.1.1) lib/active_record/core.rb:337:in `initialize'
+  activerecord (5.1.1) lib/active_record/inheritance.rb:66:in `new'
+  activerecord (5.1.1) lib/active_record/persistence.rb:33:in `create'
+  app/models/workday.rb:69:in `retrieve_current_workday'
+  app/controllers/dashboard_controller.rb:7:in `index'
+  actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:186:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:108:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/core_ext/time/zones.rb:64:in `use_zone'
+  app/controllers/application_controller.rb:23:in `user_time_zone'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:135:in `run_callbacks'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+  activerecord (5.1.1) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:124:in `process'
+  actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+  actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+  rack (2.0.3) lib/rack/etag.rb:25:in `call'
+  rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.3) lib/rack/head.rb:12:in `call'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+  rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+  rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+  railties (5.1.1) lib/rails/engine.rb:522:in `call'
+  puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+  puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+  puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+  puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+  puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/__better_errors/b66d68458bfe2798/variables" for 127.0.0.1 at 2017-08-27 13:22:32 -0700
+Started GET "/dashboard" for 127.0.0.1 at 2017-08-27 13:25:57 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.4ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (6.7ms)[0m  [1m[32mINSERT INTO "workdays" ("totalHoursWorked", "dayDate", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["totalHoursWorked", "0.0"], ["dayDate", "2017-08-27"], ["user_id", 1], ["created_at", "2017-08-27 20:25:58.216480"], ["updated_at", "2017-08-27 20:25:58.216480"]]
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mWorkSegment Exists (7.2ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWorkday Load (0.3ms)[0m  [1m[34mSELECT  "workdays".* FROM "workdays" WHERE "workdays"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "work_segments" ("workday_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["workday_id", 1], ["created_at", "2017-08-27 20:25:58.290630"], ["updated_at", "2017-08-27 20:25:58.290630"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_singleTimeForm.html.erb (822.3ms) [cache miss]
+  Rendered dashboard/index.html.erb within layouts/application (841.3ms)
+Completed 500 Internal Server Error in 1123ms (ActiveRecord: 49.0ms)
+
+
+
+ActionView::Template::Error - undefined method `notes' for #<Workday:0x007fb2022f1910>:
+  actionview (5.1.1) lib/action_view/template/error.rb:67:in `initialize'
+  actionview (5.1.1) lib/action_view/template.rb:321:in `handle_render_error'
+  actionview (5.1.1) lib/action_view/template.rb:160:in `rescue in render'
+  actionview (5.1.1) lib/action_view/template.rb:155:in `render'
+  actionview (5.1.1) lib/action_view/renderer/template_renderer.rb:52:in `block (2 levels) in render_template'
+  actionview (5.1.1) lib/action_view/renderer/abstract_renderer.rb:42:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (5.1.1) lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'
+  actionview (5.1.1) lib/action_view/renderer/template_renderer.rb:51:in `block in render_template'
+  actionview (5.1.1) lib/action_view/renderer/template_renderer.rb:59:in `render_with_layout'
+  actionview (5.1.1) lib/action_view/renderer/template_renderer.rb:50:in `render_template'
+  actionview (5.1.1) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (5.1.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (5.1.1) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (5.1.1) lib/action_view/rendering.rb:103:in `_render_template'
+  actionpack (5.1.1) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (5.1.1) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (5.1.1) lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+  actionpack (5.1.1) lib/action_controller/metal/renderers.rb:141:in `render_to_body'
+  actionpack (5.1.1) lib/abstract_controller/rendering.rb:24:in `render'
+  actionpack (5.1.1) lib/action_controller/metal/rendering.rb:36:in `render'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (5.1.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/tortuga_air/.rbenv/versions/2.4.1/lib/ruby/2.4.0/benchmark.rb:308:in `realtime'
+  activesupport (5.1.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (5.1.1) lib/active_record/railties/controller_runtime.rb:29:in `cleanup_view_runtime'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (5.1.1) lib/action_controller/metal/implicit_render.rb:33:in `default_render'
+  actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+  actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:186:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:108:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/core_ext/time/zones.rb:64:in `use_zone'
+  app/controllers/application_controller.rb:23:in `user_time_zone'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:135:in `run_callbacks'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+  activerecord (5.1.1) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:124:in `process'
+  actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+  actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+  rack (2.0.3) lib/rack/etag.rb:25:in `call'
+  rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.3) lib/rack/head.rb:12:in `call'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+  rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+  rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+  railties (5.1.1) lib/rails/engine.rb:522:in `call'
+  puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+  puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+  puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+  puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+  puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/__better_errors/72cd759859dc3438/variables" for 127.0.0.1 at 2017-08-27 13:25:59 -0700
+  [1m[36mTimePunch Load (8.2ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mTimePunch Load (1.5ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+Started GET "/dashboard" for 127.0.0.1 at 2017-08-27 13:27:11 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.5ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.4ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mWorkSegment Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 1], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.5ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 1], ["LIMIT", 1]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_singleTimeForm.html.erb (10.4ms) [cache miss]
+  Rendered dashboard/index.html.erb within layouts/application (32.8ms)
+Completed 500 Internal Server Error in 302ms (ActiveRecord: 28.1ms)
+
+
+
+ActionView::Template::Error - undefined method `notes' for #<Workday:0x007fb2046e6730>:
+  actionview (5.1.1) lib/action_view/template/error.rb:67:in `initialize'
+  actionview (5.1.1) lib/action_view/template.rb:321:in `handle_render_error'
+  actionview (5.1.1) lib/action_view/template.rb:160:in `rescue in render'
+  actionview (5.1.1) lib/action_view/template.rb:155:in `render'
+  actionview (5.1.1) lib/action_view/renderer/template_renderer.rb:52:in `block (2 levels) in render_template'
+  actionview (5.1.1) lib/action_view/renderer/abstract_renderer.rb:42:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (5.1.1) lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'
+  actionview (5.1.1) lib/action_view/renderer/template_renderer.rb:51:in `block in render_template'
+  actionview (5.1.1) lib/action_view/renderer/template_renderer.rb:59:in `render_with_layout'
+  actionview (5.1.1) lib/action_view/renderer/template_renderer.rb:50:in `render_template'
+  actionview (5.1.1) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (5.1.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (5.1.1) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (5.1.1) lib/action_view/rendering.rb:103:in `_render_template'
+  actionpack (5.1.1) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (5.1.1) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (5.1.1) lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+  actionpack (5.1.1) lib/action_controller/metal/renderers.rb:141:in `render_to_body'
+  actionpack (5.1.1) lib/abstract_controller/rendering.rb:24:in `render'
+  actionpack (5.1.1) lib/action_controller/metal/rendering.rb:36:in `render'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (5.1.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/tortuga_air/.rbenv/versions/2.4.1/lib/ruby/2.4.0/benchmark.rb:308:in `realtime'
+  activesupport (5.1.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (5.1.1) lib/active_record/railties/controller_runtime.rb:29:in `cleanup_view_runtime'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (5.1.1) lib/action_controller/metal/implicit_render.rb:33:in `default_render'
+  actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+  actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:186:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:108:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/core_ext/time/zones.rb:64:in `use_zone'
+  app/controllers/application_controller.rb:23:in `user_time_zone'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:135:in `run_callbacks'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+  activerecord (5.1.1) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:124:in `process'
+  actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+  actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+  rack (2.0.3) lib/rack/etag.rb:25:in `call'
+  rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.3) lib/rack/head.rb:12:in `call'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+  rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+  rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+  railties (5.1.1) lib/rails/engine.rb:522:in `call'
+  puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+  puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+  puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+  puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+  puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/__better_errors/47a8db1a75434567/variables" for 127.0.0.1 at 2017-08-27 13:27:11 -0700
+  [1m[36mTimePunch Load (0.6ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mTimePunch Load (1.2ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+Started GET "/dashboard" for 127.0.0.1 at 2017-08-27 13:32:08 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.6ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.7ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mWorkSegment Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 1], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (1.2ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 1], ["LIMIT", 1]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_singleTimeForm.html.erb (46.0ms) [cache miss]
+  [1m[36mTimePunch Load (0.4ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches"[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[36mTimePunch Load (0.5ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 1], ["LIMIT", 2]]
+  Rendered dashboard/index.html.erb within layouts/application (87.0ms)
+  Rendered layouts/_topnavbar_2.html.erb (2.8ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.7ms) [cache miss]
+Completed 200 OK in 575ms (Views: 405.4ms | ActiveRecord: 6.7ms)
+
+

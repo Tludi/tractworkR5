@@ -4,10 +4,11 @@
 
 <br>
 <br>
-<%= form_for [@workday, @work_segment, @time_punch] do |wd| %>
+<%= simple_form_for [@workday, @work_segment], html: { class: 'form-horizontal' } do |wd| %>
 
     <div class="actions">
-      <%= wd.submit "Start", class: "btn btn-primary clockButton"%>
+      <%= wd.input :timeEntry %>
+      <%= wd.submit "Save", class: "btn btn-primary"%>
     </div>
 
 <% end -%>

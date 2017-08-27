@@ -15,14 +15,14 @@ ActiveRecord::Schema.define(version: 20170627192027) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "accounts", id: :serial, force: :cascade do |t|
+  create_table "accounts", force: :cascade do |t|
     t.string "name"
     t.string "time_zone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "projects", id: :serial, force: :cascade do |t|
+  create_table "projects", force: :cascade do |t|
     t.string "name"
     t.string "code"
     t.string "address1"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20170627192027) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", id: :serial, force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "firstName"
     t.string "lastName"
     t.string "role"
@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(version: 20170627192027) do
     t.string "salt"
     t.integer "pin"
     t.integer "account_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string "remember_me_token"
     t.datetime "remember_me_token_expires_at"
     t.string "reset_password_token"
@@ -66,20 +66,21 @@ ActiveRecord::Schema.define(version: 20170627192027) do
   end
 
   create_table "work_segments", force: :cascade do |t|
-    t.decimal "totalTime"
-    t.decimal "estimatedTime"
     t.boolean "status"
     t.integer "workday_id"
     t.string "task"
+    t.integer "project_id"
+    t.integer "timeEntry"
+    t.string "segmentNotes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "workdays", force: :cascade do |t|
-    t.decimal "hoursWorked"
+    t.decimal "totalHoursWorked"
     t.date "dayDate"
     t.integer "user_id"
-    t.text "notes"
+    t.text "workDayNotes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

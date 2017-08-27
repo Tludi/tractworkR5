@@ -66,7 +66,7 @@ class Workday < ApplicationRecord
     if @current_workday
       @current_workday
     else
-      Workday.create(user_id: user.id, dayDate: Date.current, hoursWorked: 0)
+      Workday.create(user_id: user.id, dayDate: Date.current, totalHoursWorked: 0)
     end
   end
 end
