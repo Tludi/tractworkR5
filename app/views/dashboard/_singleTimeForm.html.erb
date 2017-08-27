@@ -1,0 +1,17 @@
+<!-- _singleTimeForm.html.erb -->
+<h4>Total Time Today</h4>
+<%= "#{@hours_worked}  Hours"   %>
+
+<br>
+<br>
+<%= form_for [@workday, @work_segment, @time_punch] do |wd| %>
+
+    <div class="actions">
+      <%= wd.submit "Start", class: "btn btn-primary clockButton"%>
+    </div>
+
+<% end -%>
+
+<% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, class: "alert alert-info" %>
+  <% end %>
