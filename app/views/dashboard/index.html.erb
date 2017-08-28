@@ -8,13 +8,15 @@
           <h5><span><%= current_user.fullName %></span></h5>
         </div>
         <div class="ibox-content">
-          <%= render 'singleTimeForm' %>
         </div>
         <div class="ibox-content">
-          <p>
-            <strong>Hours Worked Today:</strong>
-            <%= @hours_worked %>
-          </p>
+          <div class="row">
+            <div class="col-md-3" >
+              <div class="well">
+                <%= render 'singleTimeForm' %>
+              </div>
+            </div>
+          </div>
 
           <p>
             <strong>Notes:</strong>

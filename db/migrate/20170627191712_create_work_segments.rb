@@ -5,7 +5,7 @@ class CreateWorkSegments < ActiveRecord::Migration[5.1]
       t.integer :workday_id
       t.string :task
       t.integer :project_id
-      t.integer :timeEntry
+      t.decimal :timeEntry
       t.string :segmentNotes
 
       t.timestamps

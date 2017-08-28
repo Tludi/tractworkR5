@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 20170627192027) do
     t.integer "workday_id"
     t.string "task"
     t.integer "project_id"
-    t.integer "timeEntry"
+    t.decimal "timeEntry"
     t.string "segmentNotes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

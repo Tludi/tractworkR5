@@ -28,7 +28,7 @@ class WorkSegmentsController < ApplicationController
 
     respond_to do |format|
       if @work_segment.save
-        format.html { redirect_to @work_segment, notice: 'Work segment was successfully created.' }
+        format.html { redirect_to dashboard_url, notice: 'Work segment was successfully created.' }
         format.json { render :show, status: :created, location: @work_segment }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class WorkSegmentsController < ApplicationController
   def update
     respond_to do |format|
       if @work_segment.update(work_segment_params)
-        format.html { redirect_to @work_segment, notice: 'Work segment was successfully updated.' }
+        format.html { redirect_to dashboard_url, notice: 'Work segment was successfully updated.' }
         format.json { render :show, status: :ok, location: @work_segment }
       else
         format.html { render :edit }
