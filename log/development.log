@@ -43411,3 +43411,916 @@ Completed 200 OK in 185ms (Views: 167.2ms | ActiveRecord: 3.2ms)
 
   [1m[36mWorkSegment Load (0.4ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" ORDER BY "work_segments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
   [1m[36mWorkSegment Load (0.9ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" ORDER BY "work_segments"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/dashboard" for 127.0.0.1 at 2017-08-28 09:24:38 -0700
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (26.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (13.8ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (14.1ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 2]]
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (19.6ms)[0m  [1m[32mINSERT INTO "workdays" ("totalHoursWorked", "dayDate", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["totalHoursWorked", "0.0"], ["dayDate", "2017-08-28"], ["user_id", 2], ["created_at", "2017-08-28 16:24:39.436188"], ["updated_at", "2017-08-28 16:24:39.436188"]]
+  [1m[35m (5.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mWorkSegment Exists (8.5ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWorkday Load (0.3ms)[0m  [1m[34mSELECT  "workdays".* FROM "workdays" WHERE "workdays"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "work_segments" ("workday_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["workday_id", 2], ["created_at", "2017-08-28 16:24:39.504749"], ["updated_at", "2017-08-28 16:24:39.504749"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_singleTimeForm.html.erb (729.6ms) [cache miss]
+  [1m[36mTimePunch Load (2.3ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches"[0m
+  [1m[35m (23.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[36mTimePunch Load (1.8ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 2], ["LIMIT", 2]]
+  Rendered dashboard/index.html.erb within layouts/application (764.7ms)
+  Rendered layouts/_topnavbar_2.html.erb (1.7ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 2455ms (Views: 1673.3ms | ActiveRecord: 174.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2017-09-21 09:24:52 -0700
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LaunchpadController#index as HTML
+  [1m[36mUser Load (19.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (11.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering launchpad/index.html.erb within layouts/launchpad
+  Rendered launchpad/index.html.erb within layouts/launchpad (1487.6ms)
+Completed 200 OK in 3207ms (Views: 2005.1ms | ActiveRecord: 81.7ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2017-09-21 09:25:03 -0700
+Processing by UserSessionsController#new as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (36.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering user_sessions/new.html.erb within layouts/application
+  Rendered user_sessions/_form.html.erb (3.3ms) [cache miss]
+  Rendered user_sessions/new.html.erb within layouts/application (9.3ms)
+  Rendered layouts/_topnavbar_2.html.erb (2.6ms) [cache miss]
+  Rendered layouts/_footer.html.erb (1.0ms) [cache miss]
+Completed 200 OK in 467ms (Views: 399.9ms | ActiveRecord: 37.9ms)
+
+
+Started POST "/user_sessions" for 127.0.0.1 at 2017-09-21 09:25:22 -0700
+Processing by UserSessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ioGxEc2IlHkFuGvHBfaYK4Z/LC7t9qWuzVXL/4ey0BspDUlIWIIhpCNgm0AdE6rFdrvRNB/8yjzTYIG7eAdiSg==", "email"=>"milo", "password"=>"[FILTERED]", "commit"=>"Login to your account"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mAccount Load (1.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (13.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = 'milo' ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 211ms (ActiveRecord: 15.4ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-09-21 09:25:22 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (3.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (9.9ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (29.9ms)[0m  [1m[32mINSERT INTO "workdays" ("totalHoursWorked", "dayDate", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["totalHoursWorked", "0.0"], ["dayDate", "2017-09-21"], ["user_id", 1], ["created_at", "2017-09-21 16:25:22.472102"], ["updated_at", "2017-09-21 16:25:22.472102"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mWorkSegment Exists (12.8ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWorkday Load (5.9ms)[0m  [1m[34mSELECT  "workdays".* FROM "workdays" WHERE "workdays"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (24.6ms)[0m  [1m[32mINSERT INTO "work_segments" ("workday_id", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["workday_id", 3], ["created_at", "2017-09-21 16:25:22.616828"], ["updated_at", "2017-09-21 16:25:22.616828"]]
+  [1m[35m (1.0ms)[0m  [1m[35mCOMMIT[0m
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_singleTimeForm.html.erb (1476.2ms) [cache miss]
+  [1m[36mTimePunch Load (7.7ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches"[0m
+  [1m[35m (16.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[36mTimePunch Load (4.5ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 3], ["LIMIT", 2]]
+  Rendered dashboard/index.html.erb within layouts/application (1520.9ms)
+  Rendered layouts/_topnavbar_2.html.erb (3.3ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.5ms) [cache miss]
+Completed 200 OK in 2163ms (Views: 1778.5ms | ActiveRecord: 165.3ms)
+
+
+Started PATCH "/workdays/3/work_segments/3" for 127.0.0.1 at 2017-09-21 10:36:49 -0700
+Processing by WorkSegmentsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Dh1v75JiAWGodQLUH4qfmEBWqy9p575EathPfrGSH8Ta6LDRdoy/SVs+f1lesZvd4Egcn960PqJQbobvJLnBFQ==", "work_segment"=>{"project_id"=>"1", "task"=>"General Work", "timeEntry"=>"4"}, "commit"=>"Save", "workday_id"=>"3", "id"=>"3"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (16.5ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.5ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWorkday Load (0.4ms)[0m  [1m[34mSELECT  "workdays".* FROM "workdays" WHERE "workdays"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35mSQL (10.4ms)[0m  [1m[33mUPDATE "work_segments" SET "task" = $1, "project_id" = $2, "timeEntry" = $3, "updated_at" = $4 WHERE "work_segments"."id" = $5[0m  [["task", "General Work"], ["project_id", 1], ["timeEntry", 4], ["updated_at", "2017-09-21 17:36:49.644975"], ["id", 3]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 47ms (ActiveRecord: 29.7ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-09-21 10:36:49 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (1.0ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.5ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mWorkSegment Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.7ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_singleTimeForm.html.erb (18.1ms) [cache miss]
+  [1m[36mTimePunch Load (0.6ms)[0m  [1m[34mSELECT "time_punches".* FROM "time_punches"[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "time_punches"[0m
+  [1m[36mTimePunch Load (1.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 3], ["LIMIT", 2]]
+  Rendered dashboard/index.html.erb within layouts/application (30.2ms)
+  Rendered layouts/_topnavbar_2.html.erb (1.7ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 380ms (Views: 356.5ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-09-21 10:52:59 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (2.2ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.6ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mWorkSegment Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.8ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_singleTimeForm.html.erb (9.9ms) [cache miss]
+  [1m[36mTimePunch Load (0.5ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 3], ["LIMIT", 2]]
+  Rendered dashboard/index.html.erb within layouts/application (14.4ms)
+  Rendered layouts/_topnavbar_2.html.erb (3.4ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 245ms (Views: 223.5ms | ActiveRecord: 5.3ms)
+
+
+  [1m[36mWorkday Load (0.5ms)[0m  [1m[34mSELECT  "workdays".* FROM "workdays" ORDER BY "workdays"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.5ms)[0m  [1m[34mSELECT "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1[0m  [["workday_id", 3]]
+Started GET "/dashboard" for 127.0.0.1 at 2017-09-21 10:58:42 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.6ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mWorkSegment Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (2.3ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_singleTimeForm.html.erb (18.8ms) [cache miss]
+  [1m[36mTimePunch Load (0.5ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 3], ["LIMIT", 2]]
+  Rendered dashboard/index.html.erb within layouts/application (25.0ms)
+  Rendered layouts/_topnavbar_2.html.erb (2.2ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.7ms) [cache miss]
+Completed 200 OK in 691ms (Views: 262.9ms | ActiveRecord: 100.0ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-09-21 11:00:09 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (1.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (1.2ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mWorkSegment Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (1.4ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_singleTimeForm.html.erb (11.2ms) [cache miss]
+  [1m[36mWorkSegment Load (0.4ms)[0m  [1m[34mSELECT "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1[0m  [["workday_id", 3]]
+  Rendered dashboard/index.html.erb within layouts/application (42.7ms)
+Completed 500 Internal Server Error in 76ms (ActiveRecord: 5.5ms)
+
+
+
+ActionView::Template::Error - undefined method `time_entry' for #<WorkSegment:0x007f9125b6d0d8>
+Did you mean?  timeEntry
+               timeEntry=
+               timeEntry?:
+  actionview (5.1.1) lib/action_view/template/error.rb:67:in `initialize'
+  actionview (5.1.1) lib/action_view/template.rb:321:in `handle_render_error'
+  actionview (5.1.1) lib/action_view/template.rb:160:in `rescue in render'
+  actionview (5.1.1) lib/action_view/template.rb:155:in `render'
+  actionview (5.1.1) lib/action_view/renderer/template_renderer.rb:52:in `block (2 levels) in render_template'
+  actionview (5.1.1) lib/action_view/renderer/abstract_renderer.rb:42:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (5.1.1) lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'
+  actionview (5.1.1) lib/action_view/renderer/template_renderer.rb:51:in `block in render_template'
+  actionview (5.1.1) lib/action_view/renderer/template_renderer.rb:59:in `render_with_layout'
+  actionview (5.1.1) lib/action_view/renderer/template_renderer.rb:50:in `render_template'
+  actionview (5.1.1) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (5.1.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (5.1.1) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (5.1.1) lib/action_view/rendering.rb:103:in `_render_template'
+  actionpack (5.1.1) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (5.1.1) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (5.1.1) lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+  actionpack (5.1.1) lib/action_controller/metal/renderers.rb:141:in `render_to_body'
+  actionpack (5.1.1) lib/abstract_controller/rendering.rb:24:in `render'
+  actionpack (5.1.1) lib/action_controller/metal/rendering.rb:36:in `render'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (5.1.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/manatee/.rbenv/versions/2.4.1/lib/ruby/2.4.0/benchmark.rb:308:in `realtime'
+  activesupport (5.1.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (5.1.1) lib/active_record/railties/controller_runtime.rb:29:in `cleanup_view_runtime'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (5.1.1) lib/action_controller/metal/implicit_render.rb:33:in `default_render'
+  actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+  actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:186:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:108:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/core_ext/time/zones.rb:64:in `use_zone'
+  app/controllers/application_controller.rb:23:in `user_time_zone'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:135:in `run_callbacks'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+  activerecord (5.1.1) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:124:in `process'
+  actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+  actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+  rack (2.0.3) lib/rack/etag.rb:25:in `call'
+  rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.3) lib/rack/head.rb:12:in `call'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+  rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+  rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+  railties (5.1.1) lib/rails/engine.rb:522:in `call'
+  puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+  puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+  puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+  puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+  puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/__better_errors/5e7a99270da09d1b/variables" for 127.0.0.1 at 2017-09-21 11:00:09 -0700
+  [1m[36mTimePunch Load (0.7ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mTimePunch Load (1.6ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 3], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (1.5ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 3], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 3], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 3], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 3], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 3], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 3], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 3], ["LIMIT", 2]]
+Started GET "/dashboard" for 127.0.0.1 at 2017-09-21 11:00:45 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (12.3ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mWorkSegment Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (1.4ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_singleTimeForm.html.erb (8.7ms) [cache miss]
+  [1m[36mWorkSegment Load (0.4ms)[0m  [1m[34mSELECT "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1[0m  [["workday_id", 3]]
+  Rendered dashboard/index.html.erb within layouts/application (19.9ms)
+  Rendered layouts/_topnavbar_2.html.erb (2.2ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 334ms (Views: 291.3ms | ActiveRecord: 15.4ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-09-21 11:01:05 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.3ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.6ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mWorkSegment Exists (6.0ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.9ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_singleTimeForm.html.erb (21.7ms) [cache miss]
+  [1m[36mWorkSegment Load (1.3ms)[0m  [1m[34mSELECT "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1[0m  [["workday_id", 3]]
+  Rendered dashboard/index.html.erb within layouts/application (28.3ms)
+  Rendered layouts/_topnavbar_2.html.erb (2.5ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.7ms) [cache miss]
+Completed 200 OK in 358ms (Views: 333.4ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-09-21 11:02:04 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (3.7ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mWorkSegment Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.9ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_singleTimeForm.html.erb (19.7ms) [cache miss]
+  [1m[36mWorkSegment Load (0.7ms)[0m  [1m[34mSELECT "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1[0m  [["workday_id", 3]]
+  Rendered dashboard/index.html.erb within layouts/application (43.1ms)
+Completed 500 Internal Server Error in 75ms (ActiveRecord: 7.2ms)
+
+
+
+ActionView::Template::Error - undefined method `project' for #<WorkSegment:0x007f911f50e170>
+Did you mean?  project_id:
+  actionview (5.1.1) lib/action_view/template/error.rb:67:in `initialize'
+  actionview (5.1.1) lib/action_view/template.rb:321:in `handle_render_error'
+  actionview (5.1.1) lib/action_view/template.rb:160:in `rescue in render'
+  actionview (5.1.1) lib/action_view/template.rb:155:in `render'
+  actionview (5.1.1) lib/action_view/renderer/template_renderer.rb:52:in `block (2 levels) in render_template'
+  actionview (5.1.1) lib/action_view/renderer/abstract_renderer.rb:42:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionview (5.1.1) lib/action_view/renderer/abstract_renderer.rb:41:in `instrument'
+  actionview (5.1.1) lib/action_view/renderer/template_renderer.rb:51:in `block in render_template'
+  actionview (5.1.1) lib/action_view/renderer/template_renderer.rb:59:in `render_with_layout'
+  actionview (5.1.1) lib/action_view/renderer/template_renderer.rb:50:in `render_template'
+  actionview (5.1.1) lib/action_view/renderer/template_renderer.rb:14:in `render'
+  actionview (5.1.1) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (5.1.1) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (5.1.1) lib/action_view/rendering.rb:103:in `_render_template'
+  actionpack (5.1.1) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (5.1.1) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (5.1.1) lib/action_controller/metal/rendering.rb:52:in `render_to_body'
+  actionpack (5.1.1) lib/action_controller/metal/renderers.rb:141:in `render_to_body'
+  actionpack (5.1.1) lib/abstract_controller/rendering.rb:24:in `render'
+  actionpack (5.1.1) lib/action_controller/metal/rendering.rb:36:in `render'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:44:in `block (2 levels) in render'
+  activesupport (5.1.1) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  /Users/manatee/.rbenv/versions/2.4.1/lib/ruby/2.4.0/benchmark.rb:308:in `realtime'
+  activesupport (5.1.1) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:44:in `block in render'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:87:in `cleanup_view_runtime'
+  activerecord (5.1.1) lib/active_record/railties/controller_runtime.rb:29:in `cleanup_view_runtime'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:43:in `render'
+  actionpack (5.1.1) lib/action_controller/metal/implicit_render.rb:33:in `default_render'
+  actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `block in send_action'
+  actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:186:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:108:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/core_ext/time/zones.rb:64:in `use_zone'
+  app/controllers/application_controller.rb:23:in `user_time_zone'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:135:in `run_callbacks'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+  activerecord (5.1.1) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:124:in `process'
+  actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+  actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+  rack (2.0.3) lib/rack/etag.rb:25:in `call'
+  rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.3) lib/rack/head.rb:12:in `call'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+  rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+  rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+  railties (5.1.1) lib/rails/engine.rb:522:in `call'
+  puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+  puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+  puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+  puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+  puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/__better_errors/81876efba66d0d2d/variables" for 127.0.0.1 at 2017-09-21 11:02:04 -0700
+  [1m[36mTimePunch Load (10.3ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mTimePunch Load (0.7ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 3], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 3], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 3], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 3], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 3], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 3], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 3], ["LIMIT", 2]]
+  [1m[36mCACHE TimePunch Load (0.0ms)[0m  [1m[34mSELECT  "time_punches".* FROM "time_punches" WHERE "time_punches"."work_segment_id" = $1 ORDER BY "time_punches"."created_at" DESC LIMIT $2[0m  [["work_segment_id", 3], ["LIMIT", 2]]
+Started GET "/dashboard" for 127.0.0.1 at 2017-09-21 11:02:25 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.7ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (6.4ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mWorkSegment Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.9ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_singleTimeForm.html.erb (25.9ms) [cache miss]
+  [1m[36mWorkSegment Load (3.9ms)[0m  [1m[34mSELECT "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1[0m  [["workday_id", 3]]
+  Rendered dashboard/index.html.erb within layouts/application (43.0ms)
+  Rendered layouts/_topnavbar_2.html.erb (2.2ms) [cache miss]
+  Rendered layouts/_footer.html.erb (2.4ms) [cache miss]
+Completed 200 OK in 333ms (Views: 296.7ms | ActiveRecord: 13.2ms)
+
+
+  [1m[36mProject Load (3.7ms)[0m  [1m[34mSELECT  "projects".* FROM "projects" ORDER BY "projects"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+Started GET "/dashboard" for 127.0.0.1 at 2017-09-21 11:03:49 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.6ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mWorkSegment Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (4.5ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_singleTimeForm.html.erb (26.2ms) [cache miss]
+  [1m[36mWorkSegment Load (0.5ms)[0m  [1m[34mSELECT "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1[0m  [["workday_id", 3]]
+  Rendered dashboard/index.html.erb within layouts/application (33.9ms)
+  Rendered layouts/_topnavbar_2.html.erb (2.1ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.7ms) [cache miss]
+Completed 200 OK in 381ms (Views: 352.3ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-09-21 11:04:50 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (2.6ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.9ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mWorkSegment Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (1.7ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_singleTimeForm.html.erb (15.8ms) [cache miss]
+  [1m[36mWorkSegment Load (3.3ms)[0m  [1m[34mSELECT "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1[0m  [["workday_id", 3]]
+  Rendered dashboard/index.html.erb within layouts/application (26.6ms)
+  Rendered layouts/_topnavbar_2.html.erb (1.7ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 233ms (Views: 205.9ms | ActiveRecord: 9.7ms)
+
+
+Started PATCH "/workdays/3/work_segments/3" for 127.0.0.1 at 2017-09-21 11:06:39 -0700
+Processing by WorkSegmentsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"K8a0sXe3NOhc5n1GhdloCUYiJRL69xJhL76WMqqF4b3/M2uPk1mKwK+tAMvE4mxM5jySok2kkocVCF+jP64/bA==", "work_segment"=>{"project_id"=>"1", "task"=>"General Work", "timeEntry"=>"4"}, "commit"=>"Save", "workday_id"=>"3", "id"=>"3"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.5ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.6ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mWorkday Load (0.7ms)[0m  [1m[34mSELECT  "workdays".* FROM "workdays" WHERE "workdays"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 23ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-09-21 11:06:39 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.6ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mWorkSegment Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.7ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_singleTimeForm.html.erb (15.1ms) [cache miss]
+  [1m[36mWorkSegment Load (0.3ms)[0m  [1m[34mSELECT "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1[0m  [["workday_id", 3]]
+  Rendered dashboard/index.html.erb within layouts/application (20.6ms)
+  Rendered layouts/_topnavbar_2.html.erb (2.3ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.7ms) [cache miss]
+Completed 200 OK in 326ms (Views: 302.9ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-09-21 11:12:37 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.5ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.6ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mWorkSegment Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.5ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_singleTimeForm.html.erb (19.7ms) [cache miss]
+  [1m[36mWorkSegment Load (0.7ms)[0m  [1m[34mSELECT "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1[0m  [["workday_id", 3]]
+  Rendered dashboard/index.html.erb within layouts/application (32.9ms)
+  Rendered layouts/_topnavbar_2.html.erb (1.9ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 603ms (Views: 355.6ms | ActiveRecord: 49.0ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-09-21 11:17:04 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (2.0ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mWorkSegment Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.8ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_singleTimeForm.html.erb (21.1ms) [cache miss]
+  [1m[36mWorkSegment Load (0.6ms)[0m  [1m[34mSELECT "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1[0m  [["workday_id", 3]]
+  Rendered dashboard/index.html.erb within layouts/application (32.6ms)
+  Rendered layouts/_topnavbar_2.html.erb (2.5ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.6ms) [cache miss]
+Completed 200 OK in 660ms (Views: 294.0ms | ActiveRecord: 82.1ms)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2017-09-21 11:17:16 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.6ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mWorkSegment Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.9ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 251ms (ActiveRecord: 47.9ms)
+
+
+
+ArgumentError - wrong number of arguments (given 0, expected 1):
+  app/models/workday.rb:22:in `calculate_workhours'
+  app/controllers/dashboard_controller.rb:25:in `index'
+  actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:186:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:108:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/core_ext/time/zones.rb:64:in `use_zone'
+  app/controllers/application_controller.rb:23:in `user_time_zone'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:135:in `run_callbacks'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+  activerecord (5.1.1) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:124:in `process'
+  actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+  actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `each'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+  rack (2.0.3) lib/rack/etag.rb:25:in `call'
+  rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.3) lib/rack/head.rb:12:in `call'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+  rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+  rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+  railties (5.1.1) lib/rails/engine.rb:522:in `call'
+  puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+  puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+  puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+  puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+  puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/__better_errors/42f8074d8530f63c/variables" for 127.0.0.1 at 2017-09-21 11:17:17 -0700
+  [1m[36mWorkSegment Load (0.8ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 11]]
+Started GET "/dashboard" for 127.0.0.1 at 2017-09-21 11:17:27 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.5ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (0.6ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mWorkSegment Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (1.1ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.7ms)[0m  [1m[34mSELECT "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1[0m  [["workday_id", 3]]
+Completed 500 Internal Server Error in 205ms (ActiveRecord: 49.9ms)
+
+
+
+NoMethodError - undefined method `hoursWorked=' for #<Workday:0x007f911f4f76a0>:
+  activemodel (5.1.1) lib/active_model/attribute_methods.rb:432:in `method_missing'
+  app/models/workday.rb:50:in `calculate_workhours'
+  app/controllers/dashboard_controller.rb:25:in `index'
+  actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:186:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:108:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/core_ext/time/zones.rb:64:in `use_zone'
+  app/controllers/application_controller.rb:23:in `user_time_zone'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:135:in `run_callbacks'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+  activerecord (5.1.1) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:124:in `process'
+  actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+  actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+  rack (2.0.3) lib/rack/etag.rb:25:in `call'
+  rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.3) lib/rack/head.rb:12:in `call'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+  rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+  rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+  railties (5.1.1) lib/rails/engine.rb:522:in `call'
+  puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+  puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+  puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+  puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+  puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/__better_errors/15f4b8d04d12da9e/variables" for 127.0.0.1 at 2017-09-21 11:17:28 -0700
+Started GET "/dashboard" for 127.0.0.1 at 2017-09-21 11:21:21 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.7ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (2.1ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mWorkSegment Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.9ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.4ms)[0m  [1m[34mSELECT "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1[0m  [["workday_id", 3]]
+Completed 500 Internal Server Error in 238ms (ActiveRecord: 47.5ms)
+
+
+
+NoMethodError - undefined method `hoursWorked=' for #<Workday:0x007f9123c9bdf8>:
+  activemodel (5.1.1) lib/active_model/attribute_methods.rb:432:in `method_missing'
+  app/models/workday.rb:50:in `calculate_workhours'
+  app/controllers/dashboard_controller.rb:25:in `index'
+  actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:186:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:108:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/core_ext/time/zones.rb:64:in `use_zone'
+  app/controllers/application_controller.rb:23:in `user_time_zone'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:135:in `run_callbacks'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+  activerecord (5.1.1) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:124:in `process'
+  actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+  actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+  rack (2.0.3) lib/rack/etag.rb:25:in `call'
+  rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.3) lib/rack/head.rb:12:in `call'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+  rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+  rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+  railties (5.1.1) lib/rails/engine.rb:522:in `call'
+  puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+  puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+  puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+  puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+  puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/__better_errors/5f46e28fdbc67286/variables" for 127.0.0.1 at 2017-09-21 11:21:22 -0700
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT $1[0m  [["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mWorkday Load (0.8ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 1]]
+Started GET "/dashboard" for 127.0.0.1 at 2017-09-21 11:24:56 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (0.4ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (1.0ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mWorkSegment Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.9ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.4ms)[0m  [1m[34mSELECT "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1[0m  [["workday_id", 3]]
+Completed 500 Internal Server Error in 324ms (ActiveRecord: 61.2ms)
+
+
+
+NoMethodError - undefined method `hoursWorked=' for #<Workday:0x007f9120f847e8>:
+  activemodel (5.1.1) lib/active_model/attribute_methods.rb:432:in `method_missing'
+  app/models/workday.rb:50:in `calculate_workhours'
+  app/controllers/dashboard_controller.rb:25:in `index'
+  actionpack (5.1.1) lib/action_controller/metal/basic_implicit_render.rb:4:in `send_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:186:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rendering.rb:30:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:108:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/core_ext/time/zones.rb:64:in `use_zone'
+  app/controllers/application_controller.rb:23:in `user_time_zone'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:117:in `block in run_callbacks'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:135:in `run_callbacks'
+  actionpack (5.1.1) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/rescue.rb:20:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:32:in `block in process_action'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `block in instrument'
+  activesupport (5.1.1) lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+  activesupport (5.1.1) lib/active_support/notifications.rb:166:in `instrument'
+  actionpack (5.1.1) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (5.1.1) lib/action_controller/metal/params_wrapper.rb:252:in `process_action'
+  activerecord (5.1.1) lib/active_record/railties/controller_runtime.rb:22:in `process_action'
+  actionpack (5.1.1) lib/abstract_controller/base.rb:124:in `process'
+  actionview (5.1.1) lib/action_view/rendering.rb:30:in `process'
+  actionpack (5.1.1) lib/action_controller/metal.rb:189:in `dispatch'
+  actionpack (5.1.1) lib/action_controller/metal.rb:253:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:46:in `block in serve'
+  actionpack (5.1.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+  actionpack (5.1.1) lib/action_dispatch/routing/route_set.rb:832:in `call'
+  rack (2.0.3) lib/rack/etag.rb:25:in `call'
+  rack (2.0.3) lib/rack/conditional_get.rb:25:in `call'
+  rack (2.0.3) lib/rack/head.rb:12:in `call'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:232:in `context'
+  rack (2.0.3) lib/rack/session/abstract/id.rb:226:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+  activerecord (5.1.1) lib/active_record/migration.rb:556:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+  activesupport (5.1.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+  actionpack (5.1.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:84:in `protected_app_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:79:in `better_errors_call'
+  better_errors (2.1.1) lib/better_errors/middleware.rb:57:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+  railties (5.1.1) lib/rails/rack/logger.rb:36:in `call_app'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (5.1.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+  railties (5.1.1) lib/rails/rack/logger.rb:24:in `call'
+  sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+  rack (2.0.3) lib/rack/method_override.rb:22:in `call'
+  rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+  activesupport (5.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+  actionpack (5.1.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+  rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+  railties (5.1.1) lib/rails/engine.rb:522:in `call'
+  puma (3.8.2) lib/puma/configuration.rb:224:in `call'
+  puma (3.8.2) lib/puma/server.rb:600:in `handle_request'
+  puma (3.8.2) lib/puma/server.rb:435:in `process_client'
+  puma (3.8.2) lib/puma/server.rb:299:in `block in run'
+  puma (3.8.2) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+
+Started POST "/__better_errors/496e82524d4bec1c/variables" for 127.0.0.1 at 2017-09-21 11:24:57 -0700
+Started GET "/dashboard" for 127.0.0.1 at 2017-09-21 11:25:21 -0700
+Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mAccount Load (3.9ms)[0m  [1m[34mSELECT  "accounts".* FROM "accounts" WHERE "accounts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mWorkday Load (1.1ms)[0m  [1m[34mSELECT "workdays".* FROM "workdays" WHERE "workdays"."user_id" = $1[0m  [["user_id", 1]]
+  [1m[36mWorkSegment Exists (3.0ms)[0m  [1m[34mSELECT  1 AS one FROM "work_segments" WHERE "work_segments"."workday_id" = $1 LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.8ms)[0m  [1m[34mSELECT  "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1 ORDER BY "work_segments"."id" DESC LIMIT $2[0m  [["workday_id", 3], ["LIMIT", 1]]
+  [1m[36mWorkSegment Load (0.3ms)[0m  [1m[34mSELECT "work_segments".* FROM "work_segments" WHERE "work_segments"."workday_id" = $1[0m  [["workday_id", 3]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[33mUPDATE "workdays" SET "totalHoursWorked" = $1, "updated_at" = $2 WHERE "workdays"."id" = $3[0m  [["totalHoursWorked", "4.0"], ["updated_at", "2017-09-21 18:25:21.435588"], ["id", 3]]
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering dashboard/index.html.erb within layouts/application
+  Rendered dashboard/_singleTimeForm.html.erb (22.3ms) [cache miss]
+  Rendered dashboard/index.html.erb within layouts/application (25.8ms)
+  Rendered layouts/_topnavbar_2.html.erb (4.7ms) [cache miss]
+  Rendered layouts/_footer.html.erb (0.7ms) [cache miss]
+Completed 200 OK in 519ms (Views: 270.5ms | ActiveRecord: 63.1ms)
+
+

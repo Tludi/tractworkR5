@@ -21,30 +21,33 @@ class Workday < ApplicationRecord
 
   def self.calculate_workhours(workday)
     # get current workday punches and push times to array
-    @punches = []
-    workday_punches = workday.timePunches
-    workday_punches.each do |p|
-      @punches << p.created_at
-    end
+    # @punches = []
+    # workday_punches = workday.timePunches
+    # workday_punches.each do |p|
+    #   @punches << p.created_at
+    # end
 
     # group punches in pairs then push to array
-    punch_groups = []
-    @punches.in_groups_of(2, Time.current) do |group| # Time.current is used when punch count is odd
-      punch_groups << group
-    end
+    # punch_groups = []
+    # @punches.in_groups_of(2, Time.current) do |group| # Time.current is used when punch count is odd
+    #   punch_groups << group
+    # end
 
     # Iterate through groups of punch pairs to get time difference
     # and add each groups difference for a total hours worked
     @work_hours = 0
-    punch_groups.each do |pg|
-      # @workHours += TimeDifference.between(pg[0], pg[1]).in_hours
-      @work_hours += pg[1] - pg[0]
+    # punch_groups.each do |pg|
+    #   # @workHours += TimeDifference.between(pg[0], pg[1]).in_hours
+    #   @work_hours += pg[1] - pg[0]
+    # end
+    workday.workSegments.each do |ws|
+      @work_hours += ws.timeEntry
     end
     # convert the fractional of hours worked from hour percentage to minutes
     # workHourModulus = @workHours.modulo(1)*0.6.round(2)
     # workHourWholeNumber = @workHours.round(0)
     # workdayHours = workHourWholeNumber + workHourModulus
-    workday.hoursWorked = @work_hours
+    workday.totalHoursWorked = @work_hours
     workday.save
     @work_hours
   end

@@ -22,12 +22,6 @@
             <strong>Notes:</strong>
             <%= @workday.workDayNotes %>
           </p>
-          <% if @time_punches %>
-            <% @time_punches.each do |tp| %>
-              <p><%= tp.punch %></p>
-            <% end %>
-          <p><%= @time_punches.count %> punches</p>
-          <% end %>
 
         </div>
       </div>
@@ -37,20 +31,15 @@
     <div class="ibox float-e-margins">
       <div class="ibox-title">
                 <span class="label label-success pull-right">in/out</span>
-                <h5>Time Punches</h5>
+                <h5>Work Segments</h5>
             </div>
             <div class="ibox-content">
               <div class="row">
-              <% @current_worksegment_time_punches.each do |tp| %>
+              <% @workday_workSegments.each do |ws| %>
                 <div class="col-md-3" >
                   <div class="well">
-                    <%= tp.punch.strftime('%l:%M %P') %>
-                    <% local_time(tp.punch, '%l:%M %P') %>
-                    <% if tp.status %>
-                      <p class="label label-success">In</p>
-                    <% else %>
-                      <p class="label label-danger">Out</p>
-                    <% end %>
+                    <p><%= ws.timeEntry  %> Hours</p>
+                    <p><%= ws.task  %></p>
 
                   </div>
                 </div>
