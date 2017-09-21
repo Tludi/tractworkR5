@@ -56,7 +56,7 @@ class WorkSegmentsController < ApplicationController
   def destroy
     @work_segment.destroy
     respond_to do |format|
-      format.html { redirect_to work_segments_url, notice: 'Work segment was successfully destroyed.' }
+      format.html { redirect_to dashboard_url, notice: 'Work segment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,6 @@ class WorkSegmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def work_segment_params
-      params.require(:work_segment).permit(:status, :workday_id, :task, :project_id, :timeEntry, :segmentNotes, timePunches_attributes: [:punch, :work_segment_id, :status])
+      params.require(:work_segment).permit(:status, :workday_id, :task, :project_id, :timeEntry, :segmentNotes)
     end
 end

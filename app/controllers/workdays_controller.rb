@@ -28,7 +28,7 @@ class WorkdaysController < ApplicationController
 
     respond_to do |format|
       if @workday.save
-        format.html { redirect_to @workday, notice: 'Workday was successfully created.' }
+        format.html { redirect_to dashboard_path, notice: 'Workday was successfully created.' }
         format.json { render :show, status: :created, location: @workday }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class WorkdaysController < ApplicationController
   def update
     respond_to do |format|
       if @workday.update(workday_params)
-        format.html { redirect_to @workday, notice: 'Workday was successfully updated.' }
+        format.html { redirect_to dashboard_path, notice: 'Workday was successfully updated.' }
         format.json { render :show, status: :ok, location: @workday }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class WorkdaysController < ApplicationController
   def destroy
     @workday.destroy
     respond_to do |format|
-      format.html { redirect_to workdays_url, notice: 'Workday was successfully destroyed.' }
+      format.html { redirect_to dashboard_path, notice: 'Workday was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,6 @@ class WorkdaysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def workday_params
-      params.require(:workday).permit(:totalHoursWorked, :dayDate, :user_id, :workDayNotes)
+      params.require(:workday).permit(:totalHoursWorked, :dayDate, :user_id, :workDayNotes, workSegments_attributes: [:status, :workday_id, :task, :project_id, :timeEntry, :segmentNotes])
     end
 end

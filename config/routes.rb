@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
   
   resources :workdays do
-    resources :work_segments do
-      resources :time_punches
-    end
+    resources :work_segments
   end
 
-  # resources :work_segments do
+  # resources :work_segments
   #   resources :time_punches    
   #  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

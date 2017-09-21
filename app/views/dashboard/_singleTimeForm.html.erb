@@ -4,21 +4,20 @@
 
 <br>
 <br>
-<%= simple_form_for [@workday, @work_segment], html: { class: 'form-horizontal' } do |wd| %>
-
+<%= simple_form_for @workday, html: { class: 'form-horizontal' } do |wd| %>
+  <%= wd.simple_fields_for :workSegments, WorkSegment.new do |ws|  %>
     <div class="actions">
     <p>
-      <%= wd.label :project %>
-      <%= wd.input :project_id,  collection: [1,2,3], selected: [1]  %>
+      <%= ws.input :project_id,  collection: [1,2,3], selected: [1]  %>
     </p>
     <p>
-      <%= wd.label :task %>
-      <%= wd.input :task,  collection: ["General Work","Hanging", "Taping", "Cleanup"], selected: ["General Work"]  %>
+      <%= ws.input :task,  collection: ["General Work","Hanging", "Taping", "Cleanup"], selected: ["General Work"]  %>
     </p>
-      <%= wd.input :timeEntry, label: "Enter Time Worked" %>
-      <%= wd.submit "Save", class: "btn btn-primary"%>
+      <%= ws.input :timeEntry, label: "Enter Time Worked" %>
     </div>
-
+  <% end %>
+  
+  <%= wd.submit "Save", class: "btn btn-primary"%>
 <% end -%>
 
 <% flash.each do |name, msg| %>

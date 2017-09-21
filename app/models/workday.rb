@@ -3,6 +3,7 @@ class Workday < ApplicationRecord
   belongs_to :user
   has_many :workSegments
   
+  accepts_nested_attributes_for :workSegments
   # validates_presence_of :dayDate, :hoursWorked
 
   
@@ -35,13 +36,15 @@ class Workday < ApplicationRecord
 
     # Iterate through groups of punch pairs to get time difference
     # and add each groups difference for a total hours worked
-    @work_hours = 0
+    @work_hours = 0.0
     # punch_groups.each do |pg|
     #   # @workHours += TimeDifference.between(pg[0], pg[1]).in_hours
     #   @work_hours += pg[1] - pg[0]
     # end
-    workday.workSegments.each do |ws|
-      @work_hours += ws.timeEntry
+    if workday.workSegments.count > 0
+      workday.workSegments.each do |ws|
+        @work_hours += ws.timeEntry
+      end
     end
     # convert the fractional of hours worked from hour percentage to minutes
     # workHourModulus = @workHours.modulo(1)*0.6.round(2)

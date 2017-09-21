@@ -1,8 +1,8 @@
 class WorkSegment < ApplicationRecord
   belongs_to :workday
-  has_many :timePunches, -> {limit(2)}
+  # has_many :timePunches, -> {limit(2)}
 
-  accepts_nested_attributes_for :timePunches
+  # accepts_nested_attributes_for :timePunches
 
   def self.retrieve_current_segment(workday)
     workday_segments = workday.workSegments
