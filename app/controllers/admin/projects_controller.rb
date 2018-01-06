@@ -19,6 +19,7 @@ class Admin::ProjectsController < Admin::AdminController
 
   # GET /projects/new
   def new
+    # @account = @current_account
     @project = @current_account.projects.new
   end
 

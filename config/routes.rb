@@ -17,11 +17,8 @@ Rails.application.routes.draw do
   
   namespace :admin do
     root 'dashboard#index'
-    resources :accounts do
-      resources :users
-    end
+    resources :accounts
     resources :users
-    
     resources :projects #do
     #   member do
     #     patch :addUser
@@ -30,6 +27,8 @@ Rails.application.routes.draw do
     # end
   end
 
+  # resources :projects
+  
   get 'launchpad' => 'launchpad#index', as: 'launchpad'
   get 'dashboard' => 'dashboard#index', :as => :dashboard
 
