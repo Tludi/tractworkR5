@@ -47,7 +47,9 @@
          <table class="table table-striped table-bordered table-hover projects display" cellspacing="0" width="100%">
           <thead>
             <tr>
-              <th>Project Name</th>
+              <th>Code #</th>
+              <th>Name</th>
+              <th>Address</th>
               <th></th>
               <th></th>
             </tr>
@@ -56,15 +58,17 @@
           <tbody>
             <% @projects.each do |project| %>
               <tr>
+                <td class="center">number5</td>
                 <td class="center"><%= link_to project.name, admin_project_path(project) %></td>
+                <td class="center"><%= project.address1 %>, <%= project.city %> <%= project.state %></td>
                 <td class="center">        
                     <%= link_to edit_admin_project_path(project) do %>
-                      <span><i class="fa fa-edit"></i> Edit</span>
+                      <span><i class="fa fa-edit"></i></span>
                     <% end %>
                 </td>
                 <td class="center">        
                     <%= link_to admin_project_path(project), method: :delete, data: { confirm: 'Are you sure?' } do %>
-                      <span><i class="fa fa-trash"></i> Delete</span>
+                      <span><i class="fa fa-trash"></i></span>
                     <% end %>
                 </td>
 
