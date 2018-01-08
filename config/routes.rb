@@ -19,12 +19,7 @@ Rails.application.routes.draw do
     root 'dashboard#index'
     resources :accounts
     resources :users
-    resources :projects #do
-    #   member do
-    #     patch :addUser
-    #   end
-    #   resources :users
-    # end
+    resources :projects
   end
 
   # resources :projects

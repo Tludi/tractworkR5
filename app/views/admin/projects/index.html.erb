@@ -50,17 +50,24 @@
               <th>Project Name</th>
               <th></th>
               <th></th>
-              <th></th>
             </tr>
           </thead>
 
           <tbody>
             <% @projects.each do |project| %>
               <tr>
-                <td><%= project.name %></td>
-                <td><%= link_to 'Show', admin_project_path(project) %></td>
-                <td><%= link_to 'Edit', edit_admin_project_path(project) %></td>
-                <td><%= link_to 'Delete', admin_project_path(project), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td class="center"><%= link_to project.name, admin_project_path(project) %></td>
+                <td class="center">        
+                    <%= link_to edit_admin_project_path(project) do %>
+                      <span><i class="fa fa-edit"></i> Edit</span>
+                    <% end %>
+                </td>
+                <td class="center">        
+                    <%= link_to admin_project_path(project), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                      <span><i class="fa fa-trash"></i> Delete</span>
+                    <% end %>
+                </td>
+
               </tr>
             <% end %>
           </tbody>

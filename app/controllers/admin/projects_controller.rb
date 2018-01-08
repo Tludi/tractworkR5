@@ -12,9 +12,10 @@ class Admin::ProjectsController < Admin::AdminController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @users = User.all
-    @projectUsers = @project.users.uniq
-    @user = User.new
+    
+    # @users = User.all
+    # @projectUsers = @project.users.uniq
+    # @user = User.new
   end
 
   # GET /projects/new
