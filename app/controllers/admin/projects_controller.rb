@@ -6,7 +6,7 @@ class Admin::ProjectsController < Admin::AdminController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = @current_account.projects
+    @projects = @account.projects
   end
 
   # GET /projects/1
@@ -20,7 +20,7 @@ class Admin::ProjectsController < Admin::AdminController
   # GET /projects/new
   def new
     # @account = @current_account
-    @project = @current_account.projects.new
+    @project = @account.projects.new
   end
 
   # GET /projects/1/edit
@@ -31,7 +31,7 @@ class Admin::ProjectsController < Admin::AdminController
   # POST /projects.json
   def create
     # @project = Project.new(project_params)
-    @project = @current_account.projects.new(project_params)
+    @project = @account.projects.new(project_params)
 
     respond_to do |format|
       if @project.save
@@ -77,7 +77,7 @@ class Admin::ProjectsController < Admin::AdminController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_current_account
-      @current_account = current_user.account
+      @account = current_user.account
     end
 
     def set_project
