@@ -9,9 +9,9 @@
           <%= image_tag(current_user.gravatar_url, class: "img-circle") %>
 
 
-          <h3 class="m-b-xs"><strong><%= current_user.fullName %></strong></h3>
+          <h3 class="m-b-xs"><strong><%= @user.fullName %></strong></h3>
 
-          <div class="font-bold"><%= current_user.role %></div>
+          <div class="font-bold"><%= @user.role %></div>
           <address class="m-t-md">
             <strong>Twitter, Inc.</strong><br>
             795 Folsom Ave, Suite 600<br>
