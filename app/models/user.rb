@@ -17,6 +17,6 @@ class User < ActiveRecord::Base
   gravtastic default: 'mm'
   
   def fullName
-    [firstName.capitalize, lastName.capitalize].join(' ')
+    [lastName.capitalize, firstName.capitalize].join(', ')
   end
 end

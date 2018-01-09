@@ -43,8 +43,7 @@
         <table class="table table-striped table-bordered table-hover projects display" cellspacing="0" width="100%">
             <thead>
               <tr>
-                <th>First Name</th>
-                <th>Last Name</th>
+                <th>Name</th>
                 <th>Role</th>
                 <th>Account</th>
                 <th></th>
@@ -53,8 +52,7 @@
             <tbody>
               <% @users.each do |user| %>
                 <tr class="gradeX">
-                  <td><%= user.firstName %></td>
-                  <td><%= user.lastName %></td>
+                  <td><%= link_to user.fullName, admin_user_path(user) %></td>
                   <td><%= user.role %></td>
                   <td class="center"><%= @account.name %></td>
                   <td class="center"></td>
