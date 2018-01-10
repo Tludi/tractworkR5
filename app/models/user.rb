@@ -3,6 +3,10 @@ class User < ActiveRecord::Base
   belongs_to :account
   has_many :workdays
 
+  # testing if this works
+  has_many :account_associations
+  has_many :projects, through: :account_associations
+
   validates_presence_of :firstName, :lastName, :email
   validates :email, uniqueness: true
   # validates :pin, length: {is: 4}

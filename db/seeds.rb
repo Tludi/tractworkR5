@@ -46,12 +46,14 @@ Project.create(name: "General Work",
                zip_code: "12345",
                account_id: account.id )
 
+
 users = User.all
 # print User count to terminal for verification
 puts " #{users.count} Users created"
 puts " #{Project.count} Projects created"
 
-
+User.first.projects << Project.first
+puts "added #{Project.first.name} to #{User.first.fullName}"
 # Create 1 workday for each User
 # users.each do |u|
 #   u.workdays.create(hoursWorked: 8,
