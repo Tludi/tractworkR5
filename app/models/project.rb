@@ -5,4 +5,11 @@ class Project < ActiveRecord::Base
   has_many :users, through: :account_associations
 
   validates_presence_of :name
+
+  def notProjectUsers
+    account = self.account
+    accountUsers = self.account.users
+    currentProjectUsers = self.users
+    accountUsers - currentProjectUsers
+  end
 end

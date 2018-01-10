@@ -1,7 +1,7 @@
 # projects_controller.rb
 class Admin::ProjectsController < Admin::AdminController
   before_action :set_project, only: [:show, :edit, :update, :destroy, :addUser]
-  before_action :set_current_account, only: [:index, :new, :create]
+  before_action :set_current_account, only: [:index, :new, :create, :show]
 
   # GET /projects
   # GET /projects.json
@@ -12,10 +12,7 @@ class Admin::ProjectsController < Admin::AdminController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    
-    # @users = User.all
-    # @projectUsers = @project.users.uniq
-    # @user = User.new
+    @accountUsers = @project.notProjectUsers
   end
 
   # GET /projects/new
