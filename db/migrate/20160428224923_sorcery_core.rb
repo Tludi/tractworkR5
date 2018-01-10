@@ -8,6 +8,13 @@ class SorceryCore < ActiveRecord::Migration[5.1]
       t.string :crypted_password
       t.string :salt
       t.integer :pin
+      t.string :address1
+      t.string :address2
+      t.string :city
+      t.string :state
+      t.string :zip_code
+      t.string :phone
+      t.string :personal_contact
       t.integer :account_id
 
       t.timestamps

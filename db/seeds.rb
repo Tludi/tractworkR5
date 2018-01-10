@@ -3,6 +3,8 @@ Account.create(name: "Test Account", time_zone: "Pacific Time (US & Canada)")
 # Account.create(name: "Bronze Construction Services Inc", time_zone: "Pacific Time (US & Canada)")
 Time.zone = "Pacific Time (US & Canada)"
 
+account = Account.first
+
 User.create(firstName: "milo",
             lastName: "bloom",
             email: "milo",
@@ -10,7 +12,14 @@ User.create(firstName: "milo",
             password: "soccer55",
             password_confirmation: "soccer55",
             pin: 1234,
-            account_id: 1 )
+            address1: "12345 St",
+            address2: "Apt 5",
+            city: "Dueseldorf",
+            state: "Reality",
+            zip_code: "12345",
+            phone: "555-5555",
+            personal_contact: "Zoey Zupper",
+            account_id: account.id )
 
 User.create(firstName: "admin",
             lastName: "admin",
@@ -19,12 +28,28 @@ User.create(firstName: "admin",
             password: "soccer55",
             password_confirmation: "soccer55",
             pin: 1234,
-            account_id: 1 )
+            address1: "67890 St",
+            address2: "Apt 55",
+            city: "Clatsop",
+            state: "Mental",
+            zip_code: "12345",
+            phone: "555-5555",
+            personal_contact: "Quinton Quince",
+            account_id: account.id )
 
+Project.create(name: "General Work",
+               code: Date.today,
+               address1: "12345 st",
+               address2: "Apt 55",
+               city: "Ootville",
+               state: "Euphoria",
+               zip_code: "12345",
+               account_id: account.id )
 
 users = User.all
 # print User count to terminal for verification
 puts " #{users.count} Users created"
+puts " #{Project.count} Projects created"
 
 
 # Create 1 workday for each User
