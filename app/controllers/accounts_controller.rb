@@ -1,5 +1,5 @@
 # accounts_controller.rb
-class Admin::AccountsController < ApplicationController
+class AccountsController < ApplicationController
   skip_before_action :require_login
 
   def new

@@ -58,7 +58,7 @@
           <tbody>
             <% @projects.each do |project| %>
               <tr>
-                <td class="center">number5</td>
+                <td class="center"><%= project.code %></td>
                 <td class="center"><%= link_to project.name, admin_project_path(project) %></td>
                 <td class="center"><%= project.address1 %>, <%= project.city %> <%= project.state %></td>
                 <td class="center">        

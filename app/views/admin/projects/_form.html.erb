@@ -1,6 +1,10 @@
 
 <%= form_for [:admin, @project] do |f| %>
   <div class="field">
+    <%= f.label :code %><br>
+    <%= f.text_field :code %>
+  </div>
+  <div class="field">
     <%= f.label :project_name %><br>
     <%= f.text_field :name %>
   </div>
