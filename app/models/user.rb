@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   # testing if this works
   has_many :account_associations
   has_many :projects, through: :account_associations
+  accepts_nested_attributes_for :account_associations
 
   validates_presence_of :firstName, :lastName, :email
   validates :email, uniqueness: true
