@@ -47,7 +47,9 @@ class Admin::ProjectsController < Admin::AdminController
   def update
     respond_to do |format|
       if @project.update(project_params)
-        format.html { redirect_to admin_project_path(@project), notice: 'Project was successfully updated.' }
+        # user = User.find(params[users: [:id]])
+        # @project.users << user
+        format.html { redirect_to admin_project_path(@project), notice: 'Project was successfully updated (not really).' }
         format.json { render :show, status: :ok, location: @project }
       else
         format.html { render :edit }
@@ -85,6 +87,6 @@ class Admin::ProjectsController < Admin::AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:code, :name, :address1, :address2, :city, :state, :zip_code, :contact, :contact_phone, :account_id, users:[] )
+      params.require(:project).permit(:code, :name, :address1, :address2, :city, :state, :zip_code, :contact, :contact_phone, :account_id, :user_ids => [] )
     end
 end

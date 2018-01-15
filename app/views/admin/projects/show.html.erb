@@ -53,14 +53,15 @@
                   </table>
                   <h5>Add User to <%= @project.name  %></h5>
                   
-                  <%= simple_form_for [:admin, @project] do |f| -%>
-                      <div class="">
-                        <%= f.input :users do %>
-                          <%= f.select :users, @accountUsers.map { |r| [r.fullName, r.id]}, include_blank: "Select User" %>
-                        <% end %>
-                        &nbsp;
-                        <%= f.button :submit %>
-                      </div>
+
+                  <%= form_for [:admin, @project] do |f| -%>
+                    <div class="">
+                      <%= f.collection_select(:user_ids, @account.users.all, :id, :fullName) %>
+ 
+ 
+                      &nbsp;
+                      <%= f.button :submit %>
+                    </div>
                   <% end -%>
 
                 </div>
