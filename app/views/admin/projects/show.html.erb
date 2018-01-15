@@ -56,9 +56,10 @@
 
                   <%= form_for [:admin, @project] do |f| -%>
                     <div class="field">
+                      <%= hidden_field_tag "project[user_ids][]", nil %>
                       <% @account.users.all.each do |user| %>
-                        <%= check_box_tag "project[user_ids][]", user.id %>
-                        <%= user.fullName %></br>
+                        <%= check_box_tag "project[user_ids][]", user.id, @project.user_ids.include?(user.id), id: dom_id(user) %>
+                        <%= label_tag dom_id(user), user.fullName %></br>
                       <% end %>                
                       &nbsp;
                       <%= f.button :submit %>
