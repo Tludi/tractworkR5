@@ -46,28 +46,28 @@
                     <tbody>
                       <% @project.users.each do |u| %>                
                         <tr class="gradeX">
-                          <td><%= link_to u.fullName, admin_users_path(u) %></td>
+                          <td><%= link_to u.fullName, admin_user_path(u) %></td>
                         </tr>
                       <% end %>
                     </tbody>
                   </table>
-                  <h5>Add User to <%= @project.name  %></h5>
+                  <h5>Add/Remove Users to <%= @project.name  %></h5>
                   
 
                   <%= form_for [:admin, @project] do |f| -%>
                     <div class="field">
                       <%= hidden_field_tag "project[user_ids][]", nil %>
-                      <% @account.users.all.each do |user| %>
+                      <% @accountUsers.each do |user| %>
                         <%= check_box_tag "project[user_ids][]", user.id, @project.user_ids.include?(user.id), id: dom_id(user) %>
                         <%= label_tag dom_id(user), user.fullName %></br>
-                      <% end %>                
-                      &nbsp;
-                      <%= f.button :submit %>
+                      <% end %>
+                      </br>               
+
+                      <%= f.submit "Update Users", class: "btn btn-primary" %>
                     </div>
                   <% end -%>
 
                 </div>
-                <%= debug(params) %>
               </div>
             </div>
           </div>

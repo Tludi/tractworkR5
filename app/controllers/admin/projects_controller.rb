@@ -12,7 +12,7 @@ class Admin::ProjectsController < Admin::AdminController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @accountUsers = @project.notProjectUsers
+    @accountUsers = @account.users.order(lastName: :asc)
   end
 
   # GET /projects/new
@@ -49,7 +49,7 @@ class Admin::ProjectsController < Admin::AdminController
       if @project.update(project_params)
         # user = User.find(params[users: [:id]])
         # @project.users << user
-        format.html { redirect_to admin_project_path(@project), notice: 'Project was successfully updated (not really).' }
+        format.html { redirect_to admin_project_path(@project), notice: 'Project was successfully updated.' }
         format.json { render :show, status: :ok, location: @project }
       else
         format.html { render :edit }
