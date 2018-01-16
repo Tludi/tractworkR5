@@ -1,5 +1,6 @@
 class Project < ActiveRecord::Base
   belongs_to :account
+  has_many :workSegments
 
   has_many :account_associations
   has_many :users, through: :account_associations
@@ -7,12 +8,6 @@ class Project < ActiveRecord::Base
 
   validates_presence_of :name
 
-  def notProjectUsers
-    account = self.account
-    accountUsers = self.account.users
-    currentProjectUsers = self.users
-    accountUsers - currentProjectUsers
-  end
 
 
 end

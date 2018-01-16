@@ -1,5 +1,6 @@
 class WorkSegment < ApplicationRecord
   belongs_to :workday
+  belongs_to :project
   # has_many :timePunches, -> {limit(2)}
 
   # accepts_nested_attributes_for :timePunches

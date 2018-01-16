@@ -1,39 +1,76 @@
 
-<%= form_for [:admin, @project] do |f| %>
-  <div class="field">
-    <%= f.label :code %><br>
-    <%= f.text_field :code %>
+<div class="md-skin">
+<div class="row wrapper border-bottom white-bg page-heading">
+  <div class="col-lg-10">
+    <ol class="breadcrumb">
+      <li>
+        <%= link_to 'Dashboard', admin_root_path  %>
+      </li>
+      <li>
+        <span>Projects</span>
+      </li>
+      <li class="active">
+        <strong>Form</strong>
+      </li>
+    </ol>
   </div>
-  <div class="field">
-    <%= f.label :project_name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address1 %>
-  </div>
-  <div class="field">
-    <%= f.label :address2 %><br>
-    <%= f.text_field :address2 %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :state %><br>
-    <%= f.text_field :state %>
-  </div>
-    <div class="field">
-    <%= f.label :zip_code %><br>
-    <%= f.text_field :zip_code %>
-  </div>
+  <div class="col-lg-2">
 
-  </br>
-
-  <div class="actions">
-    <%= f.submit %>
   </div>
-<% end -%>
+</div>
+<div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5>Add/Edit Project Form</h5>
+          <div class="ibox-tools">
+            <a class="collapse-link">
+              <i class="fa fa-chevron-up"></i>
+            </a>
+          </div>
+        </div>
+        <div class="ibox-content center">
+          <%= form_for [:admin, @project] do |f| %>
+            <div class="field">
+              <%= f.label :code %><br>
+              <%= f.text_field :code %>
+            </div>
+            <div class="field">
+              <%= f.label :project_name %><br>
+              <%= f.text_field :name %>
+            </div>
+            <div class="field">
+              <%= f.label :address %><br>
+              <%= f.text_field :address1 %>
+            </div>
+            <div class="field">
+              <%= f.label :address2 %><br>
+              <%= f.text_field :address2 %>
+            </div>
+            <div class="field">
+              <%= f.label :city %><br>
+              <%= f.text_field :city %>
+            </div>
+            <div class="field">
+              <%= f.label :state %><br>
+              <%= f.text_field :state %>
+            </div>
+              <div class="field">
+              <%= f.label :zip_code %><br>
+              <%= f.text_field :zip_code %>
+            </div>
 
+            </br>
+
+            <div class="actions">
+              <%= f.submit %>
+            </div>
+          <% end -%>
+                  </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 <!-- :name, :address1, :address2, :city, :state, :zip_code, :contact, :contact_phone, :account_id, :users => [:firstName, :lastName, :pin, :email, :password, :password_confirmation, :role -->
