@@ -96,6 +96,7 @@
               <tr>
                 <th>Date</th>
                 <th>Project</th>
+                <th>Task</th>
                 <th>hours</th>
               </tr>
             </thead>
@@ -105,6 +106,7 @@
                 <tr class="gradeX">
                     <td><%= ws.workday.dayDate %></td>
                       <td><%= ws.project.name %></td>
+                      <td><%= ws.task %></td>
                       <td><%= ws.timeEntry %></td>
                   <% end %>
                   <td><%= wd.totalHoursWorked %></td>
