@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Admin Tasks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_tasks.each do |admin_task| %>
+      <tr>
+        <td><%= admin_task.name %></td>
+        <td><%= link_to 'Show', admin_task %></td>
+        <td><%= link_to 'Edit', edit_admin_task_path(admin_task) %></td>
+        <td><%= link_to 'Destroy', admin_task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Admin Task', new_admin_task_path %>

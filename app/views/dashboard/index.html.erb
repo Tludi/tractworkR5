@@ -39,7 +39,7 @@
                 <div class="col-md-3" >
                   <div class="well">
                     <p><%= ws.timeEntry  %> Hours</p>
-                    <p><%= ws.task  %></p>
+                    <p><%= @tasks.find(ws.task).name %></p>
            
                   </div>
                 </div>

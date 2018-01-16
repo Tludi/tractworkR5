@@ -106,7 +106,7 @@
                 <tr class="gradeX">
                     <td><%= ws.workday.dayDate %></td>
                       <td><%= ws.project.name %></td>
-                      <td><%= ws.task %></td>
+                      <td><%= @tasks.find(ws.task).name %></td>
                       <td><%= ws.timeEntry %></td>
                   <% end %>
                   <td><%= wd.totalHoursWorked %></td>

@@ -63,6 +63,9 @@ puts "added #{Project.first.name} to #{User.first.fullName}"
 #                     notes: "Nothing yet" )
 # end
 
+Task.create(name: "General Task")
+Task.create(name: "Office Work")
+
 # workdays = Workday.all
 # # print workday count to terminal for verification
 # puts workdays.count

@@ -12,6 +12,11 @@ class DashboardController < ApplicationController
     # @new_work_segment = @workday.workSegments.new(timeEntry:0)
     @current_time = get_current_time
 
+    @projects = @account.projects
+
+    # TODO This need to be account specific
+    @tasks = Task.all
+    
     # @time_punch = @work_segment.timePunches.new
     # @latest_time_punch = @workday.timePunches.last
     # @time_punch_status = @latest_time_punch.clockedInStatus if @latest_time_punch

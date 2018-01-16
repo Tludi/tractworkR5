@@ -8,12 +8,12 @@
   <%= wd.simple_fields_for :workSegments, WorkSegment.new do |ws|  %>
     <div class="actions">
     <p>
-      <%= ws.input :project_id,  collection: [1,2,3], selected: [1]  %>
+      <%= ws.input :project_id,  collection: @projects, selected: @projects.first  %>
     </p>
     <p>
-      <%= ws.input :task,  collection: ["General Work","Hanging", "Taping", "Cleanup"], selected: ["General Work"]  %>
+      <%= ws.input :task,  collection: @tasks, selected: @tasks.first  %>
     </p>
-      <%= ws.input :timeEntry, label: "Enter Time Worked" %>
+      <%= ws.input :timeEntry, label: "Enter Time Worked", input_html: {value: '0'} %>
     </div>
   <% end %>
   

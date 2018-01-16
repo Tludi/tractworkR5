@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+
   resources :workdays do
     resources :work_segments
   end
@@ -20,6 +21,7 @@ Rails.application.routes.draw do
     resources :accounts
     resources :users
     resources :projects
+    resources :tasks
   end
 
   # resources :projects
