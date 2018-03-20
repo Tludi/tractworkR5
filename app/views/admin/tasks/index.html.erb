@@ -11,12 +11,11 @@
   </thead>
 
   <tbody>
-    <% @admin_tasks.each do |admin_task| %>
+    <% @tasks.each do |task| %>
       <tr>
-        <td><%= admin_task.name %></td>
-        <td><%= link_to 'Show', admin_task %></td>
-        <td><%= link_to 'Edit', edit_admin_task_path(admin_task) %></td>
-        <td><%= link_to 'Destroy', admin_task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= task.name %></td>
+        <td><%= link_to 'Edit', edit_admin_task_path(task) %></td>
+        <td><%= link_to 'Destroy', admin_task_path(task), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
