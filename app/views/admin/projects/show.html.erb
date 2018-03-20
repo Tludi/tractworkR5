@@ -86,14 +86,14 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <% @project.users.each do |u| %>                
+                    <% Task.all.each do |t| %>                
                       <tr class="gradeX">
-                        <td><%= link_to u.fullName, admin_user_path(u) %></td>
+                        <td><%= link_to t.name, admin_task_path(t) %></td>
                       </tr>
                     <% end %>
                   </tbody>
                 </table>
-                <h5>Add/Remove Users to <%= @project.name  %></h5>
+                <h5>Add/Remove Tasks to <%= @project.name  %></h5>
                 
 
                 <%= form_for [:admin, @project] do |f| -%>
