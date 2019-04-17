@@ -11,8 +11,7 @@
  *= require_self
  *= require animate/animate.css
  *= require style
-
- *= require font_awesome5_webfont
+ *= require material_icons
  *= require tables
  *= require dashboard
  */
@@ -49,4 +48,35 @@ input.clockButton {
   font-size: 36px;
   font-weight: 500;
   font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  vertical-align: -25%;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+.middle-text {
+  vertical-align: top;
+  color: red;
 }
