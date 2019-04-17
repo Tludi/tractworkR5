@@ -44,7 +44,12 @@
       <hr>
       <li class="<%= 'active' if current_page?('/admin/tasks') %>">
         <%= link_to admin_tasks_path do %>
-        <i class="fa fa-bar-chart"></i> <span class="nav-label">Tasks</span>
+        <i class="fas fa-tasks"></i> <span class="nav-label">Tasks</span>
+        <% end %>
+      </li>
+      <li class="<%= 'active' if current_page?('/admin/materials') %>">
+        <%= link_to admin_materials_path do %>
+        <i class="fa fa-bar-chart"></i> <span class="nav-label">Materials</span>
         <% end %>
       </li>
     </ul>
