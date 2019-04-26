@@ -1,6 +1,6 @@
 class Admin::MaterialsController < Admin::AdminController
 	before_action :set_material, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_account
   # GET /materials
   # GET /materials.json
   def index
@@ -63,6 +63,10 @@ class Admin::MaterialsController < Admin::AdminController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_account
+      @account = current_user.account
+    end
+
     def set_material
       @material = Material.find(params[:id])
     end
