@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Csi Divisions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Divnum</th>
+      <th>Divtitle</th>
+      <th>Groupname</th>
+      <th>Subgroupname</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @csi_divisions.each do |csi_division| %>
+      <tr>
+        <td><%= csi_division.divnum %></td>
+        <td><%= csi_division.divtitle %></td>
+        <td><%= csi_division.groupname %></td>
+        <td><%= csi_division.subgroupname %></td>
+        <td><%= link_to 'Show', csi_division %></td>
+        <td><%= link_to 'Edit', edit_csi_division_path(csi_division) %></td>
+        <td><%= link_to 'Destroy', csi_division, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Csi Division', new_csi_division_path %>

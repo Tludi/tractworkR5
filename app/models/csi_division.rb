@@ -1,0 +1,2 @@
+class CsiDivision < ApplicationRecord
+end

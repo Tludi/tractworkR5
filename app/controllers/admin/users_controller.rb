@@ -34,7 +34,7 @@ class Admin::UsersController < Admin::AdminController
     end
   end
 
-  private
+  private 
 
   def set_account
     @account = current_user.account

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
 
+
   resources :materials
   resources :workdays do
     resources :work_segments
@@ -24,6 +25,7 @@ Rails.application.routes.draw do
     resources :projects
     resources :tasks
     resources :materials
+    resources :csi_divisions
   end
 
   # resources :projects
