@@ -1,5 +1,64 @@
-<h1>New Material</h1>
+<div class="md-skin">
+  <div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+      <h2><%= @account.name %>'s Materials</h2>
+      <ol class="breadcrumb">
+        <li>
+          <%= link_to 'Dashboard', admin_root_path  %>
+        </li>
+        <li class="active">
+          <strong>Materials</strong>
+        </li>
+      </ol>
+    </div>
+    <div class="col-lg-2">
 
-<%= render 'form', material: @material %>
+    </div>
 
-<%= link_to 'Back', materials_path %>
+  </div>
+
+  <p id="notice"><%= notice %></p>
+
+  <div class="wrapper wrapper-content animated fadeInRight">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="ibox float-e-margins">
+        <div class="ibox-title">
+          <h5><%= @account.name %> Materials</h5>
+          <div class="ibox-tools">
+            <a class="collapse-link">
+              <i class="fa fa-chevron-up"></i>
+            </a>
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <i class="fa fa-wrench"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+              <li>
+                <a href="#">Config option 1</a>
+              </li>
+              <li>
+                <a href="#">Config option 2</a>
+              </li>
+            </ul>
+            <a class="close-link">
+              <i class="fa fa-times"></i>
+            </a>
+          </div>
+        </div>
+        <div class="ibox-content">
+
+
+
+
+			<h1>New Material</h1>
+
+			<%= render 'form', material: @material %>
+
+			<%= link_to 'Back', materials_path %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>

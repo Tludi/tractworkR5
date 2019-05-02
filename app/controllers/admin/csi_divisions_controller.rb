@@ -67,8 +67,14 @@ class Admin::CsiDivisionsController < Admin::AdminController
       @csi_division = CsiDivision.find(params[:id])
     end
 
+    def set_account
+      @account = current_user.account
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_csi_division_params
       params.require(:csi_division).permit(:divnum, :divtitle, :groupname, :subgroupname)
     end
+
+
 end
