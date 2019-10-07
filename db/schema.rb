@@ -41,11 +41,25 @@ ActiveRecord::Schema.define(version: 2019_04_26_181636) do
   end
 
   create_table "materials", force: :cascade do |t|
-    t.string "divnum"
-    t.string "divname"
-    t.string "description"
+    t.string "divisionnum"
+    t.string "divisionname"
+    t.string "vendorname"
+    t.string "vendorcode"
+    t.string "itemcode"
+    t.string "itemdescription"
     t.string "defmeasure"
-    t.decimal "cost"
+    t.string "itemunits"
+    t.decimal "unitcost"
+    t.string "orderunits"
+    t.decimal "matconversionrate"
+    t.date "pricedate"
+    t.decimal "priceage"
+    t.decimal "itemmarkup"
+    t.decimal "itemwaste"
+    t.decimal "productionrate"
+    t.string "laborclasscode"
+    t.decimal "laborclassrate"
+    t.decimal "laborandmaterialunitprice"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -66,11 +66,11 @@
             <tbody>
               <% @materials.each do |material| %>
                 <tr>
-                  <td><%= material.divnum %></td>
-                  <td><%= material.divname %></td>
-                  <td><%= material.description %></td>
+                  <td><%= material.divisionnum %></td>
+                  <td><%= material.divisionname %></td>
+                  <td><%= material.itemdescription %></td>
                   <td><%= material.defmeasure %></td>
-                  <td><%= material.cost %></td>
+                  <td><%= material.unitcost %></td>
                   <td><%= link_to 'Show', material %></td>
                   <td><%= link_to 'Edit', edit_material_path(material) %></td>
                   <td><%= link_to 'Destroy', material, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -78,7 +78,7 @@
               <% end %>
             </tbody>
           </table>
-          <%= link_to 'New Material', new_material_path %>
+          <%= link_to 'New Material', new_admin_material_path %>
           </div>
         </div>
       </div>

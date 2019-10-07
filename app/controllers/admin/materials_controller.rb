@@ -73,6 +73,24 @@ class Admin::MaterialsController < Admin::AdminController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def material_params
-      params.require(:material).permit(:divnum, :divname, :description, :defmeasure, :cost)
+      params.require(:material).permit(:divisionnum,
+                                       :divisionname,
+                                       :vendorname,
+                                       :vendorcode,
+                                       :itemcode,
+                                       :itemdescription,
+                                       :defmeasure,
+                                       :itemunits,
+                                       :unitcost,
+                                       :orderunits,
+                                       :matconversionrate,
+                                       :pricedate,
+                                       :priceage,
+                                       :itemmarkup,
+                                       :itemwaste,
+                                       :productionrate,
+                                       :laborclasscode,
+                                       :laborclassrate,
+                                       :laborandmaterialunitprice)
     end
 end

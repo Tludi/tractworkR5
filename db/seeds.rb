@@ -66,6 +66,26 @@ puts "added #{Project.first.name} to #{User.first.fullName}"
 Task.create(name: "General Task")
 Task.create(name: "Office Work")
 
+
+Material.create(divisionnum: "09 28 13",
+                divisionname: "division 0",
+                vendorname: "GTS",
+                vendorcode: "vendor1234",
+                itemcode: "item1234",
+                itemdescription: "half inch board 3x5",
+                defmeasure: "sqft",
+                itemunits: "sqft",
+                unitcost: 0.25,
+                orderunits: "sqft",
+                matconversionrate: 1.00,
+                pricedate: Time.now.to_datetime,
+                priceage: Time.now.to_datetime,
+                itemmarkup: 0.00,
+                itemwaste: 0.05,
+                productionrate: 120,
+                laborclasscode: "C2S",
+                laborclassrate: 47.67,
+                laborandmaterialunitprice: 0.67 )
 # workdays = Workday.all
 # # print workday count to terminal for verification
 # puts workdays.count
