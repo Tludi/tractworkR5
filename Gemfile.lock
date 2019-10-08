@@ -101,6 +101,8 @@ GEM
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
     ffi (1.10.0)
+    font-awesome-rails (4.7.0.5)
+      railties (>= 3.2, < 6.1)
     formatador (0.2.5)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -325,6 +327,7 @@ DEPENDENCIES
   database_cleaner
   factory_girl_rails
   faker
+  font-awesome-rails (~> 4.7, >= 4.7.0.5)
   gravtastic
   guard-bundler
   guard-rails

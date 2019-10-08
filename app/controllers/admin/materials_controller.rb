@@ -28,8 +28,8 @@ class Admin::MaterialsController < Admin::AdminController
 
     respond_to do |format|
       if @material.save
-        format.html { redirect_to @material, notice: 'Material was successfully created.' }
-        format.json { render :show, status: :created, location: @material }
+        format.html { redirect_to admin_materials_path, notice: 'Material was successfully created.' }
+        format.json { render :index, status: :created, location: @material }
       else
         format.html { render :new }
         format.json { render json: @material.errors, status: :unprocessable_entity }
@@ -42,7 +42,7 @@ class Admin::MaterialsController < Admin::AdminController
   def update
     respond_to do |format|
       if @material.update(material_params)
-        format.html { redirect_to @material, notice: 'Material was successfully updated.' }
+        format.html { redirect_to admin_materials_path(@material), notice: 'Material was successfully updated.' }
         format.json { render :show, status: :ok, location: @material }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class Admin::MaterialsController < Admin::AdminController
   def destroy
     @material.destroy
     respond_to do |format|
-      format.html { redirect_to materials_url, notice: 'Material was successfully destroyed.' }
+      format.html { redirect_to admin_materials_url, notice: 'Material was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

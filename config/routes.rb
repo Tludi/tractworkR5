@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
 
 
-  resources :materials
+  # resources :materials
   resources :workdays do
     resources :work_segments
   end

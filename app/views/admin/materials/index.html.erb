@@ -8,7 +8,7 @@
           <%= link_to 'Dashboard', admin_root_path  %>
         </li>
         <li class="active">
-          <strong>Users</strong>
+          <%= link_to 'Materials', admin_materials_path  %>
         </li>
       </ol>
     </div>
@@ -66,14 +66,23 @@
             <tbody>
               <% @materials.each do |material| %>
                 <tr>
-                  <td><%= material.divisionnum %></td>
-                  <td><%= material.divisionname %></td>
-                  <td><%= material.itemdescription %></td>
-                  <td><%= material.defmeasure %></td>
-                  <td><%= material.unitcost %></td>
-                  <td><%= link_to 'Show', material %></td>
-                  <td><%= link_to 'Edit', edit_material_path(material) %></td>
-                  <td><%= link_to 'Destroy', material, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  <td class="center"><%= material.divisionnum %></td>
+                  <td class="center"><%= material.divisionname %></td>
+                  <td class="center"><%= material.itemdescription %></td>
+                  <td class="center"><%= material.defmeasure %></td>
+                  <td class="center"><%= material.unitcost %></td>
+                  
+                  <td class="center">        
+                      <%= link_to edit_admin_material_path(material) do %>
+                        <span><i class="fa fa-edit"></i></span>
+                      <% end %>
+                  </td>
+                  <td class="center">        
+                      <%= link_to admin_material_path(material), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                        <span><i class="fa fa-trash"></i></span>
+                      <% end %>
+                  </td>
+
                 </tr>
               <% end %>
             </tbody>
