@@ -54,11 +54,24 @@
           <table class="table table-striped table-bordered table-hover projects display" cellspacing="0" width="100%">
             <thead>
               <tr>
-                <th>Division</th>
+                <th>Division#</th>
                 <th>Title</th>
+                <th>Vendor</th>
+                <th>Vendor Code</th>
+                <th>Item Code</th>
                 <th>Description</th>
-                <th>Measure</th>
-                <th>Cost</th>
+                <th>Item Unit</th>
+                <th>Unit Price</th>
+                <th>Order Unit</th>
+                <th>Conversion Rate</th>
+                <th>Price Date</th>
+                <th>Price Age</th>
+                <th>Markup</th>
+                <th>Waste %</th>
+                <th>Production Rate</th>
+                <th>Labor Class Code</th>
+                <th>Labor Class Rate</th>
+                <th>Total Unit Price</th>
                 <th colspan="3"></th>
               </tr>
             </thead>
@@ -68,10 +81,23 @@
                 <tr>
                   <td class="center"><%= material.divisionnum %></td>
                   <td class="center"><%= material.divisionname %></td>
+                  <td class="center"><%= material.vendorname %></td>
+                  <td class="center"><%= material.vendorcode %></td>
+                  <td class="center"><%= material.itemcode %></td>
                   <td class="center"><%= material.itemdescription %></td>
-                  <td class="center"><%= material.defmeasure %></td>
+                  </td><td class="center"><%= material.itemunits %></td>
                   <td class="center"><%= material.unitcost %></td>
-                  
+                  <td class="center"><%= material.orderunits %></td>
+                  <td class="center"><%= material.matconversionrate %></td>
+                  <td class="center"><%= material.pricedate %></td>
+                  <td class="center"><%= material.priceage %></td>
+                  <td class="center"><%= material.itemmarkup %></td>
+                  <td class="center"><%= number_to_percentage(material.itemwaste, precision: 0) %></td>
+                  <td class="center"><%= material.productionrate %></td>
+                  <td class="center"><%= material.laborclasscode %></td>
+                  <td class="center"><%= material.laborclassrate %></td>
+                  <td class="center"><%= material.laborandmaterialunitprice %></td>
+
                   <td class="center">        
                       <%= link_to edit_admin_material_path(material) do %>
                         <span><i class="fa fa-edit"></i></span>
